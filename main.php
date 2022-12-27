@@ -1,9 +1,18 @@
 <html>
+<head>
+<style>
 
-    <title>Cracking School</title>
-    
-    <body style ="width:100%;height:100%;">
-        <iframe src="ui/navbar.html" frameborder ="0" style="width:100%;height:100%;"></iframe>
-        <div data-include="navbar"></div> 
+    body {
+        margin=0;
+    }
+</style>
+
+</head>
+
+
+    <body>
+        <iframe src="ui/navbar.html" width="100%" height="90"></iframe>
+        <iframe src="ui/slideshow.html" width="100%" height="450"></iframe>
+        <iframe src="ui/slidenav.html" width="100%" height="200"></iframe>
     <body>
 </html>
