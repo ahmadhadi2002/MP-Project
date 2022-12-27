@@ -4,3 +4,10 @@
     <h1>Hello!<h1>
 
 </html>
+
+<?php
+
+    echo "Niggers";
+
+?>
+

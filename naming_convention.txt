@@ -1,0 +1,21 @@
+
+Variable Name - 
+
+    all lower
+    Use _ for break
+
+
+Function Names -
+
+    Cap first letter
+    User _ for break
+
+File Names - 
+
+    main.php
+    
+    pc.php
+    pc.js
+
+    encrypt.php
+    encrypt.js
