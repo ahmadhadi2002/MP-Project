@@ -7,8 +7,13 @@
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {
   display: none;
-  filter: blur(8px);
 }
+
+.blur{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
 img {vertical-align: middle;}
 
 /* Slideshow container */
@@ -49,11 +54,14 @@ img {vertical-align: middle;}
 .text {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
   text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Number text (1/3 etc) */
@@ -104,13 +112,21 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="img/pcimg.jpg" style="width:100%" height="400" filter="blur(8px)" webkit-filter="blur(8px)">
-  <div class="text"></div>
+  <div class="blur">
+  <img src="img/pcimg.jpg" style="width:100%" height="400" filter="blur(8px)">
+  </div>
+  <div class="text">
+  <div class="centered">In this section we will be viewing and understanding a attackers Point of View (POV) and the different reosurces they utilize to attack 
+    and identify victims. We will simulate and create an environment where users can get hands-on-experience when conducting this class
+  </div>
+  </div> 
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
+  <div class="blur">
   <img src="img/encryption.jpg" style="width:100%" height="400">
+  </div>
   <div class="text"></div>
 </div>
 
