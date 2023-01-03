@@ -1,17 +1,29 @@
+<link rel="stylesheet" type="text/css" href="btm.css" />
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-
-    body {
-        margin=0;
-    }
-</style>
+    <style>
+        .html {min-height: 100vh;}
+        body { min-height: 100vh; }
+    </style>
 </head>
 
-    <body style="margin:0;">
-        <iframe src="ui/navbar.html" frameborder ="0" style="width:100%;height:;"></iframe>
-        <iframe src="ui/slideshow.html" frameborder="0" style="width:100%;height:100%;"></iframe>
-       <!-- <<iframe src="ui/sidenav.html" frameborder="0" style="width: 100%;height: 100%;"></iframe> -->-->
-        
-    <body>
+<body>
+
+<div>
+<?php 
+    require "./ui/navbar.html";
+    require "./ui/slideshow.html";
+    require "./ui/card.html";
+?>
+
+</div>
+
+<div>
+    <?php
+        include "./ui/bottombar.html";
+    ?>
+</div>
+
+</body>
 </html>
