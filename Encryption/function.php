@@ -89,4 +89,42 @@ function caesarDecryptBF($str){
 }
 
 
+//ROT13
+$plaintext=$_POST['plaintext'];
+$ciphertext=$_POST['ciphertext'];
+
+
+if(isset($plaintext)){
+    $ciphertext=str_rot13($plaintext);
+}elseif(isset($ciphertext)){
+    $plaintext=str_rot13($ciphertext); 
+}else{
+    echo "please check and ensure that only 1 box is filled";
+}
+
+//Vigenere Cipher
+// The key for encoding and decoding the message
+$key = 'secret';
+
+// The message to be encoded
+$message = 'Hello, World!';
+
+// Encode the message using the Vigenère cipher
+$encodedMessage = '';
+for ($i = 0, $j = 0; $i < strlen($message); $i++) {
+    $encodedMessage .= chr(ord($message[$i]) + ord($key[$j]) % 26);
+    $j = ($j + 1) % strlen($key);
+}
+
+echo "Encoded message: $encodedMessage\n";
+
+// Decode the message using the Vigenère cipher
+$decodedMessage = '';
+for ($i = 0, $j = 0; $i < strlen($encodedMessage); $i++) {
+    $decodedMessage .= chr(ord($encodedMessage[$i]) - ord($key[$j]) % 26);
+    $j = ($j + 1) % strlen($key);
+}
+
+echo "Decoded message: $decodedMessage\n";
+
 ?>
