@@ -2,7 +2,7 @@
 $str="test,qwert";
 $amount=3;
 
-echo $_POST['submit'];
+//echo $_POST['submit'];
 
 printf($str);
 echo "<br>";
@@ -90,8 +90,8 @@ function caesarDecryptBF($str){
 
 
 //ROT13
-$plaintext=$_POST['plaintext'];
-$ciphertext=$_POST['ciphertext'];
+//$plaintext=$_POST['plaintext'];
+//$ciphertext=$_POST['ciphertext'];
 
 
 if(isset($plaintext)){
