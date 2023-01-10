@@ -177,13 +177,6 @@ border-radius: 20px 20px 0px 0px;
         </div>
 </div>
 
-<?php
-if (isset($array['index'])) {
-    // code that uses $array['index']
-  }
-  
-?>
-
 <form action="md5.php" method="post">
 Value: <input type="text" name="name"><br>
 <input type="submit">
