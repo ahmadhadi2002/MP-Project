@@ -1,9 +1,9 @@
 <?php
+global $forward;
+global $backwards;
 function caesarCipher($str, $amount) {
-    global $forward;
-    global $backwards;
     $output = [];
-	global $output1 = [];
+	$output1 = [];
 
 	if ($amount < 0) {
 		return caesarCipher($str, $amount + 26);
@@ -42,8 +42,9 @@ function caesarCipher($str, $amount) {
     $backwards=implode('', $output);
 	$output1["Backward $amount"]=$backwards;
 	$a=implode(' ', $output1);
-	echo $a;
+	
 }
+
 
 
 ?>
