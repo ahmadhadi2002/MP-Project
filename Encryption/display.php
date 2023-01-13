@@ -12,7 +12,7 @@
 <html>
     <head>
         <?php
-        require 'C:\xampp\htdocs\MP-Project\navbar.html';
+        require 'C:\xampp\htdocs\mp_project\ui\navbar.html';
         ?>
     </head>
 

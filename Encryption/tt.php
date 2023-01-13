@@ -1,50 +1,101 @@
-<?php
-global $forward;
-global $backwards;
-function caesarCipher($str, $amount) {
-    $output = [];
-	$output1 = [];
-
-	if ($amount < 0) {
-		return caesarCipher($str, $amount + 26);
-	}
-	
-    //Caesar Cipher - Shift Forwards
-	for ($i = 0; $i < strlen($str); $i++) {
-		$c = $str[$i];
-		if (preg_match("/[a-z]/i", $c)) {
-			$code = ord($str[$i]);
-			if ($code >= 65 && $code <= 90) {
-				$c = chr((($code - 65 + $amount) % 26) + 65);
-			} elseif ($code >= 97 && $code <= 122) {
-				$c = chr((($code - 97 + $amount) % 26) + 97);
-			}
-		}
-        $output[]=$c;
-	}
-    $forward=implode('', $output);
-	unset($output);
-	$output1["foward $amount"]=$forward ;
-
-    //Caesar Cipher - Shift Backwards
-    for ($i = 0; $i < strlen($str); $i++) {
-        $c = $str[$i];
-		if (preg_match("/[a-z]/i", $c)) {
-			$code = ord($str[$i]);
-			if ($code >= 65 && $code <= 90) {
-                $c = chr((($code - 65 - $amount) % 26) + 65);
-			} elseif ($code >= 97 && $code <= 122) {
-                $c = chr((($code - 97 - $amount) % 26) + 97);
-			}
-		}
-        $output[]=$c;
-	}
-    $backwards=implode('', $output);
-	$output1["Backward $amount"]=$backwards;
-	$a=implode(' ', $output1);
-	
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
 }
 
+.row {
+  margin-left:-5px;
+  margin-right:-5px;
+}
+  
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
 
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
-?>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+<h2>Tables Side by Side</h2>
+<p>How to create side-by-side tables with CSS:</p>
+
+<div class="row">
+  <div class="column">
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+      </tr>
+    </table>
+  </div>
+  <div class="column">
+    <table>
+      <tr>
+        <th>test Name</th>
+        <th>test Name</th>
+        <th>test</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
