@@ -1,0 +1,24 @@
+<html>
+
+<body>
+    <div id="value1"></div>
+    <div id="value2"></div>
+    <div id="count"></div>
+    <div id="">ddd</div>
+</body>
+
+</html>
+
+<script>
+    $.ajax({
+        type: "POST",
+        url: "count.php",
+        data: { string: "Hello, world!" },
+        success: function (result) {
+            var data = JSON.parse(result);
+            $("#value1").html(data.value1);
+            $("#value2").html(data.value2);
+            $("#count").html(data.count);
+        }
+    });
+</script>
