@@ -29,7 +29,7 @@
   <ul>
     <li>About</li>
     <li>test 1</li>
-    <li>test 1</li>
+    <li>Let's Try it Out!</li>
     <li>test 1</li>
   </ul>
 </div>
@@ -41,7 +41,7 @@
 </section>
 
 <article class="container"; name="test"> 
-  <h2>Paris</h2>
+  <h2>Let's Try it Out!</h2>
   <?php 
   include("ajax.php");
   ?>

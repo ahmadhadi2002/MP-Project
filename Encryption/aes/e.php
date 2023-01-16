@@ -4,8 +4,7 @@
 
 $tech = $_REQUEST["technique"];
 $str = $_REQUEST["q"];
-$amount = $_REQUEST["key"];
-$list = $_REQUEST["list"];
+
 
 global $forward;
 global $backwards;
@@ -15,6 +14,8 @@ $output1 = [];
 if ($tech === "bf") {
 	caesarDecryptBF($str);
 } else if ($tech === "deen") {
+	$amount = $_REQUEST["key"];
+	$list = $_REQUEST["list"];
 	if ($list === "normal") {
 		caesarCipher_option1($str, $amount);
 	} elseif ($list === "ASCII") {

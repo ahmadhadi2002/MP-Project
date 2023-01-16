@@ -24,8 +24,8 @@
                             <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
 
                             <div class="brick__content">
-                                <textarea style="height: 400px; width: 420px;" ; name="plaintext" ; id="plaintext" ;
-                                    ></textarea></textarea>
+                                <textarea style="height: 400px; width: 420px;" ; name="plaintext" ; id="plaintext"
+                                    ;></textarea></textarea>
                             </div>
                             <br>
                         </div>
@@ -64,14 +64,15 @@
                                     <td>
                                         <div class="wrapper">
                                             <span class="minus">-</span>
-                                            <span class="num" ; id="shift" ; name="shift"; value=""
-                                                ; onkeyup="myFunction('de_en')">1</span>
+                                            <span class="num" ; id="shift" ; name="shift" ; value="" ;
+                                                onkeyup="myFunction('de_en')">1</span>
                                             <span class="plus">+</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" name="option"; value="normal"; id="normal" ; onclick="myFunction('de_en')">
+                                        <input type="radio" name="option" ; value="normal" ; id="normal" ;
+                                            onclick="myFunction('de_en')">
                                     </td>
                                     <td>
                                         <label for="normal">Use English alphabet (26 letters from A to Z)</label>
@@ -79,7 +80,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio"; name="option"; value="ASCII"; id="ASCII" ; onclick="myFunction('de_en')">
+                                        <input type="radio" ; name="option" ; value="ASCII" ; id="ASCII" ;
+                                            onclick="myFunction('de_en')">
                                     </td>
                                     <td>
                                         <label for="ASCII">Use the ASCII Table (0-127) as Alphabet</label>
@@ -87,11 +89,13 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio"; name="option"; value="custom"; id="custom" ; onclick="myFunction('de_en')">
+                                        <input type="radio" ; name="option" ; value="custom" ; id="custom" ;
+                                            onclick="myFunction('de_en')">
                                     </td>
                                     <td>
                                         <label for="custom">Use a Custom Alphabet (A-Z0-9 chars only):</label>
-                                        <input type="text" ; id="custom-input" ; name="custom-input" ; value="abcdefghijklmnopqrstuvwxyz"; onclick="myFunction('de_en')" >
+                                        <input type="text" ; id="custom-input" ; name="custom-input" ;
+                                            value="abcdefghijklmnopqrstuvwxyz" ; onclick="myFunction('de_en')">
                                     </td>
                                 </tr>
                                 <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
@@ -162,31 +166,27 @@
 
 
 <script>
-const plus = document.querySelector(".plus"),
-            minus = document.querySelector(".minus"),
-            num = document.querySelector(".num");
-
-        let a = 1;
-
-        plus.addEventListener("click", () => {
-            if (a < 26) {
-                a++;
-                num.innerText = a
-            }
-        })
-        minus.addEventListener("click", () => {
-            if (a > 0) {
-                a--;
-                num.innerText = a
-            }
-        })
-
+    const plus = document.querySelector(".plus"),
+        minus = document.querySelector(".minus"),
+        num = document.querySelector(".num");
+    let a = 1;
+    plus.addEventListener("click", () => {
+        if (a < 26) {
+            a++;
+            num.innerText = a
+        }
+    })
+    minus.addEventListener("click", () => {
+        if (a > 0) {
+            a--;
+            num.innerText = a
+        }
+    })
 
     function myFunction(technique) {
         if (technique === 'bruteforce') {
             var str = document.getElementById("fname").value;
             showHint(str);
-            console.log(str);
             function showHint(str) {
                 var xhttp;
                 if (str.length == 0) {
@@ -203,6 +203,7 @@ const plus = document.querySelector(".plus"),
                 xhttp.open("GET", "e.php?q=" + str + "&technique=bf", true);
                 xhttp.send();
             }
+
         } else if (technique === 'de_en') {
             var str = document.getElementById("plaintext").value;
             var key = document.querySelector(".num").innerText;
@@ -213,46 +214,41 @@ const plus = document.querySelector(".plus"),
             } else if (option == "ASCII") {
                 var list = "ASCII";
             } else if (option == "custom") {
-                var list=document.querySelector("[name=\"custom-input\"]").value;
+                var list = document.querySelector("[name=\"custom-input\"]").value;
             }
             showHint(str, key, list);
-            console.log(str);
-            console.log(key);
-            console.log(option);
-                console.log(list);
-                function showHint(str, key, list) {
-                    var xhttp;
-                    if (str.length == 0) {
-                        document.getElementById("result").innerHTML = "";
-                        return;
-                    }
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            var result = this.responseText;
-                            document.getElementById("result").innerHTML = result;
-                        }
-                    };
-                    xhttp.open("GET", "e.php?q=" + str + "&key=" + key + "&list=" + list+ "&technique=deen", true);
-                    xhttp.send();
+            function showHint(str, key, list) {
+                var xhttp;
+                if (str.length == 0) {
+                    document.getElementById("result").innerHTML = "";
+                    return;
                 }
-            
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var result = this.responseText;
+                        document.getElementById("result").innerHTML = result;
+                    }
+                };
+                xhttp.open("GET", "e.php?q=" + str + "&key=" + key + "&list=" + list + "&technique=deen", true);
+                xhttp.send();
+            }
         }
     }
 
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
         }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
 </script>
 
 <style>
