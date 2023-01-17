@@ -20,6 +20,9 @@
 <div class="topnav">
         <h1>Header</h1>
 </div>
+<?php
+include('C:\xampp\htdocs\mp_project\ui\navbar.html');
+?>
 </head>
 
 

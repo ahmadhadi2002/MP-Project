@@ -1,109 +1,57 @@
-<form ; onkeyup="myFunction('encrypt')">
-    <div id="en" class="tabcontent">
-        <div class="row_deen">
-            <div class="column_deen">
-                <div class="card">
-                    <div class="container">
-                        <header>
-                            <center>
-                                <h2><b>Uncoded text</b></h2>
-                            </center>
-                        </header>
-                        <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
+<!DOCTYPE html>
+<button class="open-container-button_tt" ; id="open-container-button_tt" ;>Click here!</button>
+<div id="container_tt" class="hidden_tt">
+    <br>
+    <textarea style="height: 200px; width: 1625px;" ; name="pt_con" ; id="pt_con" ;></textarea>
+</div>
 
-                        <div class="brick__content">
-                            <textarea style="height: 400px; width: 420px;" ; name="plaintext" ; id="plaintext"
-                                ;></textarea></textarea>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
+</html>
 
-            <div class="column_deen">
-                <div class="card">
-                    <div class="container">
-                        <header>
-                            <center>
-                                <h2><b>Parameters</b></h2>
-                            </center>
-                        </header>
-                        <table>
-                            <tr>
-                                <td>
-                                    Key Size (bits):
-                                </td>
-                                <td>
-                                    <select name="key"; id="key";  onclick="myFunction('encrypt')">
-                                        <option value="128">128</option>
-                                        <option value="192">192</option>
-                                        <option value="256">256</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Key Size (bits):
-                                </td>
-                                <td>
-                                    <select name="key"; id="key";  onclick="myFunction('encrypt')">
-                                        <option value="128">128</option>
-                                        <option value="192">192</option>
-                                        <option value="256">256</option>
-                                    </select>
-                                </td>
+<script>
+    const button = document.getElementById("open-container-button_tt");
+    const container = document.getElementById("container_tt");
+    let isOpen = false;
 
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" name="option" ; value="normal" ; id="normal" ;
-                                        onclick="myFunction('de_en')">
-                                </td>
-                                <td>
-                                    <label for="normal">Use English alphabet (26 letters from A to Z)</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" ; name="option" ; value="ASCII" ; id="ASCII" ;
-                                        onclick="myFunction('de_en')">
-                                </td>
-                                <td>
-                                    <label for="ASCII">Use the ASCII Table (0-127) as Alphabet</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="radio" ; name="option" ; value="custom" ; id="custom" ;
-                                        onclick="myFunction('de_en')">
-                                </td>
-                                <td>
-                                    <label for="custom">Use a Custom Alphabet (A-Z0-9 chars only):</label>
-                                    <input type="text" ; id="custom-input" ; name="custom-input" ;
-                                        value="abcdefghijklmnopqrstuvwxyz" ; onclick="myFunction('de_en')">
-                                </td>
-                            </tr>
-                            <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
-                            <br>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    button.addEventListener("click", () => {
+        if (!isOpen) {
+            container.classList.remove('hidden_tt');
+            isOpen = true;
+            button.innerHTML = "Close";
+        } else {
+            container.classList.add('hidden_tt');
+            isOpen = false;
+            button.innerHTML = "Click here!";
+        }
+    });
+</script>
 
-            <div class="column_deen">
-                <div class="card">
-                    <div class="container">
-                        <header>
-                            <center>
-                                <h2><b>Result</b></h2>
-                            </center>
-                        </header>
-                        <div class="brick__content">
-                            <textarea style="height: 400px; width: 420px;" ; id="result" ; name="result" ;></textarea>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<style>
+    .hidden_tt {
+        display: none;
+    }
+
+    .open-container-button_tt {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+    }
+
+    .open-container-button_tt:hover {
+        background-color: #3e8e41
+    }
+
+    .open-container-button_tt:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+</style>
