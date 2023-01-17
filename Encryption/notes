@@ -1,0 +1,21 @@
+QN: ajax pass parameter without url 
+AJAX (Asynchronous JavaScript and XML) is a technique used for creating fast and dynamic web pages. To pass parameters without including them in the URL, you can use the send() method of the XMLHttpRequest object. This method allows you to send data to the server as a part of the request.
+
+For example, to pass a parameter named "param" with a value of "value" in a POST request, you can use the following code:
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "example.php", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send("param=value");
+
+
+
+You can also use the fetch() method which is built-in modern browser to make ajax request
+fetch("example.php", {
+  method: "POST",
+  body: JSON.stringify({param: "value"})
+});
+
+It is important to note that the server-side script that handles the request must be able to parse and process the passed data accordingly.
+
+
