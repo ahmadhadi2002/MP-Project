@@ -1,69 +1,65 @@
 <?php
 
-$password = "ab"; //the password to be cracked
-$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //the characters to use in the guessing
-$passwordLength = 8; //the maximum length of the password
+if (isset($_POST["brute_input"])){
 
-$start = new DateTime();
+    echo "<br>-------------TESTING-------------<br>";
 
-for ($i = 1; $i <= $passwordLength; $i++) {
-    $passwords = buildPasswords($i, $charset);
-    foreach ($passwords as $guess) {
-        if (password_verify($guess, $password)) {
-            echo "The password is: " . $guess;
-            exit;
-        }
-    }
-}
-echo "Password not found";
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $maxLength = 4;
+    $password=$_POST["brute_input"];  
+    $found="false";
 
-$end = new DateTime();
-$elapsed = $end->diff($start);
-echo "Elapsed time: " . $elapsed->format('%s.%f seconds');
+    $start = new DateTime();
 
-function buildPasswords($length, $charset) {
-    $passwords = array();
-    $temp = array();
-    for ($i = 0; $i < $length; $i++) {
-        $temp[] = 0;
-    }
-    while (!isMax($temp, strlen($charset) - 1)) {
-        $passwords[] = toString($temp, $charset);
-        $temp = increment($temp, strlen($charset) - 1);
-    }
-    $passwords[] = toString($temp, $charset);
-    return $passwords;
-}
-
-function isMax($array, $maxValue) {
-    for ($i = count($array) - 1; $i >= 0; $i--) {
-        if ($array[$i] != $maxValue) {
-            return false;
-        }
-    }
-    return true;
-}
-
-function increment($array, $maxValue) {
-    $array[count($array) - 1]++;
-    for ($i = count($array) - 1; $i >= 0; $i--) {
-        if ($array[$i] > $maxValue) {
-            $array[$i] = 0;
-            if (isset($array[$i - 1])) {
-                $array[$i - 1]++;
-            }
+    function generateCombinations($chars, $length) {
+        if ($length == 0) {
+            yield "";
         } else {
-            break;
+            foreach (str_split($chars) as $char) {
+                foreach (generateCombinations($chars, $length - 1) as $combination) {
+                    yield $char . $combination;
+                }
+            }
         }
     }
-    return $array;
-}
 
-function toString($array, $charset) {
-    $string = "";
-    for ($i = 0; $i < count($array); $i++) {
-        $string .= $charset[$array[$i]];
+    foreach (range(1,4) as $i) {
+        foreach (generateCombinations("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", $i) as $combination) {
+            if($combination == $password){
+                echo "Password Found: ".$combination."<br>";
+                $found ="true";
+                $password="";
+                $_POST["brute_input"] = "";
+            }
+        }
     }
-    return $string;
 
+    $end = new DateTime();
+                $elapsed = $end->diff($start);
+                echo "Elapsed time: " . $elapsed->format('%s.%f seconds')."<br>";
+
+    if ($found == "false"){
+        echo "Password not Found<br>";
+    }
 }
+?>
+
+
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+<div id="passinputbox">
+    <form action="../Password Cracking/bruteforce.php" method="post">
+        <label for="brute_input">Password (4 Letter Input Only)</label><br>
+        <input type="text" id="brute_input" name="brute_input">
+
+        <br><input type="submit" value="Submit">
+    </form>
+</div>
+
+
+</body>
+</html>
