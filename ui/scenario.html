@@ -40,6 +40,32 @@
     text-align: center; 
 }
 
+.scenimg{
+    padding-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.tryitbutton{
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 30px 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  float:right;
+}
+
+.a{
+    text-decoration: none;
+}
+
 </style>
 </head>
 <body>
@@ -54,18 +80,22 @@
 <div class="scencenter">
 <button type="button" class="collapsible">Scenario 1 (Dictionary Attack)</button>
 <div class="content">
-    <!-- <img src=""> -->
+  <img src="../ui/img/dict_attack.jpg" class="scenimg">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <a href="../Password Cracking/dictattack.html"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 2 (Brute Force Attack)</button>
 <div class="content">
+  <img src="../ui/img/brute_force.jpg" class="scenimg">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <a href="../Password Cracking/bruteforce.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 3 (Rainbow Table Attack)</button>
 <div class="content">
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <button class="tryitbutton">Investigate!</button>
 </div>
 </div>
 
