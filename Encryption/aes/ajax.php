@@ -9,16 +9,15 @@
         <button class="tablinks" onclick="openCity(event, 'en')">Encrypt</button>
         <button class="tablinks" onclick="openCity(event, 'de')">Decrypt</button>
     </div>
-    <form ; onkeyup="myFunction('de_en')">
-        <div id="De_En" class="tabcontent">
+    <form ; onkeyup="myFunction('encrypt')">
+        <div id="en" class="tabcontent">
             <div class="row_deen">
                 <div class="column_deen">
-
                     <div class="card">
                         <div class="container">
                             <header>
                                 <center>
-                                    <h2><b>Plaintext/Ciphertext</b></h2>
+                                    <h2><b>Uncoded text</b></h2>
                                 </center>
                             </header>
                             <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
@@ -125,7 +124,7 @@
         </div>
     </form>
 
-    <div id="bf" class="tabcontent">
+    <div id="de" class="tabcontent">
         <h3>Caesar Cipher Decryption (Bruteforce)</h3>
         <b>Start typing a name in the input field below:</b>
         <form>
