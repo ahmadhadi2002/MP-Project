@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,10 @@ body {
 }
 
 .topnav {
-    height: 75px;
-    overflow: hidden;
-    background-color: rgb(172, 77, 77);
-    position: sticky;
+  height: 75px;
+  overflow: hidden;
+    background-color: #333;
+    /* position: sticky; */
     top:0;
     margin: 0;
     padding: 0;
@@ -24,12 +24,12 @@ body {
   float: right;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 27px 16px;
   text-decoration: none;
   font-size: 20px;
 }
 
-.topnav a:hover {
+.topnav a:hover, .dropdown:hover .dropbtn {
   background-color: #ddd;
   color: black;
 }
@@ -39,6 +39,48 @@ body {
   color: white;
 }
 
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 27px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 </style>
 </head>
 <body>
@@ -46,11 +88,44 @@ body {
 
 <div class="topnav">
     <a href="support.php">Support</a>
-    <a href="pc.php">Password Cracking</a>
+    <div class="dropdown">
+      <button class="dropbtn">Password Cracking 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="../Password Cracking/passwordcrack_main.php">Password Cracking</a>
+        <a href="../Password Cracking/dictattack.html">Dictionary Attack</a>
+        <a href="../Password Cracking/bruteforce.php">Brute Force Attack</a>
+        <a href="#">Rainbow Table Attack</a>
+      </div>
+    </div>
     <a href="encrypt.php">Encryption</a>
     <a href="main.html">Home</a>
 </div>
 
+<script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  </script>
+
 
 </body>
+
 </html>
