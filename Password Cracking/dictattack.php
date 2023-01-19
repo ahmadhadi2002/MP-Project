@@ -2,7 +2,27 @@
 <head>
 <style>
 
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height: 190px;
+    font-size: 19px;
+    min-width: fit-content;
+    margin: 49px 0px 120px 393px;
+}
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 </style>
 
@@ -30,8 +50,7 @@ if (isset($_POST["dict_input"])){
 
     $dictword = file('../Password Cracking/dictattack_files/words.txt');
     $check="0";
-    echo "----------------NOW TESTING----------------- <br>";
-    echo "User Input: ".$user_input."<br>";
+    
 
     $start = new DateTime();
 
@@ -50,7 +69,7 @@ if (isset($_POST["dict_input"])){
             $lines = file($file->getPathname());
             foreach($lines as $line) {
             if(strcmp(trim($line), $user_input) == 0) {
-                echo "Dict Attack Status: Password Found <br>";
+                $foundstatus = "Password Found <br>";
                 $check="1";
                 break 2;
             }
@@ -59,15 +78,31 @@ if (isset($_POST["dict_input"])){
     }
 
     if($check == "0"){
-        echo "Dict Attack Status: Password Not Found <br>";
+        $foundstatus = "Password Not Found";
     }
 
     $end = new DateTime();
     $elapsed = $end->diff($start);
-    echo "Elapsed time: " . $elapsed->format('%s.%f seconds')."<br>";
+    // echo "Elapsed time: " . $elapsed->format('%s.%f seconds')."<br>";
+
+    echo "
+    <table>
+    <tr>
+      <th>User Input</th>
+      <th>Dictionary Attack Status</th>
+      <th>Elasped Time</th>
+    </tr>
+  
+    <tr>
+      <td>".$user_input."</td>
+      <td>".$foundstatus."</td>
+      <td>".$elapsed->format('%s.%f seconds')."</td>
+    </tr>
+  </table>";
 
     unset($_POST['dict_input']);
     unset($user_input);
+
 }
 
  require "../ui/bottombar.html"; 
