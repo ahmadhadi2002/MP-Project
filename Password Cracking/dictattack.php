@@ -2,7 +2,7 @@
 <head>
 <style>
 
-table {
+.table_div {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 45%;
@@ -14,7 +14,7 @@ table {
     margin: 49px 0px 120px 393px;
 }
 
-td, th {
+.table_div td, th {
   border: 1px solid #dddddd;
   text-align: center;
   padding: 8px;
@@ -30,7 +30,34 @@ tr:nth-child(even) {
 
 <body>
 
-    <?php 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function submitForm(event) {
+      event.preventDefault();
+      // submit form through ajax or any other method
+  
+    var formData = {
+        'dict_input': $('input[name=dict_input]').val(),
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: "dictattack.php",
+        data: formData,
+        success: function(data) {
+          table= "<table><tr><th>User Input</th><th>Dictionary Attack Status</th><th>Elasped Time</th></tr><tr><td>".data(0)."</td><td>".data(1)."</td><td>".data(2)."</td></tr></table>";
+          alert("Form submitted successfully!");
+          document.getElementById("table_div").innerHTML=table;
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    }
+  </script>
+
+<?php 
         // UI Section
 
         require "../ui/navbar.html"; 
@@ -85,33 +112,39 @@ if (isset($_POST["dict_input"])){
     $elapsed = $end->diff($start);
     // echo "Elapsed time: " . $elapsed->format('%s.%f seconds')."<br>";
 
-    echo "
-    <table>
-    <tr>
-      <th>User Input</th>
-      <th>Dictionary Attack Status</th>
-      <th>Elasped Time</th>
-    </tr>
+  //   echo "
+  //   <table >
+  //   <tr>
+  //     <th>User Input</th>
+  //     <th>Dictionary Attack Status</th>
+  //     <th>Elasped Time</th>
+  //   </tr>
   
-    <tr>
-      <td>".$user_input."</td>
-      <td>".$foundstatus."</td>
-      <td>".$elapsed->format('%s.%f seconds')."</td>
-    </tr>
-  </table>";
+  //   <tr>
+  //     <td>".$user_input."</td>
+  //     <td>".$foundstatus."</td>
+  //     <td>".$elapsed->format('%s.%f seconds')."</td>
+  //   </tr>
+  // </table>";
+
+  $time = $elapsed->format('%s.%f seconds');
+
+  $return = array($user_input,$foundstatus,$time);
+  echo json_encode($return);
 
     unset($_POST['dict_input']);
     unset($user_input);
 
 }
 
- require "../ui/bottombar.html"; 
- 
+echo "<table class='table_div' name='table_div' id='table_div' display='none'></table>";
+
+require "../ui/bottombar.html"; 
+
  ?>
 
+
 </body>
-
-
 
 </html>
 

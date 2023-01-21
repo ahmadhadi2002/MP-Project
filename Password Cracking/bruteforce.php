@@ -28,8 +28,8 @@ if (isset($_POST["brute_input"])){
             if($combination == $password){
                 echo "Password Found: ".$combination."<br>";
                 $found ="true";
-                $password="";
-                $_POST["brute_input"] = "";
+                // $password="";
+                // $_POST["brute_input"] = "";
             }
         }
     }
