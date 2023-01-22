@@ -1,0 +1,47 @@
+<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+<div id="passinputbox">
+    <form action="../Password Cracking/bruteforce.php" method="post">
+        <label for="brute_input">Password (4 Letter Input Only)</label><br>
+        <input type="text" id="brute_input" name="brute_input">
+
+        <br><input type="submit" value="Submit" onclick="submitForm(event)">
+    </form>
+</div>
+
+<div id="brute-container"></div>
+
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function submitForm(event) {
+      event.preventDefault();
+      // submit form through ajax or any other method
+  
+    var formData = {
+        'brute_input': $('input[name=brute_input]').val(),
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: "bruteforce_backend.php",
+        data: formData,
+        success: function(data) {
+        $('#brute-container').html(data);
+        //alert("Success send form");
+        //   document.getElementById("table_div").innerHTML=table;
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    }
+</script>

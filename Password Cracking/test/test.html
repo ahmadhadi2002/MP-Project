@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <body>
+    <form id="compareForm">
+        <input type="text"name="passInput">
+        <button type="button" id="submit" onclick="compareForm(event)">Submit</button>
+    </form>
+
+    <div id="xdlmao"></div>
+
+   </body> 
+</html>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function compareForm(event) {
+      event.preventDefault();
+      // submit form through ajax or any other method
+  
+    var formData = {
+        'passInput': $('input[name=passInput]').val(),
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: "test.php",
+        data: formData,
+        success: function(data) {
+        $('#xdlmao').html(data);
+        alert("Success send form");
+        //   document.getElementById("table_div").innerHTML=table;
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    }
+</script>

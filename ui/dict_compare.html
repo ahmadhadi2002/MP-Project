@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+    
+    .html {min-height: 100vh;}
+    body { min-height: 100vh; }
+    
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .compare_input{
+        
+    }
+
+    .left{
+        float:left;
+    }
+
+    .clear{
+        clear:both;
+    }
+
+</style>
+</head>
+<body onload="arrayCheck()">
+
+<form id="dict_compare">
+    <div class="left compare_input">
+        <label for="test_pass">Current Password</label>
+        <input id="passInput" name="passInput" type="text">
+    </div>
+    <button type="button" id="submit" onclick="compareForm(event)">Submit</button>
+</form>
+
+<form id="arrayForm">
+    <div class="left compare_input"> 
+        <label for="test_array">Array List</label>
+        <input type="text" id="arrayInput" name="test_array"> 
+    </div>
+    <button type="button" onClick="addtoArray()">Add to Array</button>
+</form>
+
+    <p id="test"></p>
+    <input type="submit" value="clear" id="clear_array" onclick="clearArray(event)">
+    <div class="clear"></div>
+
+
+    <br>
+
+    <div id="array-container"></div>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    function compareForm(event) {
+      event.preventDefault();
+      // submit form through ajax or any other method
+      
+        var inputArray= JSON.parse(localStorage.getItem("testArray"));
+
+        var inputValue = $('input[name=passInput]').val();
+
+        var jsonArray= JSON.stringify(inputArray);
+
+        var formData = {
+            'passInput': inputValue,
+            'arrayList': jsonArray,
+        };
+  
+        document.getElementById("array-container").innerHTML = formData;
+  
+      $.ajax({
+        type: "POST",
+        url: "../Password Cracking/dict_array.php",
+        data:formData,
+        success: function(data) {
+        $('#array-container').html(data);
+        //alert("Success send form");
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    }
+
+//Add and Read Array -----------------------------------------------------
+
+function addtoArray(){
+    
+    var testArray= JSON.parse(localStorage.getItem("testArray"));
+
+    var input = document.getElementById('arrayInput').value;
+
+    testArray.push(input);
+
+    localStorage.setItem("testArray", JSON.stringify(testArray));
+
+    testArray = JSON.parse(localStorage.getItem("testArray"));
+
+    document.getElementById("test").innerHTML = testArray;
+
+    document.getElementById("arrayInput").value = "";
+}
+
+//Clear array 
+
+function clearArray(){
+    localStorage.removeItem("testArray");
+    var localArray=[];
+    localStorage.setItem("testArray", JSON.stringify(localArray));
+    var testArray= JSON.parse(localStorage.getItem("testArray"));
+    document.getElementById("test").innerHTML = testArray;
+}
+
+
+//Refresh Page on load ---------------------------------------------------
+function arrayCheck(){
+    var localArray = JSON.parse(localStorage.getItem("testArray"))
+    if  (localArray === null){
+        var localArray=[];
+        localStorage.setItem("testArray", JSON.stringify(localArray));
+    }
+    
+    if (localArray != null){
+        localStorage.removeItem("testArray");
+        var localArray=[];
+        localStorage.setItem("testArray", JSON.stringify(localArray));
+        
+    }
+}
+
+</script>

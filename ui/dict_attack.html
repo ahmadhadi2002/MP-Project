@@ -33,6 +33,27 @@
         cursor: pointer;
     }
 
+    .table-container table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height: 190px;
+    font-size: 19px;
+    min-width: fit-content;
+    margin: 49px 0px 120px 393px;
+    }
+
+    .table-container td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
 
 </style>
 
@@ -53,7 +74,11 @@
             <input type="submit" value="Submit" style="margin-top: 15px;height: 40px;border-radius: 15px; border-width: thin; width:100px" id="dict_submit"  onclick="submitForm(event)">
         </form>
     </div>
+
+    <div id="table-container" class="table-container"></div>
+
 </body>
+
 
 </html>
 
@@ -69,11 +94,12 @@
   
       $.ajax({
         type: "POST",
-        url: "dictattack.php",
+        url: "dict_backend.php",
         data: formData,
         success: function(data) {
-          console.log(data);
-          alert("Form submitted successfully!");
+        $('#table-container').html(data);
+        //alert("Success send form");
+        //   document.getElementById("table_div").innerHTML=table;
         },
         error: function(xhr, status, error) {
           console.log(xhr.responseText);
@@ -81,4 +107,4 @@
         }
       });
     }
-  </script>
+</script>
