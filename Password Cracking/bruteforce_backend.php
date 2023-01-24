@@ -2,8 +2,6 @@
 
 if (isset($_POST["brute_input"])){
 
-    echo "<br>-------------TESTING-------------<br>";
-
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     $maxLength = 4;
     $password=$_POST["brute_input"];  
@@ -24,23 +22,26 @@ if (isset($_POST["brute_input"])){
     }
 
     foreach (range(1,4) as $i) {
-        foreach (generateCombinations("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", $i) as $combination) {
-            if($combination == $password){
-                echo "Password Found: ".$combination."<br>";
+        foreach (generateCombinations($chars, $i) as $combination) {
+            if($combination == strval($password)){
+                // echo "Password Found: ".$combination."<br>";
+                $bruteFound = $combination;
                 $found ="true";
-                // $password="";
-                // $_POST["brute_input"] = "";
+                $foundStatus  ="Password Found";
             }
         }
     }
 
     $end = new DateTime();
                 $elapsed = $end->diff($start);
-                echo "Elapsed time: " . $elapsed->format('%s.%f seconds')."<br>";
+    $bruteTime = $elapsed->format('%s.%f seconds')."<br>";
 
     if ($found == "false"){
-        echo "Password not Found<br>";
+        $foundStatus = "Password not Found";
     }
+
+$brutePackage = array("bruteFound" => $bruteFound, "foundStatus" => $foundStatus, "bruteTime" => $bruteTime);
+echo json_encode($brutePackage);
 }
 ?>
 

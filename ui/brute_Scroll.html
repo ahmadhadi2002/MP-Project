@@ -1,0 +1,225 @@
+<html>
+<head>
+<style>
+
+.body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hide{
+    display: none;
+}
+.inputForm{
+    padding: 20px 0px 50px 393px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 58%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px 10px 10px 10px;
+}
+
+tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+
+.guess{
+	text-align:center;
+    font-size:35px;
+    padding: 20px 0px 20px 0px;
+}
+
+.char_sel{
+    margin: 0px 0px 20px 0px;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size:16px;
+    width:25%;
+}
+
+.attackButn{
+    width: 90px;
+    height: 30px;
+    background-color: red;
+    border-width: 0px;
+    color: white;
+    border-radius: 10px;
+}
+
+.char_selBox{
+     margin-top:20px;
+}
+
+.sel_text{
+    margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="inputForm">
+    <!-- User 2 Character Input  -->
+    <label for="scroll_input" style="font-size:18px; font-weight: bold;">Key in a 2 Character Input</label><br>
+    <input type="text" id="scrollInput" autocomplete="off" name="scrollInput" style="width: 25%;height: 30px;font-size: 16px;border-radius: 4px;border-width: 1px;"><br>
+
+    <!-- Char Character Selection -->
+    <div class="char_selBox">
+    <label for="char_sel" style="font-size:18px; font-weight: bold;">Select a Character List</label><br>
+    <select id="char_sel" name="char_sel" class="char_sel">
+        <option value="">Select a Option:</option>
+        <option value="1">Lower Case Letters</option>
+        <option value="2">Lower and Upper Case Letters</option>
+        <option value="3">Lower & Upper Letters, Numbers</option>
+        <option value="4">Lower & Upper Letters, Numbers, Special Characters</option>
+    </select>
+    </div>
+
+    <div id="textBox" class="sel_text hide"></div>
+
+    <button type="button" onClick="scrollBackend(event)" class="attackButn">Attack!</button>
+
+    </div>
+
+
+    <table>
+        <tr><th colspan="2" style="text-align: center; font-size: 20px;">Password Attempts</tr>
+    
+    
+        <tr>
+            <th colspan="2" class="guess" id="myDiv"></th>
+        </tr>
+      <tr>
+        <th style="width:50%;">Password Status</th>
+        <th style="width:50%;">Elapsed Time</th>
+      </tr>
+      <tr>
+        <td id="passStatus"></td>
+        <td id="time"></td>
+      </tr>
+    
+    </table>
+
+
+
+
+
+    <div id="scroll-container" class="hide">
+
+
+
+
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const changeText = document.getElementById('char_sel');
+
+    changeText.addEventListener('change', (event) => {
+    const result = document.getElementById('textBox');
+
+    var inputValue = `${event.target.value}`;
+
+    if(inputValue =="1"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower Case Letters for your character list!`;
+    }
+
+    if(inputValue =="2"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower and Upper Case Letters for your character list!`;
+    }
+
+    if(inputValue =="3"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower & Upper Letters, Number Characters for your character list!`;
+    }
+
+    if(inputValue =="4"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower & Upper Letters, Number & Special Characters for your character list!`;
+    }
+    
+    });
+
+    function scrollBackend(event){
+        event.preventDefault();
+      // submit form through ajax or any other method
+      
+        const charInput = document.getElementById('char_sel').value;
+
+        // var scrollInput = $('input[id=scrollInput]').value();
+
+        var scrollInput = document.getElementById("scrollInput").value;
+        
+        document.getElementById("scroll-container").innerHTML = scrollInput;
+
+        var formData = {
+            'scrollInput': scrollInput,
+            'charList': charInput,
+        };
+  
+        document.getElementById("scroll-container").innerHTML = formData;
+  
+      $.ajax({
+        type: "POST",
+        url: "../Password Cracking/bruteScroll_backend.php",
+        data:formData,
+        dataType: 'json',
+        success: function(data) {
+            var passFound = data.passFound;
+            var passOutput = data.passOutput;
+            var time = data.time;
+            var scrollList = JSON.parse(data.scrollList);
+
+            var myDiv = document.getElementById("myDiv");
+
+            // for(var i = 0; i < scrollList.length; i++){
+            //     myDiv.innerHTML += scrollList[i] + "<br>";
+            // }
+
+    var i = 0;
+    function changeValue() {
+        myDiv.innerHTML = JSON.stringify(scrollList[i]);
+        if (scrollList[i] == passFound) {
+            clearInterval(intervalId);
+            //document.getElementById("scroll-container").style.display="block";
+            // $('#scroll-container').html(passOutput+ passFound+'<br>Elapsed Time: '+ time+"<br>");
+            document.getElementById("passStatus").innerHTML= passFound;
+            document.getElementById("time").innerHTML= time;
+
+        }
+        i++;
+        if (i >= scrollList.length) {
+            i = 0;
+        }
+    }
+    var intervalId = setInterval(changeValue, 0.1);
+        //alert("Success send form");
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    } 
+    
+    function hide(){
+        document.getElementById("scroll-container").style.display='none';
+    }
+
+</script>
+
+</html>

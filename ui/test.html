@@ -1,23 +1,21 @@
-<form id="myForm" action="submit.php" method="post">
-  <input type="text" id="myInput">
-  <input type="submit" value="Submit">
-</form>
-
-<script>
-  // Get the input element
-var input = document.getElementById("myInput");
-
-// Get the form element
-var form = document.getElementById("myForm");
-
-// Add an event listener to the input to listen for key presses
-input.addEventListener("keydown", function(event) {
-  // Check if the key pressed was the enter key
-  if (event.keyCode === 13) {
-    // Submit the form
-    form.submit();
-  }
-});
-
-
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<htmL>
+  <body> 
+   <input id="inputId" type="text">
+   <button type="button" onClick="test()">Submit</button> 
+     
+    <div id="1"></div>
+    <div id="2"></div>
+ </body>
+ </htmL>
+ 
+ <script>
+ 
+ function test(){
+ //var inputValue = document.getElementById("inputId").value;
+ //document.getElementById("1").innerHTML=inputValue;
+ 
+ var inputValue1 = $("#inputId").val();
+ document.getElementById("2").innerHTML=inputValue;
+ }
+ </script>
