@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+</style>
+</head>
+<body>
+
+    <div class="chainHash">
+        <label for="chainHash_input">Key in a password</label><br>
+        <input type="text" autocomplete="off" id="chainHash_input" name="chainHash_input"><br>
+        <Label for="chain_option">Select a Hash Algorithm</Label><br>
+        <select class="chain_option" id="chain_option" name=" chain_option">
+                <option value="">Select a Option:</option>
+                <option value="1">MD5</option>
+                <option value="2">SHA-1</option>
+        </select><br>
+        <button type="button" onClick="chainHash(event)">Submit</button><br> 
+    </div>
+
+    <div id="chainVal"></div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function chainHash(event){
+
+    var chainHash = document.getElementById("chainHash_input").value;
+    var chainChoice = document.getElementById("chain_option").value;
+
+    var formData = {
+            'chainHash': chainHash,
+            'chainChoice': chainChoice,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_hashChain.php",
+        data:formData,
+        //dataType: 'json',
+        success: function(data) {
+            //alert ("Form Received");
+            document.getElementById("chainVal").innerHTML = data;
+        }
+    })
+
+}
+
+</script>
+
+</html>

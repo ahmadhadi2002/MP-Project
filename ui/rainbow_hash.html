@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+</style>
+</head>
+<body>
+
+    <div class="rainHash">
+        <label for="rainHash_input">Key in a password</label><br>
+        <input type="text" autocomplete="off" id="rainHash_input" name="rainHash_input"><br>
+        <Label for="hash_option">Select a Hash Algorithm</Label><br>
+        <select class="hash_option" id="hash_option" name=" hash_option">
+                <option value="">Select a Option:</option>
+                <option value="1">MD5</option>
+                <option value="2">SHA-1</option>
+        </select><br>
+        <button type="button" onClick="rainHash(event)">Submit</button><br> 
+    </div>
+
+    <div id="hashVal"></div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function rainHash(event){
+
+    var passHash = document.getElementById("rainHash_input").value;
+    var hashChoice = document.getElementById("hash_option").value;
+
+    var formData = {
+            'passHash': passHash,
+            'hashChoice': hashChoice,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_hash.php",
+        data:formData,
+        // dataType: 'json',
+        success: function(data) {
+            //alert ("Form Received");
+            document.getElementById("hashVal").innerHTML = data;
+
+        }
+    })
+
+}
+
+</script>
+
+</html>
