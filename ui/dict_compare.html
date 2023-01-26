@@ -16,6 +16,10 @@
         
     }
 
+    .compare{
+        margin-left: 393px;
+    }
+
     .left{
         float:left;
     }
@@ -24,34 +28,147 @@
         clear:both;
     }
 
+    .array_input{
+        width: 25%;
+        height: 30px;
+        font-size: 15px;
+        border-radius: 4px;
+        border-width: 1px;
+    }
+
+    .array_btn{
+        width: 100px;
+        height: 25px;
+        border-radius: 3px;
+        border-width: 1px;
+        background-color: lightgray;
+    }
+
+    .array_clear_btn{
+        width: 70px;
+        height: 25px;
+        background-color: lightgray;
+        border-radius: 3px;
+        border-width: 1px;
+        margin-top: 20px;
+    }
+
+    .array_table_display{
+        display:none;
+    }
+
+    .hidden_array_table{
+        display:none;
+        
+    }
+
+    .hidden_array_table table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    margin-top: 20px;
+    }
+
+    .hidden_array_table td, .hidden_array_table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    .hidden_array_table tr:nth-child(odd) {
+    background-color: #dddddd;
+    }
+
+    .array_passInput{
+        width: 25%;
+        font-size: 16px;
+        height: 30px;
+        border-width: 1px;
+        border-radius: 4px;
+    }
+
+    .compareSubmit_btn{
+        margin-top: 20px;
+        width: 100px;
+        height: 30px;
+        border-width: 1px;
+        border-radius: 6px;
+        background-color: lightgray;
+    }
+
+    .array_answer_table{
+        display:none;
+    }
+
+    .array_answer_table table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    margin-top: 20px;
+    }
+
+    .array_answer_table td, .array_answer_table th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    .array_answer_table tr:nth-child(odd) {
+    background-color: #dddddd;
+    }
+
 </style>
 </head>
 <body onload="arrayCheck()">
 
-<form id="dict_compare">
-    <div class="left compare_input">
-        <label for="test_pass">Current Password</label>
-        <input id="passInput" name="passInput" type="text">
+
+<div class="compare">
+
+
+    <form id="arrayForm">
+        <div class="compare_input"> 
+            <label for="test_array" style="font-size: 16px; font-weight: bold;">Array List</label><br>
+            <input type="text" id="arrayInput" name="test_array" class="array_input" autocomplete="off">
+            <button type="button" onClick="addtoArray()" class="array_btn">Add to Array</button> <br>
+
+            <div class="hidden_array_table" id="hidden_array_table">
+            <table>
+                <tr><th>Dictionary Inputs</th></tr>
+                <tr><td id="test" style="background-color: white;"></td></tr>    
+            </table>
+            </div>
+            <button type="button" class="array_clear_btn" id="clear_array" onclick="clearArray(event)">Clear</button>
+        </div>
+    </form>
+
+    
+
+    <form id="dict_compare">
+        <div class="compare_input">
+            <label for="test_pass" style="font-size: 16px;font-weight: bold;">Current Password</label><br>
+            <input class="array_passInput" id="passInput" name="passInput" type="text" autocomplete="off"><br>
+            <button type="button" id="submit" onclick="compareForm(event)" class="compareSubmit_btn">Submit</button>
+        </div>
+    </form>
+
+    <div class="array_answer_table" id="array_answer_table">
+    <table>
+        <tr >
+          <th colspan="2">Dictionary Inputs</th>
+        </tr>
+        <tr>
+            <td colspan="2" id="arrayTableInput"></td>
+        </tr>
+        <tr>
+            <th>Password Input</th>
+            <th>Found Status</th>
+          </tr>
+         <tr>
+             <td id="passInputed"></td>
+             <td id="array-container"></td>
+         </tr>
+      </table>
     </div>
-    <button type="button" id="submit" onclick="compareForm(event)">Submit</button>
-</form>
 
-<form id="arrayForm">
-    <div class="left compare_input"> 
-        <label for="test_array">Array List</label>
-        <input type="text" id="arrayInput" name="test_array"> 
-    </div>
-    <button type="button" onClick="addtoArray()">Add to Array</button>
-</form>
-
-    <p id="test"></p>
-    <input type="submit" value="clear" id="clear_array" onclick="clearArray(event)">
-    <div class="clear"></div>
-
-
-    <br>
-
-    <div id="array-container"></div>
+</div>
 
 </body>
 </html>
@@ -82,6 +199,14 @@
         data:formData,
         success: function(data) {
         $('#array-container').html(data);
+
+        var storedArray = JSON.parse(localStorage.getItem("testArray"));
+
+        document.getElementById("array_answer_table").style.display = "block";
+        document.getElementById("arrayTableInput").innerHTML = storedArray;
+        document.getElementById("passInputed").innerHTML = inputValue;
+        document.getElementById("array-container").innerHTML = data;
+
         //alert("Success send form");
         },
         error: function(xhr, status, error) {
@@ -107,6 +232,8 @@ function addtoArray(){
 
     document.getElementById("test").innerHTML = testArray;
 
+    document.getElementById("hidden_array_table").style.display="block";
+
     document.getElementById("arrayInput").value = "";
 }
 
@@ -118,6 +245,7 @@ function clearArray(){
     localStorage.setItem("testArray", JSON.stringify(localArray));
     var testArray= JSON.parse(localStorage.getItem("testArray"));
     document.getElementById("test").innerHTML = testArray;
+    document.getElementById("hidden_array_table").style.display="none";
 }
 
 

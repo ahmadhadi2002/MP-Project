@@ -13,7 +13,7 @@
     padding: 20px 0px 50px 393px;
 }
 
-table {
+.bruteForce_scroll table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 58%;
@@ -21,21 +21,23 @@ table {
   margin-right: auto;
 }
 
-td, th {
+.bruteForce_scroll td, .bruteForce_scroll th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 10px 10px 10px 10px;
 }
 
-tr:nth-child(odd) {
+.bruteForce_scroll tr:nth-child(odd) {
   background-color: #dddddd;
 }
 
-.guess{
+
+
+/* .guess{
 	text-align:center;
     font-size:35px;
     padding: 20px 0px 20px 0px;
-}
+} */
 
 .char_sel{
     margin: 0px 0px 20px 0px;
@@ -60,6 +62,10 @@ tr:nth-child(odd) {
 
 .sel_text{
     margin-bottom:20px;
+}
+
+.bruteForce_scroll{
+    display: none;
 }
 
 </style>
@@ -91,13 +97,13 @@ tr:nth-child(odd) {
 
     </div>
 
-
+    <div class="bruteForce_scroll" id="bruteForce_scroll">
     <table>
         <tr><th colspan="2" style="text-align: center; font-size: 20px;">Password Attempts</tr>
     
     
         <tr>
-            <th colspan="2" class="guess" id="myDiv"></th>
+            <th colspan="2" style="text-align:center;font-size:35px;padding: 20px 0px 20px 0px;" id="myDiv"></th>
         </tr>
       <tr>
         <th style="width:50%;">Password Status</th>
@@ -110,13 +116,10 @@ tr:nth-child(odd) {
     
     </table>
 
-
-
+    </div>
 
 
     <div id="scroll-container" class="hide">
-
-
 
 
     </div>
@@ -186,6 +189,7 @@ tr:nth-child(odd) {
 
             var myDiv = document.getElementById("myDiv");
 
+            document.getElementById("bruteForce_scroll").style.display="block";
             // for(var i = 0; i < scrollList.length; i++){
             //     myDiv.innerHTML += scrollList[i] + "<br>";
             // }
@@ -197,7 +201,7 @@ tr:nth-child(odd) {
             clearInterval(intervalId);
             //document.getElementById("scroll-container").style.display="block";
             // $('#scroll-container').html(passOutput+ passFound+'<br>Elapsed Time: '+ time+"<br>");
-            document.getElementById("passStatus").innerHTML= passFound;
+            document.getElementById("passStatus").innerHTML= passOutput;
             document.getElementById("time").innerHTML= time;
 
         }
