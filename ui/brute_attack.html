@@ -11,7 +11,11 @@
     text-align: justify;
   }
 
-  table {
+  .bruteAttack_table{
+    display:none;
+  }
+
+  .bruteAttack_table table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 58%;
@@ -20,21 +24,21 @@
   margin-bottom: 40px;
 }
 
-td, th {
+.bruteAttack_table td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 10px 10px 10px 10px;
 }
 
-tr:nth-child(odd) {
+.bruteAttack_table tr:nth-child(odd) {
   background-color: #dddddd;
 }
 
-.guess{
+/* .guess{
 	text-align:center;
     font-size:35px;
     padding: 20px 0px 20px 0px;
-}
+} */
 
 </style>
 </head>
@@ -55,10 +59,11 @@ tr:nth-child(odd) {
     </form>
 </div>
 
+<div class="bruteAttack_table" id="bruteAttack_table">
 <table>
   <tr><th colspan="2" style="text-align: center; font-size: 20px;">Password Attempt</tr>
   <tr>
-      <th colspan="2" class="guess" id="attempt"></th>
+      <th colspan="2" style="	text-align:center;font-size:35px;padding: 20px 0px 20px 0px;" id="attempt"></th>
   </tr>
 <tr>
   <th style="width:50%;">Password Status</th>
@@ -68,9 +73,8 @@ tr:nth-child(odd) {
   <td id="bruteStatus"></td>
   <td id="bruteTime"></td>
 </tr>
-
 </table>
-
+</div>
 <!-- <div id="brute-container"></div> -->
 
 
@@ -113,8 +117,11 @@ tr:nth-child(odd) {
     }
 
 function loading(){
+  document.getElementById("bruteAttack_table").style.display="block";
   var load = "Loading..."
   document.getElementById("attempt").innerHTML = load;
+  document.getElementById("bruteStatus").innerHTML="";
+  document.getElementById("bruteTime").innerHTML="";
 }
 
 </script>
