@@ -87,6 +87,7 @@
   background: #EBF1F5;
   color: black;
   font-size: 15px;
+  text-align: center;
 }
 
 .content {
@@ -178,7 +179,6 @@ border-radius: 20px 20px 0px 0px;
 </style>
 <?php
     require "../ui/navbar.html";
-    require "../ui/bottombar.html";
 ?>
 </head>
 
@@ -244,19 +244,21 @@ Value: <input type="text" name="name"><br>
 </form>
 
 Original value:
- <?php  
-    echo $_POST["name"];     
+<?php 
+    echo $_POST["name"];
 ?>
 <br>
-Hash value:  
+Hash value:
 <?php 
-    echo md5($_POST["name"]); 
-?>
+    echo md5($_POST["name"]);
+?><br>
+
 
 <?php
-     require "../ui/bottombar.html";
-     ?>
+    require "../ui/bottombar.html";
+?>
  
+
 </body>
 
 
