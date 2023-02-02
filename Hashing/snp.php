@@ -20,9 +20,14 @@
   display: block;
   width: 900px;
   height: 400px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .overlay {
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -33,6 +38,7 @@
   opacity: 0;
   transition: .5s ease;
   background-color: #252525;
+  
 }
 
 .container2:hover .overlay {
@@ -56,7 +62,7 @@
 }
 
 .card1{
-    margin:20px 0px 20px 400px;
+    margin:20px 0px 20px 300px;
 }
 
 .card2{

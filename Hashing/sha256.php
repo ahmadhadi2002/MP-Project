@@ -56,7 +56,7 @@
 }
 
 .card1{
-    margin:20px 0px 20px 400px;
+    margin:20px 0px 20px 300px;
 }
 
 .card2{
