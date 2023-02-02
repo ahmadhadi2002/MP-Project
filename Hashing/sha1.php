@@ -11,6 +11,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+.container2 {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 900px;
+  height: 400px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  width: 900px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #252525;
+}
+
+.container2:hover .overlay {
+  opacity: 1;
+}
+
+.texd {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hide{
+    display: none;
+}
+
+.card1{
+    margin:20px 0px 20px 400px;
+}
+
+.card2{
+    margin: 0px 364px 20px auto;
+}
+
+.card3{
+    margin:20px 0px 20px 400px;
+}
+
+.information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+}
+
 .header {
   padding: 5px;
   text-align: right;
@@ -24,6 +87,7 @@
   background: #EBF1F5;
   color: black;
   font-size: 15px;
+  text-align: center;
 }
 
 .content {
@@ -137,45 +201,46 @@ border-radius: 20px 20px 0px 0px;
 </div>
 
 <div class="header2">
-    <h1>What is SHA1<h1>
-    <hr>
-        <div class="general_img">
-        </div>
+    <h1>What is SHA1</h1>
 </div>
-
-<div class="text">
-    <p>SHA-1 is a cryptographically broken but still widely used hash function which takes an input and produces a 160-bit hash value known as message-digest typically rendered as 40 hexadecimal digits. It was designed by the United States National Security Agency, and is a U.S. Federal Information Processing Standard. Since 2005, SHA-1 has not been considered secure against well-funded opponents as of 2010 many organizations have recommended its replacement. NIST formally deprecated use of SHA-1 in 2011 and disallowed its use for digital signatures in 2013 and declared that it should be phased out by 2030. <p>
+    <hr>
+    <div class="container2 card1">
+  <img src="../ui/img/hash2.png" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">SHA-1 is a cryptographically broken but still widely used hash function which takes an input and produces a 160-bit hash value known as message-digest typically rendered as 40 hexadecimal digits. It was designed by the United States National Security Agency, and is a U.S. Federal Information Processing Standard. Since 2005, SHA-1 has not been considered secure against well-funded opponents as of 2010 many organizations have recommended its replacement. NIST formally deprecated use of SHA-1 in 2011 and disallowed its use for digital signatures in 2013 and declared that it should be phased out by 2030.
+</div>
+  </div>
 </div>
 
 <br>
 
 <div class="header2">
-    <h1>Weakness<h1>
+    <h1>Weakness</h1>
     <hr>
-        <div class="weakness_img">
-        </div>
+    <div class="container2 card1">
+  <img src="../ui/img/weakness2.jpg" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">SHA-1 is weak to collision attacks, so an attacker has to be able to produce two messages (which, with current attacks, are of a certain form) that hash to the same value, and it would be hard to do that in an online manner without the assistance of the server. SHA-1 does not have collision resistance where it is difficult to find 2 messages with the same hash within a reasonable amount of time which makes the SHA-1 unreliable.
 </div>
-
-<div class="text">
-    <p>SHA-1 is weak to collision attacks, so an attacker has to be able to produce two messages (which, with current attacks, are of a certain form) that hash to the same value, and it would be hard to do that in an online manner without the assistance of the server. SHA-1 does not have collision resistance where it is difficult to find 2 messages with the same hash within a reasonable amount of time which makes the SHA-1 unreliable.<p>
+  </div>
 </div>
 
 <div class="header2">
-    <h1>Algorithm<h1>
+    <h1>Algorithm</h1>
     <hr>
-        <div class="algo_img">
-        </div>
+    <div class="container2 card1">
+  <img src="../ui/img/algo.png" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">First, we break our message into ’n’ number of parts which we are depicting as X, each of size of 448 bits and then we add 64 bits of padding to each of them which converts their total length to 512 bits. These 512 bits are then put in the compression function along with the 160 bits of compressed output, for the first time we carry this out we have a predefined value for the 160-bit value. This process keeps on going on ’n’ number of times repeatedly till the last 160 bit of the message is produced and that is the hash depicted as H(x)
 </div>
-
-<div class="text">
-    <p>First, we break our message into ’n’ number of parts which we are depicting as X, each of size of 448 bits and then we add 64 bits of padding to each of them which converts their total length to 512 bits. These 512 bits are then put in the compression function along with the 160 bits of compressed output, for the first time we carry this out we have a predefined value for the 160-bit value. This process keeps on going on ’n’ number of times repeatedly till the last 160 bit of the message is produced and that is the hash depicted as H(x)<p>
+    </div>
 </div>
         <div class="sha1algo_img">
         </div>
 
 
 <div class="header2">
-    <h1>Try it out<h1>
+    <h1>Try it out</h1>
     <hr>
         <div class="try_img">
         </div>
