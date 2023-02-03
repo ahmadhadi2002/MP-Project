@@ -11,6 +11,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 
+.container2 {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 900px;
+  height: 400px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  width: 900px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #252525;
+}
+
+.container2:hover .overlay {
+  opacity: 1;
+}
+
+.texd {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hide{
+    display: none;
+}
+
+.card1{
+    margin:20px 0px 20px 300px;
+}
+
+.card2{
+    margin: 0px 364px 20px auto;
+}
+
+.card3{
+    margin:20px 0px 20px 400px;
+}
+
+.information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+}
+
 .header {
   padding: 5px;
   text-align: right;
@@ -24,6 +87,7 @@
   background: #EBF1F5;
   color: black;
   font-size: 15px;
+  text-align: center;
 }
 
 .content {
@@ -137,42 +201,39 @@ border-radius: 20px 20px 0px 0px;
 </div>
 
 <div class="header2">
-    <h1>What is SHA256<h1>
+    <h1>What is SHA256</h1>
+</div>
     <hr>
-        <div class="general_img">
-        </div>
+    <div class="container2 card1">
+  <img src="../ui/img/hash2.png" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">SHA 256 is a part of the SHA 2 family of algorithms, where SHA stands for Secure Hash Algorithm. Published in 2001, it was a joint effort between the NSA and NIST to introduce a successor to the SHA 1 family, which was slowly losing strength against brute force attacks. SHA-256 is one of the most popular hash algorithms around. It is often referred to as a ‘digest’, ‘fingerprint’ or ‘signature’ as those are unique and often never the same. It is almost a perfect unique string of character that is generated from a separate piece of input text, SHA-256 generates a 256-bit signature.
 </div>
-
-<div class="text">
-    <p>SHA 256 is a part of the SHA 2 family of algorithms, where SHA stands for Secure Hash Algorithm. Published in 2001, it was a joint effort between the NSA and NIST to introduce a successor to the SHA 1 family, which was slowly losing strength against brute force attacks. SHA-256 is one of the most popular hash algorithms around. It is often referred to as a ‘digest’, ‘fingerprint’ or ‘signature’ as those are unique and often never the same. It is almost a perfect unique string of character that is generated from a separate piece of input text, SHA-256 generates a 256-bit signature.<p>
+  </div>
 </div>
-
 <br>
 
 <div class="header2">
-    <h1>Strength<h1>
+    <h1>Strength</h1>
     <hr>
-        <div class="strength_img">
-        </div>
+    <div class="container2 card1">
+  <img src="../ui/img/strength.jpg" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">SHA-256 is one of the most secure hashing functions on the market. The US government requires its agencies to protect certain sensitive information using SHA-256. Three properties make SHA-256 this secure. First, it is almost impossible to reconstruct the initial data from the hash value. A brute-force attack would need to make 2256  attempts to generate the initial data. Second, having two messages with the same hash value (called a collision) is extremely unlikely. With 2256  possible hash values, the likelihood of two being the same is infinitesimally, unimaginably small. Finally, a minor change to the original data alters the hash value so much that it’s not apparent the new hash value is derived from similar data; this is known as the avalanche effect.
 </div>
-
-<div class="text">
-    <p>SHA-256 is one of the most secure hashing functions on the market. The US government requires its agencies to protect certain sensitive information using SHA-256. Three properties make SHA-256 this secure. First, it is almost impossible to reconstruct the initial data from the hash value. A brute-force attack would need to make 2256  attempts to generate the initial data. Second, having two messages with the same hash value (called a collision) is extremely unlikely. With 2256  possible hash values, the likelihood of two being the same is infinitesimally, unimaginably small. Finally, a minor change to the original data alters the hash value so much that it’s not apparent the new hash value is derived from similar data; this is known as the avalanche effect.<p>
+  </div>
 </div>
 
 <div class="header2">
-    <h1>Difference between SHA1 & SHA2<h1>
+    <h1>Difference between SHA1 & SHA2</h1>
     <hr>
-
-    <div class="difference_img">
-        </div>
-
+    <div class="container2 card1">
+  <img src="../ui/img/difference.jpg" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="texd">The primary difference between SHA-1 and SHA-2 is the length of the hash. While SHA-1 is the more basic version of the hash providing a shorter code with fewer possibilities for unique combinations, SHA-2 or SHA-256 creates a longer, and thus more complex, hash. In 2015, new SSL certificates with SHA-1 were phased out. By 2016, it became mandatory for SHA-2 to be used for all new certificates. However, some old certificates remain, which is why SHA-1 is still being used to this day.
 </div>
-
-<div class="text">
-    <p>The primary difference between SHA-1 and SHA-2 is the length of the hash. While SHA-1 is the more basic version of the hash providing a shorter code with fewer possibilities for unique combinations, SHA-2 or SHA-256 creates a longer, and thus more complex, hash. In 2015, new SSL certificates with SHA-1 were phased out. By 2016, it became mandatory for SHA-2 to be used for all new certificates. However, some old certificates remain, which is why SHA-1 is still being used to this day.<p>
+    </div>
 </div>
-
 <div class="shadiff_img">
         </div>
 
