@@ -7,9 +7,11 @@
         body { min-height: 100vh; }
     
         .title{
-            text-align: center;
+            text-align: left;
             font-size: 27px;
-            padding: 22px;
+            /* padding: 22px; */
+            margin-left: 348px;
+            margin-top: 60px;
         }
 
     </style>

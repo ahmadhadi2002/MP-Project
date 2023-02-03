@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body onload="randomInfo()">
 
 
 <?php 
@@ -26,6 +26,12 @@
         require "../ui/dict_tryit.html";
 
         require "../ui/dict_attack.html";
+
+        require "../ui/dict_tryit.html";
+
+        require "../ui/dict_profileGen.html";
+
+        require "../ui/scrollup_btn.html";
 
         require "../ui/bottombar.html"; 
 

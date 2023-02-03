@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.profileMain{
+    margin-left: 393px;
+    margin-top: 40px;
+}
+
+.profileMain table{
+    border-collapse: collapse;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: fit-content;
+    width: 70%;
+}
+
+.profileMain td, .profileMain th {
+    border: 1px solid #b9b9b9;
+    text-align: center;
+    padding: 8px;
+}
+
+.td_header{
+    width: 140px;
+    background-color: #dddddd;
+}
+
+.profile_error{
+        display: none;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+}
+
+.profile_label{
+    font-weight: bold;
+}
+
+.profile_input{
+        width: 600px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:  17px;
+        cursor: pointer;
+    }
+
+.profile_form{
+    margin-top: 30px;
+}
+
+</style>
+</head>
+
+<body onload="randomInfo()">
+
+    <div class="profileMain">
+        <table>
+            <tr>
+                <td rowspan="6" style="width: 185px;padding-bottom: 0px;" class="td_header"><img src="../ui/img/default_prof.png" style="width: 250px;height: 210px;"></td>
+            </tr>
+
+            <tr>
+                <td class="td_header">First Name</td>
+                <td id="gen_firstname"></td>
+            </tr>
+            <tr>
+                <td class="td_header">Last Name</td>
+                <td id="gen_lastname"></td>
+            </tr>
+            <tr>
+                <td class="td_header">Organisation</td>
+                <td id="gen_org"></td>
+            </tr>
+            <tr>
+                <td class="td_header">Country</td>
+                <td id="gen_country"></td>
+            </tr>
+            <tr>
+                <td class="td_header">Date of Birth</td>
+                <td id="gen_dob"></td>
+            </tr>
+        </table>
+
+        <div class="profile_form">
+            <label for="profile_input" class="profile_label">Key in a Password</label><br>
+            <input type="text" id="profile_input" name="profile_input" class="profile_input"><br>
+            <div id="profile_error" class="profile_error"></div>
+            <input type="submit" minlength="7" value="Submit" style="margin-top: 15px;height: 40px;border-radius: 15px; border-width: thin; width:100px" id="profile_submit"  onclick="comparePass()">
+        </div>
+
+    </div>
+
+    <p id="test"></p>
+
+</body>
+
+
+<script>
+
+
+
+
+const firstNames = ["Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn",
+                    "Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Aurora", "Scarlett", "Victoria",
+                    "Aria", "Grace", "Chloe", "Camila", "Penelope", "Riley", "Layla", "Lillian", "Natalie", "Hazel",
+                    "Aubrey", "Lucy", "Arianna", "Ruby", "Eva", "Annabelle", "Makayla", "Aaliyah", "Ellie", "Adalynn",
+                    "Brooklynn", "Adalyn", "Mila", "Audrey", "Avery", "Nora", "Scarlett", "Serenity", "Savannah", "Aria",
+                    "Aurora", "Evelynn", "Kaylee", "Adeline", "Raelynn", "Brielle", "Jordyn", "Jocelyn", "Ariella", "Rylee",
+                    "Kimberly", "Mackenzie", "Bailey", "Gianna", "Genesis", "Autumn", "Aurora", "Aurora", "Makayla", "Everly",
+                    "Cadence", "Skylar", "Naomi", "Paisley", "Ariah", "Violet", "Adalicia", "Hayden", "Raelynn", "Elliana",
+                    "Finley", "Adalyn", "Hazel", "Alayna", "Alivia", "Aubree", "Avery", "Aria", "Ryleigh", "Raelynn"];
+                    
+const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor",
+                   "Anderson", "Thomas", "Jackson", "White", "Harris", "Martin", "Thompson", "Garcia", "Martinez", "Robinson",
+                   "Clark", "Rodriguez", "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "King", "Wright",
+                   "Scott", "Green", "Baker", "Adams", "Nelson", "Carter", "Mitchell", "Perez", "Roberts", "Turner",
+                   "Phillips", "Campbell", "Parker", "Evans", "Edwards", "Collins", "Stewart", "Sanchez", "Morris", "Rogers",
+                   "Reed", "Cook", "Bailey", "Bell", "Cooper", "Richardson", "Cox", "Howard", "Ward", "Torres",
+                   "Peterson", "Gray", "Ramirez", "James", "Watson", "Brooks", "Kelly", "Sanders", "Price", "Bennett",
+                   "Wood", "Barnes", "Ross", "Henderson", "Coleman", "Jenkins", "Perry", "Powell", "Long", "Patterson",
+                   "Hughes", "Flores", "Washington", "Butler", "Simm"]
+
+const organizationNames = ["Global Solutions", "Bright Future Inc.", "Eco Friendly Ltd.", "Innovative Ventures", "Healthy Habits Corp.", 
+                           "Mindful Marketing", "Sunrise Enterprises", "Green Earth Co.", "Limitless Innovations", "Empowering Enterprises", 
+                           "Fresh Start Inc.", "The Next Step LLC", "Better Tomorrows", "Forward Thinking Co.", "Living Life Co.", "Bold Move Inc.", 
+                           "Prosperity Partners", "Creative Solutions", "New Horizons Corp.", "Happy Home Co.", "Hope Springs Inc.", "Empathy Enterprises", 
+                           "Renewal Solutions", "Dynamic Designs", "Future Forward Inc.", "Joyful Journeys", "Next Gen Solutions", "Growth and Prosperity", 
+                           "Sustainable Solutions", "Limitless Potential", "Bright Beginnings", "Empowered Solutions", "Responsible Results", 
+                           "Infinite Ideas", "Positive Partnerships", "Healthy Living Co.", "Empowering Enterprises", "Dynamic Destiny", 
+                           "Inspiring Innovations", "The Future First", "Green Solutions", "The Better Way Inc.", "Limitless Opportunities", 
+                           "Equal Justice Co.", "Empowered Enterprises", "Nexus Solutions", "Joyful Journey", "Better World Co.", "Green Future Inc.", 
+                           "Sustainability Co.", "Endless Possibilities", "Fresh Start Inc.", "Limitless Adventures", "Innovative Minds", 
+                           "Positive Change", "Green Planet Inc.", "Future Visions", "Infinite Potential", "The Next Level", "Sustainable Systems", 
+                           "Empathetic Enterprises", "Empowering Possibilities", "Healthy Habits Ltd.", "Limitless Solutions", "Empowering Action", 
+                           "Innovative Impact", "The Bright Future", "Sustainable Success", "Limitless Growth", "Dynamic Solutions", 
+                           "Positive Partnerships", "The Better Path", "Infinite Innovations", "Empowering Enterprises", "Healthy Lifestyle Co.", 
+                           "Limitless Adventures", "Empathetic Solutions", "Green Energy Co.", "Future Focus", "Inspiring Innovations"];
+
+const countryNames = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan","Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the" , "Congo, Republic of the","Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic","Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland","France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea","Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq","Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo","Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania","Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius","Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia","Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway","Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal","Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Singapore"];
+        
+const dob = ["2/11/1995", "12/7/1960", "8/1/1995", "9/20/1997", "12/11/1984", "4/4/1976", "10/23/1965", "4/3/1971", "3/5/2001", "6/7/1989", "1/1/1964", "8/18/1970", "6/8/1994", "12/25/1968", "3/8/1981", "9/9/1974", "6/6/1963", "7/9/1977", "8/20/2001", "11/5/2005", "9/12/1987", "12/2/1978", "12/10/1976", "8/6/1994", "10/9/1975", "12/22/1980", "5/12/1965", "6/11/1962", "7/2/2001", "11/10/1960", "10/12/1970", "12/3/1973", "8/10/1989", "7/14/1995", "4/28/1980", "5/25/1983", "3/26/2004", "9/23/1968", "10/21/1977", "9/7/1978", "6/3/1998", "4/3/1981", "12/4/1987", "5/23/1996", "3/1/1975", "2/27/1970", "10/18/1993", "3/5/1987", "5/2/1993", "9/4/1986"];
+
+function randomInfo(){
+
+    // Random First Name
+        var randomFName = Math.floor(Math.random() * firstNames.length);
+        var fNameInput = firstNames[randomFName];
+    // Random Last Name
+        var randomLName = Math.floor(Math.random() * lastNames.length);
+        var lNameInput = lastNames[randomLName];
+    // Random Org
+        var randomOrg = Math.floor(Math.random() * organizationNames.length);
+        var orgInput = organizationNames[randomOrg];
+    // Random Country
+        var randomCountry = Math.floor(Math.random() * countryNames.length);
+        var countryInput = countryNames[randomCountry];
+    //Random DoB
+        var randomDoB = Math.floor(Math.random() * dob.length);
+        var doBInput = dob[randomDoB];
+
+    //Send to table
+    document.getElementById("gen_firstname").innerHTML = fNameInput;
+    document.getElementById("gen_lastname").innerHTML = lNameInput;
+    document.getElementById("gen_org").innerHTML = orgInput;
+    document.getElementById("gen_country").innerHTML = countryInput;
+    document.getElementById("gen_dob").innerHTML = doBInput;  
+    
+    //Clean variables
+    
+    var cleanedOrg = orgInput.replace(/\s/g, '');
+    var cleanedCountry = countryInput.replace(/\s/g, '');
+    var dobArray = doBInput.split("/")
+    var cleanedDoB = dobArray[2];
+
+    var genArray = [fNameInput,lNameInput, cleanedOrg, cleanedCountry, cleanedDoB];
+
+    // var arrayOutput = genArray.toString();
+
+    // document.getElementById("test").innerHTML = arrayOutput;
+
+    // localStorage.setItem("profileInfo", JSON.stringify(genArray));
+    // var obtain = JSON.parse(localStorage.getItem("profileInfo"));
+
+    //take 2 random items from the array and string them together
+
+    passwordArray = [];
+
+    for (let i = 0; i < 5; i++) {
+
+        var randomInput1 = Math.floor(Math.random() * genArray.length);
+        var randomInput2 = Math.floor(Math.random() * genArray.length);
+
+        while (randomInput2 === randomInput1) {
+            randomInput2 = Math.floor(Math.random() * genArray.length);
+        }
+
+        var element1 = genArray[randomInput1];
+        var element2 = genArray[randomInput2];
+        var passwordString = element1+element2;
+        passwordArray.push(passwordString);
+
+        // checker if new password string exists within the array 
+        while (passwordArray.indexOf(passwordString) !== passwordArray.lastIndexOf(passwordString)) {
+
+            var randomInput1 = Math.floor(Math.random() * genArray.length);
+            var randomInput2 = Math.floor(Math.random() * genArray.length);
+
+            while (randomInput2 === randomInput1) {
+                randomInput2 = Math.floor(Math.random() * genArray.length);
+            }
+
+            var element1 = genArray[randomInput1];
+            var element2 = genArray[randomInput2];
+            var passwordString = element1+element2;
+            passwordArray.push(passwordString);
+        }
+        
+    }
+
+    localStorage.setItem("passwordArray", JSON.stringify(passwordArray));
+
+    var arrayOutput = passwordArray.toString();
+    document.getElementById("test").innerHTML = arrayOutput;
+}
+
+function comparePass(){
+    
+    var passwordArray = JSON.parse(localStorage.getItem("passwordArray"));
+
+    
+}
+
+</script>
+
+</html>

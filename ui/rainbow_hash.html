@@ -4,23 +4,101 @@
 
 <style>
 
+.information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+.rainhash{
+    margin-left: 393px;
+    margin-bottom: 70px;
+    font-size: 1.15em;
+}
+
+.rainhash_input{
+    width: 400px;
+    height: 30px;
+    border-radius: 4px;
+    border-width: 1px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.hash_option{
+    width: 130px;
+    font-size: 0.8em;
+    border-radius: 9px;
+    border-width: 1px;
+    margin-bottom: 20px;
+}
+
+.hashBtn{
+    width: 80px;
+    height: 27px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+.hashVal{
+    font-family: arial, sans-serif;
+    font-size: 1.25em;
+    border-collapse: collapse;
+    width: 28%;
+    margin-top: 20px;
+    text-align: left;
+    display: none;
+}
+
+.hashVal td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px 10px 10px 10px;
+}
+
+.hashVal tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+
 </style>
 </head>
 <body>
 
+    <div class="information">
+        <p>
+            In the first input, you can put in a sample password. In the drop down menu you can select a hashing algorithm, MD5 or SHA1. Both of these hashes are viewed as weak obsolete and are not currently used in the industry, thus perfect for demonstration purposes.
+        </p>
+    </div>
+
     <div class="rainHash">
         <label for="rainHash_input">Key in a password</label><br>
-        <input type="text" autocomplete="off" id="rainHash_input" name="rainHash_input"><br>
+        <input type="text" autocomplete="off" id="rainHash_input" name="rainHash_input" class="rainhash_input"><br>
         <Label for="hash_option">Select a Hash Algorithm</Label><br>
         <select class="hash_option" id="hash_option" name=" hash_option">
                 <option value="">Select a Option:</option>
                 <option value="1">MD5</option>
                 <option value="2">SHA-1</option>
         </select><br>
-        <button type="button" onClick="rainHash(event)">Submit</button><br> 
+        <button type="button" onClick="rainHash(event)" class="hashBtn">Submit</button><br> 
+
+        <table class="hashVal" id="hashTable">
+            <tr>
+                <th>Generated Hash</th>
+            </tr>
+            <tr>
+                <td id="hashVal"></td>
+            </tr>
+        </table>
+
     </div>
 
-    <div id="hashVal"></div>
+
+
+    <!-- <div id="hashVal"></div> -->
+
+    <hr style="width: 1090px">
 
 </body>
 
@@ -45,6 +123,9 @@ function rainHash(event){
         success: function(data) {
             //alert ("Form Received");
             document.getElementById("hashVal").innerHTML = data;
+            document.getElementById("hashTable").style.display = "block";
+
+            
 
         }
     })

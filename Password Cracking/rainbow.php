@@ -11,6 +11,10 @@
 
     require "../ui/navbar.html";
 
+    require "../ui/rainbow_ui.html";
+
+    require "../ui/rainbow_tryit.html";
+
     require "../ui/rainbow_hash.html";
     echo "<br>";
     require "../ui/rainbow_chain.html";

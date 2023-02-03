@@ -55,6 +55,47 @@
     background-color: #dddddd;
     }
 
+    .dict_nextPage{
+        display: block;
+        position: relative;
+        float:right;
+        margin-right: 20px;
+    }
+
+    .dict_nextPage :hover{
+        color: rgb(94, 94, 94);
+    }
+
+    .dict_prevPage{
+        display: block;
+        position: relative;
+        float:left;
+        margin-left: 20px;
+    }
+
+    .dict_prevPage :hover{
+        color: rgb(94, 94, 94);
+    }
+
+    .redirectText{
+        text-decoration: none;
+        color: rgb(161, 161, 161);
+        font-size: 1.5em;
+    }
+
+    .wrapper{
+        margin-top: 105px;
+        margin-bottom: 15px;
+        overflow:hidden;
+    }
+
+    .dict2_error{
+        display: none;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+    }
+
 </style>
 
 </head>
@@ -71,11 +112,23 @@
         <form action="../Password Cracking/dictattack.php" method="post" autocomplete="off" onsubmit="return false;">
             <label for="dict_input" class="pwd_label">Key in a Password</label><br>
             <input type="text" id="dict_input" name="dict_input" class="dict_input"><br>
+            <div id="dict2_error" class="dict2_error"></div>
             <input type="submit" value="Submit" style="margin-top: 15px;height: 40px;border-radius: 15px; border-width: thin; width:100px" id="dict_submit"  onclick="submitForm(event)">
         </form>
     </div>
 
     <div id="table-container" class="table-container"></div>
+
+    <div class="wrapper">
+
+    <div class="dict_nextPage">
+        <a href="../Password Cracking/bruteforce.php" class="redirectText">Brute Force Attack &#x203A;</a>
+    </div>
+
+    <div class="dict_prevPage">
+        <a href="../Password Cracking/passwordcrack_main.php" class="redirectText">&#x2039; Password Cracking</a>
+    </div>
+    </div>
 
 </body>
 
@@ -87,7 +140,16 @@
     function submitForm(event) {
       event.preventDefault();
       // submit form through ajax or any other method
+
+      var inputedValue = document.getElementById("dict_input").value;
   
+    if (inputedValue == "" || inputedValue == null || inputedValue == undefined){
+        document.getElementById("dict2_error").style.display="block";
+        document.getElementById("dict2_error").innerHTML="Error please key in a proper input";
+    }else{
+
+    document.getElementById("dict2_error").style.display="none";
+
     var formData = {
         'dict_input': $('input[name=dict_input]').val(),
       };
@@ -106,5 +168,6 @@
           alert("An error occurred while submitting the form.");
         }
       });
+    }
     }
 </script>
