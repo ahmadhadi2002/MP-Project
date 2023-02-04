@@ -21,5 +21,10 @@
     echo "<br>";
     require "../ui/rainbow_main.html";
     echo "<br>";
+
+    require "../ui/scrollup_btn.html";
+
+    require "../ui/rainbow_bottomNav.html";
+
     require "../ui/bottombar.html";
 ?>

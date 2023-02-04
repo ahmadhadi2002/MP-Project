@@ -7,7 +7,7 @@
 
 </head>
 
-<body onload="randomInfo()">
+<body onload="randomInfo(); profarrayCheck()">
 
 
 <?php 
@@ -32,6 +32,8 @@
         require "../ui/dict_profileGen.html";
 
         require "../ui/scrollup_btn.html";
+
+        require "../ui/dict_bottomNav.html";
 
         require "../ui/bottombar.html"; 
 

@@ -25,6 +25,10 @@
 
     require "../ui/brute_attack.html";
 
+    require "../ui/scrollup_btn.html";
+
+    require "../ui/brute_bottomNav.html";
+
     require "../ui/bottombar.html"; 
 
 ?>
