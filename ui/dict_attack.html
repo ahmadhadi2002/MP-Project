@@ -55,6 +55,13 @@
     background-color: #dddddd;
     }
 
+    .dict2_error{
+        display: none;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+    }
+
 </style>
 
 </head>
@@ -71,6 +78,7 @@
         <form action="../Password Cracking/dictattack.php" method="post" autocomplete="off" onsubmit="return false;">
             <label for="dict_input" class="pwd_label">Key in a Password</label><br>
             <input type="text" id="dict_input" name="dict_input" class="dict_input"><br>
+            <div id="dict2_error" class="dict2_error"></div>
             <input type="submit" value="Submit" style="margin-top: 15px;height: 40px;border-radius: 15px; border-width: thin; width:100px" id="dict_submit"  onclick="submitForm(event)">
         </form>
     </div>
@@ -87,7 +95,16 @@
     function submitForm(event) {
       event.preventDefault();
       // submit form through ajax or any other method
+
+      var inputedValue = document.getElementById("dict_input").value;
   
+    if (inputedValue == "" || inputedValue == null || inputedValue == undefined){
+        document.getElementById("dict2_error").style.display="block";
+        document.getElementById("dict2_error").innerHTML="Error please key in a proper input";
+    }else{
+
+    document.getElementById("dict2_error").style.display="none";
+
     var formData = {
         'dict_input': $('input[name=dict_input]').val(),
       };
@@ -106,5 +123,6 @@
           alert("An error occurred while submitting the form.");
         }
       });
+    }
     }
 </script>

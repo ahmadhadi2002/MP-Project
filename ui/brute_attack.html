@@ -40,20 +40,25 @@
     padding: 20px 0px 20px 0px;
 } */
 
+
+
 </style>
 </head>
 <body>
 
 <div class="bruteText">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>
+    In this try it out exercise you can try and see the strength of brute force cracking as well as its weaknesses, due to the limitations of running a brute force cracking script on a website, the maximum amounts of characters is set to 4. This shows the need for computational strength should you try and initiate a real attack.  The input will be able to guess any type of input with a keyboard within the limits of 4 characters.
+    </p>
+  <p>
+    Note: Exercise may take up to 1-3 minutes to load with ~~~~ being the longest time to execute
+  </p>
 </div>
 
 <div id="passinputbox" class="bruteInput">
     <form action="../Password Cracking/bruteforce.php" method="post">
         <label for="brute_input" style="font-weight: bold; font-size: 19px;">Password (4 Letter Input Only)</label><br>
-        <input type="text" id="brute_input" autocomplete="off" name="brute_input" style="background-color: lightgrey;border-width: 0px;height: 30px;width: 37%; border-radius: 6px;font-size:16px">
+        <input type="text" id="brute_input" autocomplete="off" name="brute_input" maxlength="4" style="background-color: lightgrey;border-width: 0px;height: 30px;width: 37%; border-radius: 6px;font-size:16px">
 
         <br><input type="submit" value="Submit" onclick="submitForm(event); loading()" style="margin-top: 10px;width: 90px;height: 30px;border-radius: 9px;border-width: 0px;background-color: lightgrey;font-weight: bold;">
     </form>
@@ -78,6 +83,7 @@
 <!-- <div id="brute-container"></div> -->
 
 
+
 </body>
 </html>
 
@@ -86,14 +92,16 @@
     function submitForm(event) {
       event.preventDefault();
       // submit form through ajax or any other method
+
+    const attackInput = document.getElementById("brute_input").value;
   
     var formData = {
-        'brute_input': $('input[name=brute_input]').val(),
+        'brute_input': attackInput
       };
   
       $.ajax({
         type: "POST",
-        url: "bruteforce_backend.php",
+        url: "../Password Cracking/bruteforce_backend.php",
         data: formData,
         dataType: 'json',
         success: function(data) {

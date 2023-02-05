@@ -3,35 +3,32 @@
 if (isset($_POST["brute_input"])){
 
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>/?\`~";
-    $maxLength = 4;
+    $maxLength = 5;
     $password=$_POST["brute_input"];  
     $found="false";
 
     $start = new DateTime();
 
-    function generateCombinations($chars, $length) {
+    function generateCombinations($chars, $length, $password, $found) {
         if ($length == 0) {
-            yield "";
+            return;
         } else {
             foreach (str_split($chars) as $char) {
-                foreach (generateCombinations($chars, $length - 1) as $combination) {
-                    yield $char . $combination;
+                $combination = $char . generateCombinations($chars, $length - 1, $password, $found);
+                if ($combination == strval($password)) {
+                    $bruteFound = $combination;
+                    $found = true;
+                    return;
                 }
             }
         }
     }
-
-    foreach (range(1,$maxLength) as $i) {
-        foreach (generateCombinations($chars, $i) as $combination) {
-            if($combination == strval($password)){
-                $bruteFound = $combination;
-                unset($combination);
-                unset($password);
-                $found ="true";
-                $foundStatus  ="Password Found";
-                break 2;
-            }
-            unset($combination);
+    
+    for ($i = 1; $i <= $maxLength; $i++) {
+        generateCombinations($chars, $i, $password,$found);
+        if ($found) {
+            $foundStatus = "Password Found";
+            break;
         }
     }
 

@@ -51,6 +51,7 @@
         border-radius: 3px;
         border-width: 1px;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .array_table_display{
@@ -59,14 +60,14 @@
 
     .hidden_array_table{
         display:none;
-        
     }
 
     .hidden_array_table table{
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 30%;
-    margin-top: 20px;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+        margin-top: 20px;
+        font-size: 1.05em;
     }
 
     .hidden_array_table td, .hidden_array_table th {
@@ -115,6 +116,20 @@
     background-color: #dddddd;
     }
 
+    .array_sel{
+        margin-top: 10px;
+        font-size: 1.05em;
+        border-width: 1px;
+        border-radius: 3px;
+    }
+
+    .dict_error{
+        display: none;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+    }
+
 </style>
 </head>
 <body onload="arrayCheck()">
@@ -123,12 +138,20 @@
 <div class="compare">
 
 
-    <form id="arrayForm">
+    <div id="arrayForm">
         <div class="compare_input"> 
             <label for="test_array" style="font-size: 16px; font-weight: bold;">Array List</label><br>
-            <input type="text" id="arrayInput" name="test_array" class="array_input" autocomplete="off">
+            <input type="text" id="arrayInput" name="test_array" class="array_input" autocomplete="off"> 
             <button type="button" onClick="addtoArray()" class="array_btn">Add to Array</button> <br>
-
+            <form id="selForm">
+                <select id="array_sel" name="array_sel" class="array_sel">
+                    <option value="0">Select a Option:</option>
+                    <option value="1">Names Array</option>
+                    <option value="2">Country Array</option>
+                    <option value="3">Common Password</option>
+                    <!-- <option value="4">Common Password</option> -->
+                </select>
+            </form>
             <div class="hidden_array_table" id="hidden_array_table">
             <table>
                 <tr><th>Dictionary Inputs</th></tr>
@@ -137,7 +160,7 @@
             </div>
             <button type="button" class="array_clear_btn" id="clear_array" onclick="clearArray(event)">Clear</button>
         </div>
-    </form>
+    </div>
 
     
 
@@ -145,6 +168,7 @@
         <div class="compare_input">
             <label for="test_pass" style="font-size: 16px;font-weight: bold;">Current Password</label><br>
             <input class="array_passInput" id="passInput" name="passInput" type="text" autocomplete="off"><br>
+            <div id="dict_error" class="dict_error"></div>
             <button type="button" id="submit" onclick="compareForm(event)" class="compareSubmit_btn">Submit</button>
         </div>
     </form>
@@ -179,12 +203,20 @@
     function compareForm(event) {
       event.preventDefault();
       // submit form through ajax or any other method
+
       
         var inputArray= JSON.parse(localStorage.getItem("testArray"));
 
         var inputValue = $('input[name=passInput]').val();
 
         var jsonArray= JSON.stringify(inputArray);
+
+        if(inputValue == "" || inputValue == null || inputValue == undefined || jsonArray.length == 0){
+            document.getElementById("dict_error").style.display="block";
+            document.getElementById("dict_error").innerHTML="Error please key in a proper input";
+        }else{
+
+        document.getElementById("dict_error").style.display="none";
 
         var formData = {
             'passInput': inputValue,
@@ -215,6 +247,7 @@
         }
       });
     }
+    }
 
 //Add and Read Array -----------------------------------------------------
 
@@ -223,6 +256,55 @@ function addtoArray(){
     var testArray= JSON.parse(localStorage.getItem("testArray"));
 
     var input = document.getElementById('arrayInput').value;
+
+    var array_sel = document.getElementById('array_sel').value;
+
+    if(array_sel == "1"){
+        var array_send = [];
+        var names = ["Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn","Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",    "Grace", "Chloe", "Camila", "Penelope", "Riley", "Layla", "Lillian", "Natalie", "Hazel", "Aubrey",    "Brooklyn", "Ellie", "Anna", "Khloe", "Mila", "Addison", "Aurora", "Adalynn", "Raelynn", "Lydia",    "Eleanor", "Hannah", "Luna", "Savannah", "Nevaeh", "Paisley", "Audrey", "Everly", "Anastasia", "Camille",    "Aaliyah", "Mackenzie", "Genevieve", "Charlie", "Ariel", "Stella", "Raven", "Violet", "Bella", "Aurora",    "Lucy", "Avery", " Scarlett", "Isabelle", "Saylor", "Ember", "London", "Brielle", "Sadie", "Paige",    "Nora", "Rylee", "Arianna", "Allie", "Gabriella", "Liliana", "Adalyn", "Natalie", "Isabel", "Raegan",    "Jordyn", "Kimberly", "Esther", "Makayla", "Adeline", "Bailey", "Caroline", "Naomi", "Willow", "Aubree"];
+        
+        for (let i = 0; i <= 9; i++) {
+            var randomIndex = Math.floor(Math.random() * names.length);
+            array_send.push(names[randomIndex]);
+        }
+
+        testArray.push(array_send);
+    }
+
+    if(array_sel == "2"){
+        var array_send = [];
+        var countries = [
+            "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan","Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the" , "Congo, Republic of the","Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic","Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland","France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea","Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq","Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo","Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania","Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius","Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia","Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway","Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal","Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Singapore"];
+        for (let i = 0; i <= 9; i++) {
+            var randomIndex = Math.floor(Math.random() * countries.length);
+            array_send.push(countries[randomIndex]);
+        }
+
+        testArray.push(array_send);
+    }
+
+    if(array_sel == "3"){
+        var array_send = [];
+        var common_pass = ["123456", "password", "12345678", "qwerty", "123456789", "12345", "1234", "111111", "1234567", "dragon",     "123123", "baseball", "abc123", "football", "monkey", "letmein", "696969", "shadow", "master", "666666",     "qwertyuiop", "123321", "mustang", "1234567890", "michael", "654321", "pussy", "superman", "1qaz2wsx", "7777777",     "fuckyou", "121212", "000000", "qazwsx", "123qwe", "killer", "trustno1", "jordan", "jennifer", "zxcvbnm",     "asdfgh", "hunter", "buster", "soccer", "harley", "batman", "andrew", "tigger", "sunshine", "iloveyou",     "fuckme", "2000", "charlie", "robert", "thomas", "hockey", "ranger", "daniel", "starwars", "klaster",     "112233", "george", "asshole", "computer", "michelle", "jessica", "pepper", "1111", "zxcvbn", "555555",     "11111111", "131313", "freedom", "777777", "pass", "fuck", "maggie", "159753", "aaaaaa", "ginger",     "princess", "joshua", "cheese", "amanda", "summer", "love", "ashley", "6969", "nicole", "chelsea", "biteme",     "matthew", "access", "yankees", "987654321", "dallas", "austin", "thunder", "taylor", "matrix", "minecraft"];
+        for (let i = 0; i <= 9; i++) {
+            var randomIndex = Math.floor(Math.random() * common_pass.length);
+            array_send.push(common_pass[randomIndex]);
+        }
+
+        testArray.push(array_send);
+    }
+    // if(array_sel == "4"){
+    //     var array_send = [];
+    //     var names = ["Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn","Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",    "Grace", "Chloe", "Camila", "Penelope", "Riley", "Layla", "Lillian", "Natalie", "Hazel", "Aubrey",    "Brooklyn", "Ellie", "Anna", "Khloe", "Mila", "Addison", "Aurora", "Adalynn", "Raelynn", "Lydia",    "Eleanor", "Hannah", "Luna", "Savannah", "Nevaeh", "Paisley", "Audrey", "Everly", "Anastasia", "Camille",    "Aaliyah", "Mackenzie", "Genevieve", "Charlie", "Ariel", "Stella", "Raven", "Violet", "Bella", "Aurora",    "Lucy", "Avery", " Scarlett", "Isabelle", "Saylor", "Ember", "London", "Brielle", "Sadie", "Paige",    "Nora", "Rylee", "Arianna", "Allie", "Gabriella", "Liliana", "Adalyn", "Natalie", "Isabel", "Raegan",    "Jordyn", "Kimberly", "Esther", "Makayla", "Adeline", "Bailey", "Caroline", "Naomi", "Willow", "Aubree"];
+        
+    //     for (let i = 0; i < 10; i++) {
+    //     var randomIndex = Math.floor(Math.random() * names.length);
+    //     array_send.push(names[randomIndex]);
+    //     }
+
+    //     testArray.push(array_send);
+    // }
+
 
     testArray.push(input);
 
@@ -235,6 +317,8 @@ function addtoArray(){
     document.getElementById("hidden_array_table").style.display="block";
 
     document.getElementById("arrayInput").value = "";
+
+    document.getElementById("selForm").reset();
 }
 
 //Clear array 

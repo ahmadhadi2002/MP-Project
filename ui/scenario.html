@@ -47,7 +47,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 640px;
+    height: 300px;
 }
 
 .tryitbutton{
@@ -68,6 +69,31 @@
     text-decoration: none;
 }
 
+.text_header{
+    margin-left: 468px;
+    margin-top: 60px;
+    font-size: 33px;
+    text-decoration: underline;
+}
+
+.text_information{
+  margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.5em;
+    font-size: 1.5rem;
+}
+
+.textinformation{
+  margin-left: 467px;
+    margin-right: 467px;
+    text-align: justify;
+    line-height: 1.5em;
+    font-size: 1.25rem;
+    letter-spacing: 1e-06em;
+}
+
 </style>
 </head>
 <body>
@@ -77,26 +103,31 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
 <!-- </div> -->
 
-<!-- <p>Attack Scenarios</p> -->
+<h2 class="text_header">Cracking Scenarios</h2>
+<p class="textinformation">To get a better understanding of password cracking, scenarios have been prepared to simulate and give you a hands on experience on cracking passwords and the points that hackers look for when attempting to exploit a flaw within a system to either guess and obtain a password</p>
 
 <div class="scencenter">
 <button type="button" class="collapsible">Scenario 1 (Dictionary Attack)</button>
 <div class="content">
   <img src="../ui/img/dict_attack.jpg" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="text_information">
+    A hacker is conducting an automated attack called password spraying on a social media login page, this attack utilizes a dictionary list to crack passwords. 
+  </p>
   <a href="../Password Cracking/dictattack.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 2 (Brute Force Attack)</button>
 <div class="content">
   <img src="../ui/img/brute_force.jpg" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="text_information">
+    A Blog Login Page is found not containing any type of protection against persistent password attempts. A hacker will utilize this to brute force attack users passwords.
+  </p>
   <a href="../Password Cracking/bruteforce.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 3 (Rainbow Table Attack)</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p class="text_information">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   <a href="../Password Cracking/rainbow.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 </div>
