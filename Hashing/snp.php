@@ -209,52 +209,9 @@ border-radius: 20px 20px 0px 0px;
   <h1>Salt & Pepper</h1>
 </div>
 
-<div style="border: 1px solid black"
-    class="content">
-    <h2>Content title<h2>
-    <hr>
-    <p>General information<p>
-    <p>Strength<p>
-    <p>Weakness<p>
-    <p>Try it out<p>
-</div>
-
-<div class="header2">
-    <h1>What is Salt & Pepper</h1>
-</div>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/hash2.png" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">A salt is a random string of characters added to your password to make the hash outcome completely different. So a hacker can't simply look up the hash value for a password “greentrees”, since a salt would turn it into something like “greentreesF&i$#u”. The criminal would have to use brute-force— guess every possible combination for each password, significantly slowing down the hacking process.
-A pepper is like a salt — a random bit of data added to the password before it’s hashed through an algorithm. But unlike a salt, it’s not kept in the database along with the hash value. Instead, it’s usually hardcoded into the website’s source code.
-</div>
-  </div>
-</div>
-
-<br>
-
-<div class="header2">
-    <h1>Strength</h1>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/strength.jpg" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">The biggest advantage of a pepper is the fact that it’s not kept in the database. So in the case of a data breach, even with access to all the hashed passwords, the attacker would still need to brute-force the database. salt are indispensable for the protection of data and building long-lasting consumer trust and loyalty.
-</div>
-  </div>
-</div>
-
-<div class="header2">
-    <h1>Weakness</h1>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/weakness2.jpg" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">However, since the pepper is hardcoded, it’s usually the same bit of data for each password, and it can’t be changed. So, following a data breach, the pepper might be more trouble than it’s worth. Additionally, most advanced hashing algorithms are intended to be used with salts. So, the implementation of peppers might be a bit impractical. Because salt is typically stored with the hashed password, so if the user selects simple password such as ‘’123456’, the cracker just selects a dictionary with this password and then add the salt, and compares it, making it useless.
-</div>
-  </div>
-</div>
+<?php
+  require "../hashing/snp_slides.html";
+  ?>
 
 <div class="header2">
     <h1>Try it out<h1>

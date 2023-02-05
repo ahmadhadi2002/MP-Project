@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {
+  font-family: Verdana, sans-serif; 
+  margin:0;
+  height: max-content;
+}
+.mySlides {
+  display: none;
+}
+
+.blur{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  padding-top: 40px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bold{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+  font-size: 50px;
+}
+
+.bold2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+  font-size: 50px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+}
+
+.centered2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550">
+  </div>
+  <div class="text">
+  <div class="bold">What is Salt & Pepper?
+  </div>
+  </div> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">A salt is a random string of characters added to your password to make the hash outcome completely different. So a hacker can't simply look up the hash value for a password 'greentrees', since a salt would turn it into something like 'greentreesF&i$#u'. The criminal would have to use brute-force— guess every possible combination for each password, significantly slowing down the hacking process.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">A pepper is like a salt, a random bit of data added to the password before it's hashed through an algorithm. But unlike a salt, it's not kept in the database along with the hash value. Instead, it's usually hardcoded into the website's source code.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/weakness.jpg" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="bold2">Weakness of Salt & Pepper
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/weakness.jpg" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered2">However, since the pepper is hardcoded, it's usually the same bit of data for each password, and it can't be changed. So, following a data breach, the pepper might be more trouble than it's worth. Additionally, most advanced hashing algorithms are intended to be used with salts.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/weakness.jpg" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered2">So, the implementation of peppers might be a bit impractical. Because salt is typically stored with the hashed password, so if the user selects simple password such as '123456', the cracker just selects a dictionary with this password and then add the salt, and compares it, making it useless.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+  </div>
+  <div class="text"></div>
+  <div class="bold">Strength of Salt & Pepper
+  </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <div class="blur">
+    <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+    </div>
+    <div class="text"></div>
+    <div class="centered">The biggest advantage of a pepper is the fact that it's not kept in the database. So in the case of a data breach, even with access to all the hashed passwords, the attacker would still need to brute-force the database. salt are indispensable for the protection of data and building long-lasting consumer trust and loyalty.
+    </div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="bold"> How it is used
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Salt & Pepper is added into hashing after the user's input. For example, if the user inputs "hello" and the salt is "22", the system will hash the combined input "hello22". same goes for pepper.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/difference.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="bold2">That concludes the Salt & Pepper basic lesson.
+      </div>
+      </div>
+
+<a class="prev" onclick="plusSlides(-1)"> &#8592 </a>
+<a class="next" onclick="plusSlides(1)"> &#8594 </a>
+
+</div>
+<br>
+<hr>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 

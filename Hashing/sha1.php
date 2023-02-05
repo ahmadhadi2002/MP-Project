@@ -190,53 +190,9 @@ border-radius: 20px 20px 0px 0px;
   <h1>SHA1</h1>
 </div>
 
-<div style="border: 1px solid black"
-    class="content">
-    <h2>Content title<h2>
-    <hr>
-    <p>General information<p>
-    <p>Weakness<p>
-    <p>Algorithm<p>
-    <p>Try it out<p>
-</div>
-
-<div class="header2">
-    <h1>What is SHA1</h1>
-</div>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/hash2.png" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">SHA-1 is a cryptographically broken but still widely used hash function which takes an input and produces a 160-bit hash value known as message-digest typically rendered as 40 hexadecimal digits. It was designed by the United States National Security Agency, and is a U.S. Federal Information Processing Standard. Since 2005, SHA-1 has not been considered secure against well-funded opponents as of 2010 many organizations have recommended its replacement. NIST formally deprecated use of SHA-1 in 2011 and disallowed its use for digital signatures in 2013 and declared that it should be phased out by 2030.
-</div>
-  </div>
-</div>
-
-<br>
-
-<div class="header2">
-    <h1>Weakness</h1>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/weakness2.jpg" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">SHA-1 is weak to collision attacks, so an attacker has to be able to produce two messages (which, with current attacks, are of a certain form) that hash to the same value, and it would be hard to do that in an online manner without the assistance of the server. SHA-1 does not have collision resistance where it is difficult to find 2 messages with the same hash within a reasonable amount of time which makes the SHA-1 unreliable.
-</div>
-  </div>
-</div>
-
-<div class="header2">
-    <h1>Algorithm</h1>
-    <hr>
-    <div class="container2 card1">
-  <img src="../ui/img/algo.png" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="texd">First, we break our message into ’n’ number of parts which we are depicting as X, each of size of 448 bits and then we add 64 bits of padding to each of them which converts their total length to 512 bits. These 512 bits are then put in the compression function along with the 160 bits of compressed output, for the first time we carry this out we have a predefined value for the 160-bit value. This process keeps on going on ’n’ number of times repeatedly till the last 160 bit of the message is produced and that is the hash depicted as H(x)
-</div>
-    </div>
-</div>
-        <div class="sha1algo_img">
-        </div>
+<?php
+    require "../hashing/sha1_slides.html";
+    ?>
 
 
 <div class="header2">

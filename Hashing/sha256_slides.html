@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {
+  font-family: Verdana, sans-serif; 
+  margin:0;
+  height: max-content;
+}
+.mySlides {
+  display: none;
+}
+
+.blur{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  padding-top: 40px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bold{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+  font-size: 50px;
+}
+
+.bold2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+  font-size: 50px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+}
+
+.centered2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550">
+  </div>
+  <div class="text">
+  <div class="bold">What is SHA256?
+  </div>
+  </div> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">SHA 256 is a part of the SHA 2 family of algorithms, where SHA stands for Secure Hash Algorithm. Published in 2001, it was a joint effort between the NSA and NIST to introduce a successor to the SHA 1 family, which was slowly losing strength against brute force attacks.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">SHA-256 is one of the most popular hash algorithms around. It is often referred to as a 'digest', 'fingerprint' or 'signature' as those are unique and often never the same.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">It is almost a perfect unique string of character that is generated from a separate piece of input text, SHA-256 generates a 256-bit signature.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+  </div>
+  <div class="text"></div>
+  <div class="bold">Strength of SHA256
+  </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <div class="blur">
+    <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+    </div>
+    <div class="text"></div>
+    <div class="centered">SHA-256 is one of the most secure hashing functions on the market. The US government requires its agencies to protect certain sensitive information using SHA-256.
+    </div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Three properties make SHA-256 this secure. First, it is almost impossible to reconstruct the initial data from the hash value. A brute-force attack would need to make 2256  attempts to generate the initial data.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Second, having two messages with the same hash value (called a collision) is extremely unlikely. With 2256  possible hash values, the likelihood of two being the same is infinitesimally, unimaginably small.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/strength.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Finally, a minor change to the original data alters the hash value so much that it's not apparent the new hash value is derived from similar data; this is known as the avalanche effect.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/difference.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="bold2">Difference between SHA1 & SHA2
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/difference.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered2">The primary difference between SHA-1 and SHA-2 is the length of the hash. While SHA-1 is the more basic version of the hash providing a shorter code with fewer possibilities for unique combinations, SHA-2 or SHA-256 creates a longer, and thus more complex, hash.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/difference.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered2">In 2015, new SSL certificates with SHA-1 were phased out. By 2016, it became mandatory for SHA-2 to be used for all new certificates. However, some old certificates remain, which is why SHA-1 is still being used to this day.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="../ui/img/shadiff.png" style="width:100%" height="550">
+      <div class="text"></div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/difference.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="bold2">That concludes the SHA256 basic lesson.
+      </div>
+      </div>
+
+<a class="prev" onclick="plusSlides(-1)"> &#8592 </a>
+<a class="next" onclick="plusSlides(1)"> &#8594 </a>
+
+</div>
+<br>
+<hr>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span> 
+  <span class="dot" onclick="currentSlide(13)"></span>
+  <span class="dot" onclick="currentSlide(14)"></span>  
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 

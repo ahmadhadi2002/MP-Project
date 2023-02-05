@@ -1,9 +1,17 @@
+<link rel="stylesheet" type="text/css" href="btm.css" />
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8">
+<?php error_reporting(0); ?> 
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title></title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.container {
+
+.container2 {
   position: relative;
   width: 50%;
 }
@@ -11,27 +19,33 @@
 .image {
   display: block;
   width: 900px;
-  height: 230px;
+  height: 400px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .overlay {
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 230px;
+  height: 400px;
   width: 900px;
   opacity: 0;
   transition: .5s ease;
   background-color: #252525;
+  
 }
 
-.container:hover .overlay {
+.container2:hover .overlay {
   opacity: 1;
 }
 
-.text {
+.texd {
   color: white;
   font-size: 20px;
   position: absolute;
@@ -48,7 +62,7 @@
 }
 
 .card1{
-    margin:20px 0px 20px 400px;
+    margin:20px 0px 20px 300px;
 }
 
 .card2{
@@ -64,67 +78,179 @@
         text-align: justify;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 15px;
-    }
+}
 
+.header {
+  padding: 5px;
+  text-align: right;
+  background: #EBF1F5;
+  color: black;
+  font-size: 15px;
+}
+
+.header2 {
+  padding: 5px;
+  background: #EBF1F5;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+}
+
+.content {
+    padding: 5px;
+    color: black;
+    font-size: 10px;
+    line-height: 5px;
+    background: #EBF1F5;
+    text-align: left;
+    margin:0;
+}
+
+.general_img{
+
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto;
+    width: 800px;
+    height: 400px;
+    background-image: url("../ui/img/hash2.png");
+    border: 0.3px solid #000000;
+    border-radius: 20px 20px 0px 0px;
+
+}
+
+.weakness_img{
+
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+width: 800px;
+height: 400px;
+background-image: url("../ui/img/weakness2.jpg");
+border: 0.3px solid #000000;
+border-radius: 20px 20px 0px 0px;
+
+}
+
+.try_img{
+
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+width: 600px;
+height: 400px;
+background-image: url("../ui/img/try.jpg");
+border: 0.3px solid #000000;
+border-radius: 20px 20px 0px 0px;
+
+}
+
+.algo_img{
+
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+width: 750px;
+height: 400px;
+background-image: url("../ui/img/algo.png");
+border: 0.3px solid #000000;
+border-radius: 20px 20px 0px 0px;
+
+}
+
+.md5algo_img{
+
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+width: 400px;
+height: 180px;
+background-image: url("../ui/img/md5algo.png");
+border: 0.3px solid #000000;
+border-radius: 20px 20px 0px 0px;
+
+}
+
+.text{
+
+    text-align: left;
+    color: black;
+    background: #EBF1F5;
+    font-size:20px;
+    padding:5px;
+
+}
+
+.strength_img{
+
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+width: 800px;
+height: 400px;
+background-image: url("../ui/img/strength.jpg");
+border: 0.3px solid #000000;
+border-radius: 20px 20px 0px 0px;
+
+}
 
 </style>
+
 </head>
+
 <body>
+<?php
+    require "../ui/navbar.html";
+?>
+</head>
 
-<div class="container card1">
-  <img src="../ui/img/hash2.png" class="image">
-  <div class="overlay" onclick="nextImg()">
-    <div class="text">The MD5 message—digest algorithm is a widely used hash function producing  a 128-bit hash value. MD5 was designed by Ronald Rivest in 1991 to replace MD4. MD5 can be used as a checksum to verify data integrity against unintentional corruption. Historically it was widely used as a cryptographic hash function; however it has been found to suffer from extensive vulnerabilities. It remains suitable for other non-cryptographic purposes.</div>
-  </div>
+<body>
+<div class="header">
+  <h1>Salt & Pepper</h1>
 </div>
 
-<div class="container card2 hide" id="container2">
-    <img src="../ui/img/card_brute2.jpg" class="image">
-    <div class="overlay" onclick="nextImg1()">
-      <div class="text">Hello World</div>
-    </div>
+<?php
+  require "../hashing/snp_slides.html";
+  ?>
+
+<div class="header2">
+    <h1>Try it out<h1>
+    <hr>
+        <div class="try_img">
+        </div>
 </div>
 
-<div class="container card3 hide" id="container3">
-    <img src="../ui/img/card_brute3.jpg" class="image">
-    <div class="overlay" onclick="nextImg2()">
-      <div class="text">Hello World</div>
-    </div>
-</div>
+<form action="snp.php" method="post">
+Value: <input type="text" name="name"><br>
+<input type="submit">
+</form>
 
-<div class="information hide" id="information">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Original value:
+<?php 
+$salt = "2023";
+$pepper = "2022";
+$string = $_POST["name"];
+$hash = hash('sha256', $string, $salt);
+echo $string;
+?>
+<br>
 
-    </p>
-</div>
+hashed value after salt added: 
+<?php
+echo $hash;
+?>
+<br>
 
+ value after pepper added: 
+ <?php
+ echo $hash,$pepper;
+ ?>
+ <br>
 
-
+ value after hashing salt & pepper to value: 
+ <?php
+ $hash2 = hash('sha256', $hash, $pepper);
+ echo $hash2;
+ ?>
+ 
 </body>
-
-<script>
-
-function nextImg(){
-    document.getElementById("container2").style.display='block';
-
-}
-
-function nextImg1(){
-    document.getElementById("container3").style.display='block';
-}
-
-function nextImg2(){
-    document.getElementById("information").style.display='block';
-}
-</script>
-
-
-</html>
-
-
-
-
-A basic requirement of any cryptographic hash function is that it should be computationally infeasible to find 2 distinct messages that hash to the same value and MD5 fails that requirement catastrophically. It has been exploited in the field, most infamously by the flame malware. The malware authors identified a Microsoft Terminal server licensing service certificate that inadvertently was enabled for code signing and that still used the MD5 hashing algorithm which made the operation successful. However, MD5 continues to be widely used, despite its well-known weaknesses.
-The main MD5 algorithm operates on a 128-bit state, divided into four 32-bit words, denoted A, B, C, and D. These are initialized to certain fixed constants. The main algorithm then uses each 512-bit message block in turn to modify the state. The processing of a message block consists of four similar stages, termed rounds; each round is composed of 16 similar operations based on a non-linear function F, modular addition, and left rotation. There are four possible functions; a different one is used in each round:
