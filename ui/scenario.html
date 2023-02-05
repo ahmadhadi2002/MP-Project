@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 49.9%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 15px;
+  margin-bottom: 8px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  text-align: justify;
+  padding:0px 18px 30px 18px;
+  width: 45%;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.scencenter{
+    text-align: center; 
+}
+
+.scenimg{
+    padding-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 640px;
+    height: 300px;
+}
+
+.tryitbutton{
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 30px 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  float:right;
+}
+
+.a{
+    text-decoration: none;
+}
+
+.text_header{
+    margin-left: 468px;
+    margin-top: 60px;
+    font-size: 33px;
+    text-decoration: underline;
+}
+
+.text_information{
+  margin-top: 50px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.5em;
+    font-size: 1.5rem;
+}
+
+.textinformation{
+  margin-left: 467px;
+    margin-right: 467px;
+    text-align: justify;
+    line-height: 1.5em;
+    font-size: 1.25rem;
+    letter-spacing: 1e-06em;
+}
+
+</style>
+</head>
+<body>
+
+<!-- <button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+<!-- </div> -->
+
+<h2 class="text_header">Cracking Scenarios</h2>
+<p class="textinformation">To get a better understanding of password cracking, scenarios have been prepared to simulate and give you a hands on experience on cracking passwords and the points that hackers look for when attempting to exploit a flaw within a system to either guess and obtain a password</p>
+
+<div class="scencenter">
+<button type="button" class="collapsible">Scenario 1 (Dictionary Attack)</button>
+<div class="content">
+  <img src="../ui/img/dict_attack.jpg" class="scenimg">
+  <p class="text_information">
+    A hacker is conducting an automated attack called password spraying on a social media login page, this attack utilizes a dictionary list to crack passwords. 
+  </p>
+  <a href="../Password Cracking/dictattack.php"><button class="tryitbutton">Investigate!</button></a>
+</div>
+<br>
+<button type="button" class="collapsible">Scenario 2 (Brute Force Attack)</button>
+<div class="content">
+  <img src="../ui/img/brute_force.jpg" class="scenimg">
+  <p class="text_information">
+    A Blog Login Page is found not containing any type of protection against persistent password attempts. A hacker will utilize this to brute force attack users passwords.
+  </p>
+  <a href="../Password Cracking/bruteforce.php"><button class="tryitbutton">Investigate!</button></a>
+</div>
+<br>
+<button type="button" class="collapsible">Scenario 3 (Rainbow Table Attack)</button>
+<div class="content">
+  <p class="text_information">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <a href="../Password Cracking/rainbow.php"><button class="tryitbutton">Investigate!</button></a>
+</div>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

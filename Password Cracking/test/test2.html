@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body onload="arrayCheck()">
+
+<h2>JavaScript Arrays</h2>
+
+<p>The Array object is used to store multiple values in a single variable:</p>
+<form id="simpleform">
+    <input type="text" id="inputfield">
+    <button type="button" onClick="addtoArray()">Submit</button>
+</form>
+
+<p id="demo"></p><br>
+<p id="test"></p>
+
+<script>
+var cars = [];
+var inputValue="test";
+
+cars.push(inputValue);
+
+document.getElementById("demo").innerHTML = cars;
+
+function addtoArray(){
+    
+    var testArray= JSON.parse(localStorage.getItem("testArray"));
+
+    var input = document.getElementById('inputfield').value;
+
+    testArray.push(input);
+
+    localStorage.setItem("testArray", JSON.stringify(testArray));
+
+    testArray = JSON.parse(localStorage.getItem("testArray"));
+
+    document.getElementById("test").innerHTML = testArray;
+}
+
+function arrayCheck(){
+    var localArray = JSON.parse(localStorage.getItem("testArray"))
+    if  (localArray === null){
+        var localArray=[];
+        localStorage.setItem("testArray", JSON.stringify(localArray));
+    }
+    
+    if (localArray != null){
+        localStorage.removeItem("testArray");
+        var localArray=[];
+        localStorage.setItem("testArray", JSON.stringify(localArray));
+        
+    }
+    
+}
+
+
+</script>
+
+</body>
+</html>

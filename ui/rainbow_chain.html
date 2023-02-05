@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+.information_chain{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+    .dictcenter{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* width: 100%; */
+    }
+
+    .chain_header{
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.5rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+    }
+
+    .information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+.chainHash{
+    margin-left: 393px;
+    margin-bottom: 70px;
+    font-size: 1.15em;
+}
+
+.chainHash_input{
+    width: 400px;
+    height: 30px;
+    border-radius: 4px;
+    border-width: 1px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.chain_option{
+    width: 130px;
+    font-size: 0.8em;
+    border-radius: 9px;
+    border-width: 1px;
+    margin-bottom: 20px;
+}
+
+.chainBtn{
+    width: 80px;
+    height: 27px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+.chainVal{
+    display: none;
+}
+
+.chainVal table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.15em;
+}
+
+.chainVal td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px 10px 10px 10px;
+}
+
+.chainVal tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+
+</style>
+</head>
+<body>
+
+
+    <div class="chain_header">Rainbow Table Generation</div>
+
+    <div class="information_chain">
+        <p>
+            Although rainbow table and dictionary cracking may be similar, they differentiate in how they handle storing of information. For dictionary cracking, a set of characters are stored, hashes could also be stored in this manner but would get very large very quickly. An example of this, a plaintext and a 32 Byte Hash. With a library of 1 Billion passwords would be 40GB of data that a computer would need to sort through, which can take up a lot of time and computational power.
+        </p>
+        <p>
+            Instead rainbow tables uses a reduction function to generate the table. In a rainbow table contains many different “chains” with the starting of each “chain” being a plaintext password. The rainbow table will only store the plaintext of the first plaintext value of a “Chain”. 
+        </p>
+        <p>
+            This chain would then be hashed and the first couple of characters will be used to generate a new hash text. If a hash matches the password hash, it will then look back at the plaintext value stored within the rainbow table. From there it will go down the “Chain” and look for the plaintext value of the matching hash. The exercise below will allow you to try a rainbow table generation.
+        </p>
+    </div>
+
+    <div>
+        <h1 style="font-size: 40px; padding-left: 393px; margin-bottom: 5px;">Try It Out!</h1>
+    </div>
+
+    <hr style="width: 1090px">
+
+    <div class="information">
+        <p>
+            Key in a starter string key and select a hash algorithm, from there the reduction chain will be produced, in a real scenario the chain would be hundreds or thousands of strings in length but for our exercise, we will simply print out the first 20.
+        </p>
+        </div>
+
+    <div class="chainHash">
+        <label for="chainHash_input">Key in a string start key</label><br>
+        <input type="text" autocomplete="off" id="chainHash_input" name="chainHash_input" class="chainhash_input"><br>
+        <Label for="chain_option">Select a Hash Algorithm</Label><br>
+        <select class="chain_option" id="chain_option" name=" chain_option">
+                <option value="">Select a Option:</option>
+                <option value="1">MD5</option>
+                <option value="2">SHA-1</option>
+        </select><br>
+        <button type="button" onClick="chainHash(event)" class="chainBtn">Submit</button><br> 
+
+        <div class="chainVal" id="chainVal">
+        <table  id="chainTable">
+            <tr>
+                <th colspan="3">Reduction chain</th>
+            </tr>
+            <tr>
+                <th>Iteration No.</th>
+                <th>Hash</th>
+                <th>Plaintext</th>
+            </tr>
+            <!-- <tr>
+                <td id="chainVal"></td>
+            </tr> -->
+        </table>
+        </div>
+
+    </div>
+
+
+    <hr style="width: 1090px">
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function chainHash(event){
+
+    var chainHash = document.getElementById("chainHash_input").value;
+    var chainChoice = document.getElementById("chain_option").value;
+
+    var formData = {
+            'chainHash': chainHash,
+            'chainChoice': chainChoice,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_hashChain.php",
+        data:formData,
+        //dataType: 'json',
+        success: function(data) {
+            //alert ("Form Received");
+
+            var array = JSON.parse(data);
+
+            // document.getElementById("chainVal").innerHTML = JSON.stringify(array);
+            document.getElementById("chainVal").style.display="block";
+
+                var array = JSON.parse(data);
+                array.forEach(function(element) {
+                var tr = document.createElement("tr");
+                Object.keys(element).forEach(function(key) {
+                var tdKey = document.createElement("td");
+                var tdValue1 = document.createElement("td");
+                var tdValue2 = document.createElement("td");
+                tdKey.innerHTML = key;
+                tdValue1.innerHTML = element[key][0];
+                tdValue2.innerHTML = element[key][1];
+                tr.appendChild(tdKey);
+                tr.appendChild(tdValue1);
+                tr.appendChild(tdValue2);
+            });
+                document.getElementById("chainTable").appendChild(tr);
+            });           
+        }
+    })
+
+}
+
+</script>
+
+</html>

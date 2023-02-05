@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 900px;
+  height: 230px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 230px;
+  width: 900px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #252525;
+}
+
+.overlay_card{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 230px;
+  width: 900px;
+  opacity: 1;
+  transition: .5s ease;
+  background-color: #252525;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hide{
+    display: none;
+}
+
+.card1{
+    margin:20px 0px 20px 400px;
+}
+
+.card2{
+    margin: 0px 364px 20px auto;
+    background-color: #252525;
+}
+
+.card3{
+    margin:20px 0px 20px 400px;
+    background-color: #252525;
+}
+
+.information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+.card_test{
+  margin-left: 398px;
+    width: 900px;
+    height: 230px;
+    text-align: center;
+    background-color: rgb(85 85 85 / 81%)
+}
+
+.overlayz{
+  height: 230px;
+  width: 900px;
+  margin-bottom: 30px;
+}
+
+.text_card{
+  position: relative;
+    color: white;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    font-size: 1.25rem;
+    letter-spacing: 1e-06em;
+    padding-left: 20px;
+}
+
+.text_scrhead{
+    color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5em;
+      font-size: 1.57rem;
+      letter-spacing: 1e-06em;
+      text-align: left;
+      padding-top: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+</style>
+</head>
+<body>
+
+  <div>
+    <h4 style="margin-left: 398px;">Click on the Images to Continue</h4>
+  </div>
+
+
+<div class="container card1">
+  <img src="../ui/img/card_brute1.jpg" class="image">
+  <div class="overlay" onclick="nextImg()">
+    <div class="text">
+      Brute Force Cracking Strength and Weaknesses
+    </div>
+  </div>
+</div>
+
+
+<div class="card_test hide" id="container2">
+  <div class="overlayz" onclick="nextImg1()">
+    <div class="text_scrhead">Strengths</div>
+    <hr style="width: 850px; margin-left: 20px;">
+  <div class="text_card">
+    <ul>
+      <li>Simple to initiate and only require time</li>
+      <li>Able to crack any passwords given proper time</li>
+      <li>Will work if security has no mitigation strategy</li>
+    </ul>
+  </div>
+  </div>
+</div>
+<br>
+
+<div class="card_test hide" id="container3">
+  <div class="overlayz" onclick="nextImg2()">
+    <div class="text_scrhead">Weaknesses</div>
+    <hr style="width: 850px; margin-left: 20px;">
+    <div class="text_card">
+      <ul>
+        <li>Requires large amounts of computing power</li>
+        <li>Long and Complex passwords will take years to crack</li>
+        <li style="word-wrap: break-word;padding-right: 20px;">If password requirements such as minimum characters and special characters are not defined, it will be difficult to crack the password</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="card2 hide" id="container2">
+    <img src="../ui/img/card_brute2.jpg" class="image">
+    <div class="overlay_card" onclick="nextImg1()">
+      <div class="text">Hello World</div>
+    </div>
+</div>
+
+<div class="card3 hide" id="container3">
+    <img src="../ui/img/card_brute3.jpg" class="image">
+    <div class="overlay_card" onclick="nextImg2()">
+      <div class="text">Hello World</div>
+    </div>
+</div> -->
+
+<div class="information hide" id="information">
+    <p>
+      The core strengths of brute force cracking is the fact that it is simple to initiate, not requiring any information to begin a attack. It also will be able to crack any password given enough time, although this is also one of its detrimental weaknesses. Brute Force cracking can crack passwords ranging from milliseconds all the way up to years, on top of this it requires large amounts of computational power to brute force crack long passwords (8 Characters and up).
+    </p>
+    <p>
+      In conclusion Brute Force Cracking is easy to initiate, aims to go through all possible iterations of characters and requires time and computational power to achieve success.
+    </p>
+</div>
+
+
+
+</body>
+
+<script>
+
+function nextImg(){
+    document.getElementById("container2").style.display='block';
+
+}
+function nextImg1(){
+    document.getElementById("container3").style.display='block';
+}
+
+function nextImg2(){
+    document.getElementById("information").style.display='block';
+}
+</script>
+
+
+</html>

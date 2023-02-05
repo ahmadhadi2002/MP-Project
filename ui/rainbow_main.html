@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.hashMain table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height: 190px;
+    font-size: 19px;
+    min-width: fit-content;
+    margin: 49px 0px 120px 393px;
+    }
+
+    .hashMain td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    }
+
+    .hashMain tr:nth-child(odd) {
+    background-color: #dddddd;
+    }
+
+    .information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+
+</style>
+</head>
+
+<body>
+
+    <div class="hashMain">
+        <Label for="hashMain_option">Select a Hash Algorithm</Label><br>
+        <select class="hashMain_option" id="hashMain_option" name=" hashMain_option">
+            <option value="">Select a Option:</option>
+            <option value="1">MD5</option>
+            <option value="2">SHA-1</option>
+        </select><br>
+        <div id="hashList" style="display:none;"></div>
+        <label for="hashMain_input">Key in a password</label><br>
+        <input type="text" autocomplete="off" id="hashMain_input" name="hashMain_input"><br>
+        <button type="button" onClick="hashMain(event)">Submit</button><br> 
+    </div>
+
+    <div id="hashMain" class="hashMain"></div>
+
+
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    const changeArray = document.getElementById('hashMain_option');
+
+    changeArray.addEventListener('change', (event) => {
+    const result = document.getElementById('hashList');
+
+    var inputValue = `${event.target.value}`;
+
+    if(inputValue =="1"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower Case Letters for your character list!`;
+    }
+
+    if(inputValue =="2"){
+        result.style.display="block";
+        result.textContent = `You Chose Lower and Upper Case Letters for your character list!`;
+    }
+    
+    });
+
+
+    function hashMain(event){
+
+    var hashMain_input = document.getElementById("hashMain_input").value;
+    const hashMain_option = document.getElementById("hashMain_option").value;
+
+
+    var hashData = {
+            'hashMain_input': hashMain_input,
+            'hashMain_option': hashMain_option,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_tableGenerate.php",
+        data:hashData,
+        success: function(data) {
+            // alert ("Form Received");
+            document.getElementById("hashMain").innerHTML = data;
+        }
+    })
+
+}
+
+</script>
+
+
+</html>

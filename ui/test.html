@@ -1,55 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-    .html{
-        background-color: black;
-    }
-
-    .body{
-        background-color: black;
-    }
-
-    .float-container {
-    border: 3px solid #fff;
-    padding: 20px;
-    }
-
-    .float-child {
-        width: 40%;
-        float: left;
-        padding: 20px;
-        border: 2px solid red;
-    }  
-
-    .green{
-        width: 596px;
-        height: 596px;
-        background-color:green
-    }
-
-    .blue{
-        width: 596px;
-        height: 596px;
-        background-color: blue;
-    }
-</style>
-
-</head>
-
 <body>
 
-    <div class="float-container">
+<div class="char_selBox">
+    <label for="char_sel" style="font-size:18px; font-weight: bold;">Select a Character List</label><br>
+    <select id="char_sel" name="char_sel" class="char_sel">
+        <option value="0">Select a Option:</option>
+        <option value="1">Lower Case Letters</option>
+        <option value="2">Lower and Upper Case Letters</option>
+        <option value="3">Lower & Upper Letters, Numbers</option>
+        <option value="4">Lower & Upper Letters, Numbers, Special Characters</option>
+    </select>
+    </div>
+    
+    <button type="button" onClick="scroll()" class="attackButn">Attack!</button>
+    
+    <div id="sel">Default</div>
 
-        <div class="float-child">
-          <div class="green">Float Column 1</div>
-        </div>
-        
-        <div class="float-child">
-          <div class="blue">Float Column 2</div>
-        </div>
-        
-      </div>
+<script>
+
+function scroll(){
+	
+    var selInput = document.getElementById("char_sel");
+
+    document.getElementById("sel").innerHTML="Scrtipt";
+
+    // if(selInput == "0"){
+    // 	document.getElementById("sel").innerHTML="Select input:"+selInput;
+    // }
+    // if(selInput == "1"){
+    // 	document.getElementById("sel").innerHTML="Select input:"+selInput;
+    // }
+    // if(selInput == "2"){
+    // 	document.getElementById("sel").innerHTML="Select input:"+selInput;
+    // }
+    // if(selInput == "3"){
+    // 	document.getElementById("sel").innerHTML="Select input:"+selInput;
+    // }
+    // if(selInput == "4"){
+    // 	document.getElementById("sel").innerHTML="Select input:"+selInput;
+    // }
+
+}
+
+</script>
 
 </body>
 </html>

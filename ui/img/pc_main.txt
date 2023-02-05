@@ -1,0 +1,1 @@
+Password cracking is the process of recovering passwords from data that has been stored in or transmitted by a computer system in scrambled form. Examples of these scrambled forms are hashes, ciphers and encryptions, although for our context and exercises we will simply cracking basic plaintext and simulating an environment that will accept password attempts on a user. 

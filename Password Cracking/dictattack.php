@@ -1,42 +1,46 @@
+<html>
+<head>
+<style>
+
+
+</style>
+
+</head>
+
+<body onload="randomInfo(); profarrayCheck()">
+
+
 <?php 
-    $dictword = file('../Password Cracking/dictattack_files/words.txt');
-    $user_input = $_POST['dict_input'];
-    $check="0";
-    echo "----------------NOW TESTING----------------- <br>";
-    echo "User Input: ".$user_input."<br>";
+        // UI Section
 
-    $start = new DateTime();
+        require "../ui/navbar.html"; 
 
-    // foreach($dictword as $dictword){
-    //     //echo $dictword."<br>";
-    //     //$dictword= strval($dictword);
-    //     if (strcmp(trim($dictword), $user_input) == 0){
-    //         echo "Dict Attack Status: Password Found <br>";
-    //         $check="1";
-    //     }
-    // }
+        require "../ui/dict_main.html";
 
-    $directory = new DirectoryIterator('../Password Cracking/dictattack_files');
-    foreach($directory as $file) {
-        if($file->isFile() && $file->getExtension() === 'txt') {
-            $lines = file($file->getPathname());
-            foreach($lines as $line) {
-            if(strcmp(trim($line), $user_input) == 0) {
-                echo "Dict Attack Status: Password Found <br>";
-                $check="1";
-                break 2;
-            }
-            }
-        }
-    }
+        require "../ui/sliding-card.html";
 
-    if($check == "0"){
-        echo "Dict Attack Status: Password Not Found <br>";
-    }
+        require "../ui/dict_tryit.html";
 
-    $end = new DateTime();
-    $elapsed = $end->diff($start);
-    echo "Elapsed time: " . $elapsed->format('%s.%f seconds');
+        require "../ui/dict_compare.html";
 
-?>
+        require "../ui/dict_tryit.html";
+
+        require "../ui/dict_attack.html";
+
+        require "../ui/dict_tryit.html";
+
+        require "../ui/dict_profileGen.html";
+
+        require "../ui/scrollup_btn.html";
+
+        require "../ui/dict_bottomNav.html";
+
+        require "../ui/bottombar.html"; 
+
+ ?>
+
+
+</body>
+
+</html>
 

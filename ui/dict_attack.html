@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+    .html {min-height: 100vh;}
+    body { min-height: 100vh; }
+    
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .dictattack_p{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        padding: 30px 393px 10px 393px;
+    }
+
+    .inputform{
+        padding-left: 393px;
+    }
+
+    .pwd_label{
+        font-weight: bold;
+    }
+
+    .dict_input{
+        width: 600px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:  17px;
+        cursor: pointer;
+    }
+
+    .table-container table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height: 190px;
+    font-size: 19px;
+    min-width: fit-content;
+    margin: 49px 0px 120px 393px;
+    }
+
+    .table-container td, .table-container th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    }
+
+    .table-container tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+
+    .dict2_error{
+        display: none;
+        color: red;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.0em;
+    }
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="dictattack_p">
+        <p>In this exercise we will be utilizing a tool which will be able to determine if an attacker can find a compromised password, based on common passwords set 
+            which have been compiled into a library where comparisons will be made.
+        </p>
+    </div>
+
+    <div class= "inputform">
+        <form action="../Password Cracking/dictattack.php" method="post" autocomplete="off" onsubmit="return false;">
+            <label for="dict_input" class="pwd_label">Key in a Password</label><br>
+            <input type="text" id="dict_input" name="dict_input" class="dict_input"><br>
+            <div id="dict2_error" class="dict2_error"></div>
+            <input type="submit" value="Submit" style="margin-top: 15px;height: 40px;border-radius: 15px; border-width: thin; width:100px" id="dict_submit"  onclick="submitForm(event)">
+        </form>
+    </div>
+
+    <div id="table-container" class="table-container"></div>
+
+</body>
+
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function submitForm(event) {
+      event.preventDefault();
+      // submit form through ajax or any other method
+
+      var inputedValue = document.getElementById("dict_input").value;
+  
+    if (inputedValue == "" || inputedValue == null || inputedValue == undefined){
+        document.getElementById("dict2_error").style.display="block";
+        document.getElementById("dict2_error").innerHTML="Error please key in a proper input";
+    }else{
+
+    document.getElementById("dict2_error").style.display="none";
+
+    var formData = {
+        'dict_input': $('input[name=dict_input]').val(),
+      };
+  
+      $.ajax({
+        type: "POST",
+        url: "dict_backend.php",
+        data: formData,
+        success: function(data) {
+        $('#table-container').html(data);
+        //alert("Success send form");
+        //   document.getElementById("table_div").innerHTML=table;
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+          alert("An error occurred while submitting the form.");
+        }
+      });
+    }
+    }
+</script>

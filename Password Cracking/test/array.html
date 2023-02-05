@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+    <input type="text" id="new_element">
+    <button type="button" onclick="addToArray()">Add to Array</button>
+</form>
+<div id="array_list"></div>
+</body>
+
+</html>
+
+
+
+<script>
+
+function addToArray() {
+    // Get the new element from the input
+    var newElement = document.getElementById("new_element").value;
+
+    // Get the array from Local Storage or create an empty array
+    var myArray = JSON.parse(localStorage.getItem("myArray")) || [];
+
+    // Add the new element to the array
+    myArray.push(newElement);
+
+    // Store the array in Local Storage
+    localStorage.setItem("myArray", JSON.stringify(myArray));
+
+    // Send the array to the server using an AJAX request
+    sendArrayToServer(myArray);
+}
+
+function sendArrayToServer(myArray) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "save-array.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Get the array list from the server
+            getArrayList();
+        }
+    };
+    xhr.send(JSON.stringify(myArray));
+}
+
+function getArrayList() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "get-array-list.php", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var arrayList = JSON.parse(xhr.responseText);
+            // Display the array list in the HTML
+            var list = "";
+            for (var i = 0; i < arrayList.length; i++) {
+                list += "<li>" + arrayList[i] + "</li>";
+            }
+            document.getElementById("array_list").innerHTML = "<ul>" + list + "</ul>";
+        }
+    };
+    xhr.send();
+}
+
+
+
+</script>
