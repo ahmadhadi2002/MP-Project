@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Advanced Encryption Standard</title>
+</head>
+
+<body>
+    <?php
+  require "../../ui/navbar.html";
+  ?>
+    <section class="container" id="about">
+        <h1 style="font-size: 35px">ADVANCED ENCRYPTION STANDARD (AES)</h1>
+        <p style="font-size:18px">The Advanced Encryption Standard (AES) is a symmetrical block cipher algorithm that
+            uses either 128, 192, or 256 bit keys to transform a 128 bit block of plaintext into ciphertext. The AES
+            algorithm uses a substitution-permutation network with several rounds to generate ciphertext, with the
+            number of rounds determined by the key length. It uses a 4x4 grid of bytes/bits instead of a one-line
+            arrangement like most ciphers. AES was selected as the successor to the outdated Data Encryption Standard
+            (DES) by the National Institute of Standards and Technology (NIST) in 2000 after a public competition and
+            fierce cryptanalysis by leading encryption specialists. In 2003, it was approved for use with Secret and Top
+            Secret classified information of the U.S. government.</p>
+        <hr>
+    </section>
+    <section class="container" id="hist">
+        <h2><u>Background</u></h2>
+        <p style="font-size:18px">The Data Encryption Standard (DES) was becoming vulnerable to brute-force attacks,
+            leading the National Institute of Standards & Technology (NIST) to require a newer and more secure standard.
+            NIST announced a competition for the successor to DES, which was won by the Rijndael algorithm of Belgian
+            cryptographers Joan Daemen and Vincent Rijmen in 2000 after three rounds of competition and analysis by
+            leading encryption specialists. AES was selected for its perfect combination of security, performance,
+            efficiency, implementability, and flexibility.</p>
+        <hr>
+    </section>
+    <section class="container" id="app">
+        <h2><u>Process</u></h2>
+        <p style="font-size:18px">AES is a symmetric encryption algorithm that uses the same key for encryption and
+            decryption. The AES encryption process involves the following steps:</p>
+        <ol>
+            <li>Key Generation - A key of 128, 192, or 256 bits is generated for encryption and decryption.</li>
+            <li>Initialization Vector (IV) Generation - An IV of 128 bits is generated to add randomness and avoid
+                repetition in the encryption process.</li>
+            <li>Add Round Key - The plaintext is XORed with the first round key.</li>
+            <li>Main Rounds - The encryption process consists of 10, 12, or 14 rounds of transformations (depending on
+                the key size), each consisting of four transformations: Substitute Bytes (SubBytes), Shift Rows, Mix
+                Columns, and Add Round Key.</li>
+            <li>Final Round - The final round consists of the same transformations as the main rounds, except without
+                the Mix Columns step.</li>
+        </ol>
+    </section>
+</body>
+
+</html>

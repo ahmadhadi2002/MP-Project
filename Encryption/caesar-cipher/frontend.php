@@ -7,15 +7,6 @@ require "../../ui/navbar.html";
 
 
 <body>
-  <div class="w3-container" ; name="TOC">
-    <h2>Table of Content</h2>
-    <ul>
-      <li>About</li>
-      <li>test 1</li>
-      <li>Let's Try it Out!</li>
-      <li>test 1</li>
-    </ul>
-  </div>
   <section class="container" ; name="about">
     <h2>About</h2>
     <p>London is the most populous city in the United Kingdom,

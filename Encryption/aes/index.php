@@ -60,12 +60,12 @@
                                         Mode:
                                     </td>
                                     <td>
-                                        <select name="mode" ; id="mode" ; onclick="aesFunction('encrypt')">
-                                            <option value="CBC" ; selected>CBC (Cipher Block Chaining)</option>
-
+                                        <select name="mode" ; id="mode_en"
+                                            onclick="mode_checker(this.value, 'encrypt')">
+                                            <option value="ECB" ; selected>ECB (Electronic Book Code)</option>
+                                            <option value="CBC">CBC (Cipher Block Chaining)</option>
                                             <option value="CFB">CFB (Cipher Feedback)</option>
                                             <option value="CTR">CTR (Counter)</option>
-
                                             <option value="OFB">OFB (Output Feedback Mode)</option>
                                         </select>
                                     </td>
@@ -194,7 +194,9 @@
                                         Mode:
                                     </td>
                                     <td>
-                                        <select name="mode" ; id="mode" ; onclick="aesFunction('decrypt')">
+                                        <select name="mode_de" ; id="mode_de"
+                                            onclick="mode_checker(this.value, 'decrypt')">
+                                            <option value="ECB" ; selected>ECB (Electronic Book Code)</option>
                                             <option value="CBC">CBC (Cipher Block Chaining)</option>
                                             <option value="CFB">CFB (Cipher Feedback)</option>
                                             <option value="CTR">CTR (Counter)</option>
@@ -266,14 +268,13 @@
                         </center>
                     </td>
                 </tr>
-                <td>
-                    <p id="result_iden"></p>
-                </td>
+                <tr>
+                    <td>
+                        <p id="result_iden"></p>
+                    </td>
                 </tr>
             </table>
         </div>
-
-    </div>
     </div>
 </body>
 
