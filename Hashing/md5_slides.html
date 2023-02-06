@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {
+  font-family: Verdana, sans-serif; 
+  margin:0;
+  height: max-content;
+}
+.mySlides {
+  display: none;
+}
+
+.blur{
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  padding-top: 40px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  text-align: center;
+}
+
+.bold{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+  font-size: 50px;
+}
+
+.bold2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+  font-size: 50px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:#f2f2f2;
+}
+
+.centered2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:black;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550">
+  </div>
+  <div class="text">
+  <div class="bold">What is MD5?
+  </div>
+  </div> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/hash2.png" style="width:100%" height="550" filter="blur(8px)">
+  </div>
+  <div class="text"></div>
+  <div class="centered">The MD5 message digest algorithm is a widely used hash function producing  a 128-bit hash value. MD5 was designed by Ronald Rivest in 1991 to replace MD4. MD5 can be used as a checksum to verify data integrity against unintentional corruption. Historically it was widely used as a cryptographic hash function; however it has been found to suffer from extensive vulnerabilities. It remains suitable for other non-cryptographic purposes.
+  </div>
+  </div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <div class="blur">
+  <img src="../ui/img/weakness2.jpg" style="width:100%" height="550">
+  </div>
+  <div class="text"></div>
+  <div class="bold2">Weakness of MD5
+  </div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <div class="blur">
+    <img src="../ui/img/weakness2.jpg" style="width:100%" height="550">
+    </div>
+    <div class="text"></div>
+    <div class="centered2">A basic requirement of any cryptographic hash function is that it should be computationally infeasible to find 2 distinct messages that hash to the same value and MD5 fails that requirement catastrophically.
+    </div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/weakness2.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered2">It has been exploited in the field, most infamously by the flame malware. The malware authors identified a Microsoft Terminal server licensing service certificate that inadvertently was enabled for code signing and that still used the MD5 hashing algorithm which made the operation successful.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/weakness2.jpg" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered2">However, MD5 continues to be widely used, despite its well-known weaknesses.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="bold">MD5 algorithm
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">The MD5 hashing algorithm converts data into a string of 32 characters. For example, the word frog always generates this hash: 938c2cc0dcc05f2b68c4287040cfcf71.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Padding Bits: When you receive the input string, you have to make sure the size is 64 bits short of a multiple of 512. When it comes to padding the bits, you must add one(1) first, followed by zeroes to round out the extra characters. 
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Padding Length: You need to add a few more characters to make your final string a multiple of 512. To do so, take the length of the initial input and express it in the form of 64 bits. On combining the two, the final string is ready to be hashed.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="../ui/img/padding.png" style="width:100%" height="550">
+      <div class="text"></div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">The entire string is then converted into multiple blocks of 512 bits each. You also need to initialize four different buffers, namely A, B, C, and D. These buffers are 32 bits each and are initialized as follows:
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">A = 01 23 45 67 , B = 89 ab cd ef ,  C = fe dc ba 98 ,  D = 76 54 32 10
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">Each 512-bit block gets broken down further into 16 sub-blocks of 32 bits each. There are four rounds of operations, with each round utilizing all the sub-blocks, the buffers, and a constant array value.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">This constant array can be denoted as T[1] -> T[64] and Each of the sub-blocks are denoted as M[0] -> M[15].
+      </div>
+      </div>
+    
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="../ui/img/processmd5.png" style="width:100%" height="550">
+      <div class="text"></div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">According to the image above, you see the values being run for a single buffer A. The correct order is as follows:
+
+        It passes B, C, and D onto a non-linear process.
+        The result is added with the value present at A.
+        It adds the sub-block value to the result above.
+        Then, it adds the constant value for that particular iteration.
+        There is a circular shift applied to the string.
+        As a final step, it adds the value of B to the string and is stored in buffer A.
+        The steps mentioned above are run for every buffer and every sub-block. When the last block's final buffer is complete, you will receive the MD5 digest.
+      </div>
+      </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <div class="blur">
+      <img src="../ui/img/algo.png" style="width:100%" height="550">
+      </div>
+      <div class="text"></div>
+      <div class="centered">The non-linear process above is different for each round of the sub-block.
+
+        Round 1: (b AND c) OR ((NOT b) AND (d))
+        
+        Round 2: (b AND d) OR (c AND (NOT d))
+        
+        Round 3: b XOR c XOR d
+        
+        Round 4: c XOR (b OR (NOT d))
+        
+        With this, you conclude the working of the MD5 algorithm
+      </div>
+      </div>
+
+<a class="prev" onclick="plusSlides(-1)"> &#8592 </a>
+<a class="next" onclick="plusSlides(1)"> &#8594 </a>
+
+</div>
+<br>
+<hr>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span> 
+  <span class="dot" onclick="currentSlide(13)"></span> 
+  <span class="dot" onclick="currentSlide(14)"></span> 
+  <span class="dot" onclick="currentSlide(15)"></span> 
+  <span class="dot" onclick="currentSlide(16)"></span> 
+  <span class="dot" onclick="currentSlide(17)"></span> 
+  <span class="dot" onclick="currentSlide(18)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 
