@@ -61,17 +61,7 @@
 }
 
 .card1{
-    margin:20px 0px 20px 400px;
-}
-
-.card2{
-    margin: 0px 364px 20px auto;
-    background-color: #252525;
-}
-
-.card3{
-    margin:20px 0px 20px 400px;
-    background-color: #252525;
+    margin:20px auto 20px auto;
 }
 
 .information{
@@ -84,22 +74,23 @@
     }
 
 .card_test{
-  margin-left: 398px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 30px;
     width: 900px;
     height: 230px;
     text-align: center;
-    background-color: rgb(85 85 85 / 81%)
+    background-color: rgb(233 233 233 / 81%)
 }
 
 .overlayz{
   height: 230px;
   width: 900px;
-  margin-bottom: 30px;
 }
 
 .text_card{
   position: relative;
-    color: white;
+    color: black;
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.5em;
@@ -109,10 +100,11 @@
 }
 
 .text_scrhead{
-    color: white;
+    color: black;
       font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
       line-height: 1.5em;
-      font-size: 1.57rem;
+      font-size: 1.7rem;
       letter-spacing: 1e-06em;
       text-align: left;
       padding-top: 10px;
@@ -125,11 +117,11 @@
 <body>
 
   <div>
-    <h4 style="margin-left: 398px;">Click on the Images to Continue</h4>
+    <h4 style="margin-left: 481px;">Click on the cards to Continue</h4>
   </div>
 
 
-<div class="container card1">
+<div class="container card_test">
   <img src="../ui/img/card_brute1.jpg" class="image">
   <div class="overlay" onclick="nextImg()">
     <div class="text">
@@ -152,7 +144,6 @@
   </div>
   </div>
 </div>
-<br>
 
 <div class="card_test hide" id="container3">
   <div class="overlayz" onclick="nextImg2()">
@@ -185,10 +176,10 @@
 
 <div class="information hide" id="information">
     <p>
-      The core strengths of brute force cracking is the fact that it is simple to initiate, not requiring any information to begin a attack. It also will be able to crack any password given enough time, although this is also one of its detrimental weaknesses. Brute Force cracking can crack passwords ranging from milliseconds all the way up to years, on top of this it requires large amounts of computational power to brute force crack long passwords (8 Characters and up).
+      The core strengths of brute force cracking is the fact that it is simple to initiate, not requiring any information to begin a attack. It also will be able to crack any password given enough time, though this may seem like a formidable strength, it is in reality one of the reasons why people do not conduct brute force attacks. The time it takes for Brute Force attacks to crack passwords can range from anything between seconds up to days, months or years.
     </p>
     <p>
-      In conclusion Brute Force Cracking is easy to initiate, aims to go through all possible iterations of characters and requires time and computational power to achieve success.
+      This is where attackers will make the decision between spending more time to crack a password, or to simply head on to the next one. Due to the fact that in most information breaches multiple account information would have been stolen, thus there will be a mixed bag of users who have good password practices and those who don’t. Passwords without good password practices will be easily cracked, while those who pratice good password settings will most likely be passed due to the large increase in computing time. So, try to make an effort in increase the length of your password and its complexity, this way your password information will remain secure even if a breach were to occur.
     </p>
 </div>
 

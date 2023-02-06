@@ -88,11 +88,60 @@
     color: red;
 }
 
+.img1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img2{
+    display: block;
+    width: 1065px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img3{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.img4{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img5{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+.scroll_header{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 1.9rem;
+    letter-spacing: 1e-06em;
+    text-align: left;
+    padding-top: 10px;
+    margin-left: 393px;
+    padding-right: 20px;
+  }
+
 </style>
+
 
 </head>
 
 <body>
+
+    
 
     <div class="information_scr">
     <p>
@@ -118,7 +167,7 @@
     </div>
     <div id="error" class="error"></div>
 
-    <div id="textBox" class="sel_text hide"></div>
+    <!-- <div id="textBox" class="sel_text hide"></div> -->
 
     <button type="button" onClick="scrollBackend(event)" class="attackButn">Attack!</button>
 
@@ -147,9 +196,47 @@
 
 
     <div id="scroll-container" class="hide">
+    </div>
 
-        
+    <hr style="width: 1090px">
 
+    <div class="scroll_header">How does brute force work?</div>
+
+    <div class="information">
+        <p>
+            Let us delve deeper into understanding how brute force attacks work and what are some of the inner workings and decision making of a brute force attack. The 3 main variables that an attack is in control of is the minimum password length, maximum password length and the character complexity. 
+        </p>
+        <p>
+            Starting off with something relatively easy, which is the password minimum and maximum length. These 2 variables determine the starting length of the password and the ending length, this is because we don’t know the length of the password. In a realistic scenario we would start at 6 characters and start climbing up in the number of characters, until we reach the maximum amount of characters or find the password.
+        </p>
+        <img src="../ui/img/brute_demo.png" class="img1">
+        <p>
+            The other integral section of brute force attacks are the character lists. The character lists as you have selected in the activity above, are examples of what character lists would look like. This table below showcases the characters used in each example and the number of characters it contains.
+        </p>
+        <img src="../ui/img/char_table.png" class="img2">
+        <p>
+            Brute force attacks would cycle through each character list starting from the first character and ending at the last, with the last character taking the longest to guess A formula exists that calculates the total time it would take to crack these passwords, with the formula shown below.
+        </p>
+        <figure>
+            <img src="../ui/img/brute_formula.png" class="img3">
+            <figcaption style="font-size: 12px; margin-left: auto; margin-right: auto; margin-bottom: 40px;">Fig 1- Brute Force combination formula</figcaption>
+        </figure>
+        <figure>    
+            <img src="../ui/img/brute_formula_eg.png" class="img4">
+            <figcaption style="font-size: 12px;margin-left: auto;">Fig 2-Example of lower case character combinations</figcaption>
+        </figure>    
+        <p>
+            Computers on average can complete 100,000 guess per second, with a program that is properly optimized we can make a rough estimate of the time it would take to crack a 6 character passwords only containing lower case characters
+        </p>
+
+        <figure>
+            <img src="../ui/img/Computing_time.png" class="img5">
+            <figcaption style="font-size: 12px;margin-left: auto; margin-right: auto;margin-bottom: 20px;">Fig 3- Computing Time Formula</figcaption>
+        </figure>
+
+        <p>
+            This is the rough estimate of time taken to compute a 6 character password containing only lower case letters. By increasing the length and complexity of your password, you will be able to increase the total computing time needed to crack your password. As a result of this, the time taken to brute force crack a password will exceed a realistic computing time of around 1-2 days. Hopefully, this explanation will deepen your understanding of how password cracking is used, an attackers point of view and the process of brute force attacks.
+        </p>
     </div>
 
 
@@ -162,38 +249,38 @@
     const changeText = document.getElementById('char_sel');
 
     changeText.addEventListener('change', (event) => {
-    const result = document.getElementById('textBox');
+    // const result = document.getElementById('textBox');
 
     var inputValue = `${event.target.value}`;
 
     if(inputValue =="1"){
         document.getElementById("error").style.display = "none";
-        result.style.display="block";
-        result.textContent = `You Chose Lower Case Letters for your character list!`;
+        // result.style.display="block";
+        // result.textContent = `You Chose Lower Case Letters for your character list!`;
         charClean = "abcdefghijklmnopqrstuvwxyz";
         
     }
 
     if(inputValue =="2"){
         document.getElementById("error").style.display = "none";
-        result.style.display="block";
-        result.textContent = `You Chose Lower and Upper Case Letters for your character list!`;
+        // result.style.display="block";
+        // result.textContent = `You Chose Lower and Upper Case Letters for your character list!`;
         charClean = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         
     }
 
     if(inputValue =="3"){
         document.getElementById("error").style.display = "none";
-        result.style.display="block";
-        result.textContent = `You Chose Lower & Upper Letters, Number Characters for your character list!`;
+        // result.style.display="block";
+        // result.textContent = `You Chose Lower & Upper Letters, Number Characters for your character list!`;
         charClean = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         
     }
 
     if(inputValue =="4"){
         document.getElementById("error").style.display = "none";
-        result.style.display="block";
-        result.textContent = `You Chose Lower & Upper Letters, Number & Special Characters for your character list!`;
+        // result.style.display="block";
+        // result.textContent = `You Chose Lower & Upper Letters, Number & Special Characters for your character list!`;
         charClean = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>/?\`~"
         
     }

@@ -23,6 +23,45 @@
         font-size: 1.25rem;
         letter-spacing: 1e-06em;
     }
+
+    .dictMain_header{
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.5rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+    }
+
+    .mainDict_img{
+        border: 2px solid black;
+        width: 203px;
+        height: 257px;
+        /* margin-left: 35px; */
+    }
+
+    .mainDict_img2{
+        border: 2px solid black;
+        width: 400px;
+        height: 243px;
+    }
+
+    .column{
+        float: left;
+        padding-left: 20px;
+    }
+
+    .boxwrapper::after{
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .figure1{
+        margin:0;
+    }
+
+
 </style>
 </head>
 
@@ -41,6 +80,54 @@
                 Most list span over a couple gigabytes or even terabytes to increase the potential of success, hackers simply increase the size and variability of each guess. Though most good hackers would build a dictionary list to specifically target organizations or individuals and would conduct basic background checks on said users. This way they are able to leverage on the information that they have gained to make more accurate guesses. If an organizations name is “Singapore Clockworks” and is located in Singapore, the guesses would be something along the lines of “SGClock1234”, “cLoCkSG2022” or “SingCW2022”.
             </p> 
         </div>
+
+    </div>
+
+    <div class="dictMain_header">How do Dictionary attacks work?</div>
+
+    <div class="information">
+        <p>
+            In its essence it’s a very simple password comparison, it takes an unknown password and tries all of the possible inputs that exists within a library. If the password exists within the library, the attacker would then gain unauthorized access to your information or resources. Here is a little sample of what a dictionary list may look like
+        </p>
+
+        <div class="boxwrapper">
+            <div class="column">
+                <figure class="figure1">
+                 <img src="../ui/img/sample_library.png  " class="mainDict_img">
+                 <figcaption style="font-size: 12px;">Figure 1- Sample dictionary libraries</figcaption>
+                </figure>
+            </div>
+            <div class="column">
+                <img src="../ui/img/sample_library2.png  " class="mainDict_img">
+            </div>
+            <div class="column">
+                <img src="../ui/img/sample_library3.png  " class="mainDict_img">
+            </div>
+                
+        </div>
+
+        <p>
+            Dictionary libraries as you can see, it is simply hundreds or thousands of words placed within files which are read and placed into a inputs such as login pages or login portals. Ensure you can prevent yourself from having your password cracked by following good password habits. We would take a single word from the dictionary and place it into a input to test if the passwords match as you can see below.
+        </p>
+
+        <div class="boxwrapper">
+            <div class="column">
+                <figure class="figure1">
+                 <img src="../ui/img/sample_attack.png  " class="mainDict_img2">
+                 <figcaption style="font-size: 12px;">Figure 2- Attack Example</figcaption>
+                </figure>
+            </div>
+            <div class="column">
+                <img src="../ui/img/sample_attack1.png  " class="mainDict_img2">
+            </div>
+            <!-- <div class="column">
+                <img src="../ui/img/sample_library3.png  " class="mainDict_img">
+            </div> -->
+        </div>
+
+        <p>
+            If the password fails we would simply choose the next one and repeat this step until the whole dictionary lists has been attempted or a password is successful. This is the basic concept behind dictionary based attacks.
+        </p>
 
     </div>
 

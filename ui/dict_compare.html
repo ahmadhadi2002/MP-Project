@@ -65,9 +65,12 @@
     .hidden_array_table table{
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 50%;
+        width: 60%;
+        word-wrap: break-word;
+        max-width: 1471px;
         margin-top: 20px;
         font-size: 1.05em;
+        table-layout: fixed;
     }
 
     .hidden_array_table td, .hidden_array_table th {
@@ -103,8 +106,11 @@
     .array_answer_table table{
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 45%;
+    width: 60%;
+    word-wrap: break-word;
+    max-width: 1471px;
     margin-top: 20px;
+    table-layout: fixed;
     }
 
     .array_answer_table td, .array_answer_table th {
@@ -130,10 +136,72 @@
         font-size: 1.0em;
     }
 
+    .dictcenter{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* width: 100%; */
+    }
+
+    .information_dict{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+    .dict_header{
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.5rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+    }
+
+    .dict_img{
+        border: 2px solid black;
+        margin-left: 35px;
+    }
+
 </style>
 </head>
 <body onload="arrayCheck()">
 
+
+    <div class="dict_header">Dictionary Library Generation</div>
+
+    <div class="information_dict">
+        <p>
+            In an effort to provide more hands on experience with dictionary based attacks, this exercise was made with the ability to create a sample dictionary library. By utilizing our “Array List” text input box and the drop down menu, you can add a variety of words into a dictionary list. The drop down menu provides 3 main options which generate 10 different names, countries or common passwords.
+        </p>
+
+        <figure>
+            <img class="dict_img" src="../ui/img/dict_compare_option.png">
+            <figcaption style="font-size:1rem; margin-left: 35px;">Fig.1 - Dropdown menu selection</figcaption>
+        </figure>
+
+        <p>
+            From there you can start a simulated dictionary attack which uses your inputted dictionary list as its library. Simply key in a password, and it will make a simple comparison to the inputted dictionary list.
+        </p>
+
+        <figure>
+            <img class="dict_img" src="../ui/img/dict_compare_pass.png">
+            <figcaption style="font-size:1rem; margin-left: 35px;">Fig.2 - Creating library and testing input</figcaption>
+        </figure>
+        <p>
+            Have a try on dictionary attacks and try to understand how dictionary attacks functions and its weaknesses. 
+        </p>
+
+    </div>
+
+    <div>
+        <h1 style="font-size: 40px; padding-left: 393px; margin-bottom: 5px;">Try It Out!</h1>
+    </div>
+
+    <hr style="width: 1090px">
 
 <div class="compare">
 
@@ -152,7 +220,7 @@
                     <!-- <option value="4">Common Password</option> -->
                 </select>
             </form>
-            <div class="hidden_array_table" id="hidden_array_table">
+            <div class="hidden_array_table" id="hidden_array_table" style="max-width: 1471px;">
             <table>
                 <tr><th>Dictionary Inputs</th></tr>
                 <tr><td id="test" style="background-color: white;"></td></tr>    
@@ -193,6 +261,8 @@
     </div>
 
 </div>
+
+<hr style="width: 1090px; margin-top:90px;">
 
 </body>
 </html>
@@ -259,52 +329,51 @@ function addtoArray(){
 
     var array_sel = document.getElementById('array_sel').value;
 
+    var array_send = [];
+
     if(array_sel == "1"){
-        var array_send = [];
         var names = ["Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn","Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",    "Grace", "Chloe", "Camila", "Penelope", "Riley", "Layla", "Lillian", "Natalie", "Hazel", "Aubrey",    "Brooklyn", "Ellie", "Anna", "Khloe", "Mila", "Addison", "Aurora", "Adalynn", "Raelynn", "Lydia",    "Eleanor", "Hannah", "Luna", "Savannah", "Nevaeh", "Paisley", "Audrey", "Everly", "Anastasia", "Camille",    "Aaliyah", "Mackenzie", "Genevieve", "Charlie", "Ariel", "Stella", "Raven", "Violet", "Bella", "Aurora",    "Lucy", "Avery", " Scarlett", "Isabelle", "Saylor", "Ember", "London", "Brielle", "Sadie", "Paige",    "Nora", "Rylee", "Arianna", "Allie", "Gabriella", "Liliana", "Adalyn", "Natalie", "Isabel", "Raegan",    "Jordyn", "Kimberly", "Esther", "Makayla", "Adeline", "Bailey", "Caroline", "Naomi", "Willow", "Aubree"];
         
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 10; i++) {
             var randomIndex = Math.floor(Math.random() * names.length);
-            array_send.push(names[randomIndex]);
+            if (names[randomIndex] !== null) {
+                array_send.push(names[randomIndex]);
+             }
         }
 
-        testArray.push(array_send);
+        // testArray.push(array_send);
     }
 
     if(array_sel == "2"){
-        var array_send = [];
         var countries = [
             "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan","Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the" , "Congo, Republic of the","Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic","Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland","France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea","Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq","Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo","Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania","Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius","Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia","Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway","Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal","Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Singapore"];
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 10; i++) {
             var randomIndex = Math.floor(Math.random() * countries.length);
-            array_send.push(countries[randomIndex]);
+            if (countries[randomIndex] !== null) {
+                array_send.push(countries[randomIndex]);
+            }
         }
 
-        testArray.push(array_send);
+        // testArray.push(array_send);
     }
 
     if(array_sel == "3"){
-        var array_send = [];
         var common_pass = ["123456", "password", "12345678", "qwerty", "123456789", "12345", "1234", "111111", "1234567", "dragon",     "123123", "baseball", "abc123", "football", "monkey", "letmein", "696969", "shadow", "master", "666666",     "qwertyuiop", "123321", "mustang", "1234567890", "michael", "654321", "pussy", "superman", "1qaz2wsx", "7777777",     "fuckyou", "121212", "000000", "qazwsx", "123qwe", "killer", "trustno1", "jordan", "jennifer", "zxcvbnm",     "asdfgh", "hunter", "buster", "soccer", "harley", "batman", "andrew", "tigger", "sunshine", "iloveyou",     "fuckme", "2000", "charlie", "robert", "thomas", "hockey", "ranger", "daniel", "starwars", "klaster",     "112233", "george", "asshole", "computer", "michelle", "jessica", "pepper", "1111", "zxcvbn", "555555",     "11111111", "131313", "freedom", "777777", "pass", "fuck", "maggie", "159753", "aaaaaa", "ginger",     "princess", "joshua", "cheese", "amanda", "summer", "love", "ashley", "6969", "nicole", "chelsea", "biteme",     "matthew", "access", "yankees", "987654321", "dallas", "austin", "thunder", "taylor", "matrix", "minecraft"];
-        for (let i = 0; i <= 9; i++) {
+        for (let i = 0; i <= 10; i++) {
             var randomIndex = Math.floor(Math.random() * common_pass.length);
-            array_send.push(common_pass[randomIndex]);
+            if (common_pass[randomIndex] !== null) {
+                array_send.push(common_pass[randomIndex]);
+             }
         }
 
-        testArray.push(array_send);
+        // testArray.push(array_send);
     }
-    // if(array_sel == "4"){
-    //     var array_send = [];
-    //     var names = ["Emma", "Olivia", "Ava", "Isabella", "Sophia", "Charlotte", "Mia", "Amelia", "Harper", "Evelyn","Abigail", "Emily", "Elizabeth", "Avery", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Aria",    "Grace", "Chloe", "Camila", "Penelope", "Riley", "Layla", "Lillian", "Natalie", "Hazel", "Aubrey",    "Brooklyn", "Ellie", "Anna", "Khloe", "Mila", "Addison", "Aurora", "Adalynn", "Raelynn", "Lydia",    "Eleanor", "Hannah", "Luna", "Savannah", "Nevaeh", "Paisley", "Audrey", "Everly", "Anastasia", "Camille",    "Aaliyah", "Mackenzie", "Genevieve", "Charlie", "Ariel", "Stella", "Raven", "Violet", "Bella", "Aurora",    "Lucy", "Avery", " Scarlett", "Isabelle", "Saylor", "Ember", "London", "Brielle", "Sadie", "Paige",    "Nora", "Rylee", "Arianna", "Allie", "Gabriella", "Liliana", "Adalyn", "Natalie", "Isabel", "Raegan",    "Jordyn", "Kimberly", "Esther", "Makayla", "Adeline", "Bailey", "Caroline", "Naomi", "Willow", "Aubree"];
-        
-    //     for (let i = 0; i < 10; i++) {
-    //     var randomIndex = Math.floor(Math.random() * names.length);
-    //     array_send.push(names[randomIndex]);
-    //     }
 
-    //     testArray.push(array_send);
-    // }
-
+    if (array_send.length !== 0){
+        for(let i=0; i<= array_send.length; i++){
+            testArray.push(array_send[i]);
+        }
+    }
 
     testArray.push(input);
 

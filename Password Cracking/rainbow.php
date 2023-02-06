@@ -19,8 +19,15 @@
     echo "<br>";
     require "../ui/rainbow_chain.html";
     echo "<br>";
+
+    require "../ui/rainbow_tryit.html";
+
     require "../ui/rainbow_main.html";
     echo "<br>";
+
+    require "../ui/rainbow_tryit.html";
+
+    require "../ui/rainbow_hashCheck.html";
 
     require "../ui/scrollup_btn.html";
 

@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
 if (isset($_POST["hashMain_input"]) && isset($_POST["hashMain_option"])){
     
     $hashOption = $_POST['hashMain_option'];
@@ -33,6 +36,7 @@ foreach ($files as $file) {
         while (($line = fgets($inputFile)) !== false) {
             // Split the line by '=>'
             $parts = explode('=>', $line);
+
             $storedHash = trim($parts[0]);
             $password = trim($parts[1]);
 
@@ -41,7 +45,34 @@ foreach ($files as $file) {
                 $foundstatus = "Password found";
                 $foundPass = $password;
                 $check="1";
-                break;
+                // break;
+
+                $end = new DateTime();
+                $elapsed = $end->diff($start);
+            
+
+                $return = "
+                <table>
+                <tr>
+                    <th colspan=3 style='text-align:center;'>Hashed Input</th>
+                </tr>
+            
+                <tr>
+                    <td colspan=3 style='text-align:center;'>".$inputHash."</td>
+                </tr>
+                <tr>
+                    <th>Rainbow Attack Status</th>
+                    <th>Elasped Time</th>
+                    <th>Plaintext Passsword</th>
+                </tr>
+                <tr>
+                    <td>".$foundstatus."</td>
+                    <td>".$elapsed->format('%s.%f seconds')."</td>
+                    <td>".$foundPass."</td>
+                </tr>
+                </table>";
+            
+                echo $return;
             }
         }
         // Close the input file
@@ -50,13 +81,14 @@ foreach ($files as $file) {
 
 }
     if($check == "0"){
+
+
+        $end = new DateTime();
+        $elapsed = $end->diff($start);
+
         $foundstatus = "Password Not Found";
-    }
 
-    $end = new DateTime();
-    $elapsed = $end->diff($start);
-
-    $return = "
+        $return = "
     <table>
     <tr>
         <th colspan=3 style='text-align:center;'>Hashed Input</th>
@@ -66,18 +98,21 @@ foreach ($files as $file) {
         <td colspan=3 style='text-align:center;'>".$inputHash."</td>
     </tr>
     <tr>
-        <th>Dictionary Attack Status</th>
+        <th>Rainbow Attack Status</th>
         <th>Elasped Time</th>
         <th>Plaintext Passsword</th>
     </tr>
     <tr>
         <td>".$foundstatus."</td>
         <td>".$elapsed->format('%s.%f seconds')."</td>
-        <td>".$foundPass."</td>
+        <td></td>
     </tr>
     </table>";
 
     echo $return;
+
+    }
+
 
 
 }
