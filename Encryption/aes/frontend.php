@@ -49,7 +49,7 @@ require "../../ui/navbar.html";
   </section>
 
   <section class="container" ; name="app">
-    <h2><u>Process</u></h2>
+    <h2><u>Application/Process</u></h2>
     <p style="font-size:20px">
       The Advanced Encryption Standard (AES) is a symmetric encryption algorithm that uses the same key for both
       encryption and decryption. It requires the follow parameters as follows:

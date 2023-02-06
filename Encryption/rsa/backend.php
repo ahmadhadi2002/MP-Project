@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $pp = $_REQUEST["purpose"];
 global $priv_key;
 if ($pp === "key") {

@@ -43,7 +43,7 @@ require "../../ui/navbar.html";
   </section>
 
   <section class="container" ; name="app">
-    <h2><u>Application</u></h2>
+    <h2><u>Application/Process</u></h2>
     <div
       style="background-color: white; height: auto; width: auto;  border: 1px solid black; margin: auto; overflow: hidden;">
       <p style="font-size:20px">
