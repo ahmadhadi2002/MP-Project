@@ -201,7 +201,7 @@ require "../../ui/navbar.html";
       </tr>
       <tr>
         <td>
-          RSA cannot be utilized for public data encryption.
+          Promise Confidentiality, integrity & Authenticity (CIA) as well as non-reputability of data and electronic communications
         </td>
         <td>
           Decryption for RSA requires intensive processing and a large amount of processing power on the end of

@@ -15,7 +15,7 @@
     </div>
 
     <div class="mySlides fade">
-    <div class="text" style="text-align: center;">Vigenère Cipher Table</div>
+    <div class="text" style="text-align: center;">Vigenère Cipher Table (tabula recta)</div>
         <img src="../../ui/img/Encryption/vc/tab.jpg" style="width:100%">
     </div>
 

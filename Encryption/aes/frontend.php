@@ -26,6 +26,12 @@ require "../../ui/navbar.html";
     <center>
       <img src="../../ui/img/Encryption/aes/byte.jpg">
     </center>
+
+    In conclusion, AES is a trusted standard algorithm and it is used by the United States government and other
+    organizations. Although extremely efficient in the 128-bit form, AES also uses 192- and 256-bit keys
+    for very demanding encryption purposes. It is widely considered invulnerable to all attacks except for brute force.
+    Regardless, many internet security experts believe that AES will eventually be regarded as the go-to standard for
+    encrypting data in the private sector.
     <hr>
   </section>
 
@@ -43,7 +49,7 @@ require "../../ui/navbar.html";
       combination of security, performance, efficiency, implementability and flexibility.
       <br>
       <br>
-      In 2003, AES was approved for use with Secret and Top secret classified information of the U.S. government.
+      In 2003, AES was approved for use as an encryption technique for information classified Secret and Top secret in the U.S. government.
     </p>
     <hr>
   </section>
@@ -241,7 +247,7 @@ require "../../ui/navbar.html";
     <hr>
   </section>
 
-  
+
 </body>
 
 <footer>
@@ -253,7 +259,8 @@ require "../../ui/navbar.html";
 </html>
 
 <style>
-  html, body {
-     min-height: 100%;
-}
+  html,
+  body {
+    min-height: 100%;
+  }
 </style>
