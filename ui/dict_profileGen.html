@@ -86,10 +86,55 @@
     width: 50%;
 }
 
+.information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+    .profile_header{
+        margin-top: 70px;
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.7rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+    }
+
+    .profImg{
+        width: 1000px;
+        height: 400px;
+    }
+
 </style>
 </head>
 
 <body onload="randomInfo();  profarrayCheck()">
+
+    <div class="profile_header">Accurate Dictionary Guessing</div>
+
+    <div class="information">
+
+        <img src="../ui/img/simulation.jpg" class="profImg">
+        <p> 
+            With this scenario, we have created a simulated victim, with some basic information that are possible contributors to this sample users password. The 5 variables are randomly generated, and 5 random passwords are generated using a combination of these variables. Have a try at understanding a attackers point of view, after attaining key pieces of information that can lead to accurate guesses of a user’s password. This simulation will provide you with a more realistic approach to using dictionary attacks, and some key points that people will look for in order to crack your password.
+        </p>
+
+
+    </div>
+
+
+    <div>
+        <h1 style="font-size: 40px; padding-left: 393px; margin-bottom: 5px;">Try It Out!</h1>
+    </div>
+
+    <hr style="width: 1090px">
+
+    <p class="information" style="font-size:1rem;">Hint: Passwords are generated with 2 words combined, e.g (john1978).Dates only uses year.</p>
 
     <div class="profileMain">
         <table>
@@ -149,8 +194,27 @@
 
     </div>
 
-    <p id="test"></p>
-    <p id="test2"></p>
+
+    <div class="profile_header" style="margin-top:100px;">Conclusion</div>
+    <hr style="width: 1090px">
+    <div class="information">
+
+        <p>
+            To conclude this section let us go through the topics of the page. 
+        </p>
+        <ul>
+            <li>Understanding what a dictionary attack is</li>
+            <li>How attackers utilize dictionary attacks</li>
+            <li>Dictionary Library Generation</li>
+            <li>Simulated Dictionary Attack</li>
+            <li>Accurate Dictionary Guessing</li>
+        </ul>
+        We hope by the end of this page, you have gained a basic understanding over what dictionary attacks are and the methods attackers employ to succeed in cracking passwords. 
+        <p>
+
+        </p>
+
+    </div>
 
 </body>
 

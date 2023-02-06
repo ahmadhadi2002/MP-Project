@@ -7,7 +7,7 @@
 
 </head>
 
-<body onload="randomInfo(); profarrayCheck()">
+<body onload="randomInfo(); profarrayCheck(); arrayCheck();">
 
 
 <?php 
@@ -19,15 +19,9 @@
 
         require "../ui/sliding-card.html";
 
-        require "../ui/dict_tryit.html";
-
         require "../ui/dict_compare.html";
 
-        require "../ui/dict_tryit.html";
-
         require "../ui/dict_attack.html";
-
-        require "../ui/dict_tryit.html";
 
         require "../ui/dict_profileGen.html";
 
