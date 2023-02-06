@@ -7,28 +7,27 @@ if ($pp === "key") {
 		$key_size = $_REQUEST['key'];
 		key_gen($key_size);
 	} else if ($action === "verify") {
-		echo $content;
-		if (!empty($content)) {
-			if (isRSAEncryption($content)) {
-				echo "valid";
-			} else {
-				echo '<script type="text/javascript">';
-				echo 'alert("invalid Key file")';
-				echo '</script>';
-			}
-		} else {
-			echo '<script type="text/javascript">';
-			echo 'alert("Please Refresh your page")';
-			echo '</script>';
-		}
+		// echo $content;
+		// if (!empty($content)) {
+		// 	if (isRSAEncryption($content, "")) {
+		// 		echo "valid";
+		// 	} else {
+		// 		echo '<script type="text/javascript">';
+		// 		echo 'alert("invalid Key file")';
+		// 		echo '</script>';
+		// 	}
+		// } else {
+		// 	echo '<script type="text/javascript">';
+		// 	echo 'alert("Please Refresh your page")';
+		// 	echo '</script>';
+		// }
+		processUploadedFile();
 	}
 } else if ($pp === "deen") {
 	$str = $_REQUEST['text'];
 	$option = $_REQUEST['option'];
 	$technique = $_REQUEST['technique'];
 	$key = $_REQUEST['key'];
-
-	echo $str . "<br>";
 
 	if (isRSAEncryption($key, $technique)) {
 		if ($option === "upload") {
@@ -56,25 +55,26 @@ if ($pp === "key") {
 
 function isRSAEncryption($key, $technique)
 {
+	$key = str_replace("'", '', $key);
 	$content_a = trim($key);
 	$content_a = stripslashes($content_a);
 	$content_a = htmlspecialchars($content_a);
 
 	if ($technique === "decrypt") {
 		//echo $key;
-		$content_r = str_replace("'", '', $key);
+
 		if (preg_match('/-----BEGIN (PRIVATE KEY|RSA PRIVATE KEY)-----/', $content_a)) {
 			if (preg_match('/-----END (PRIVATE KEY|RSA PRIVATE KEY)-----/', $content_a)) {
-				$key_rsa = openssl_pkey_get_private($content_r);
+				$key_rsa = openssl_pkey_get_private($key);
 				if ($key_rsa) {
 					global $priv_key;
-					$priv_key = $content_r;
+					$priv_key = $key;
 					return true;
-					
+
 				} else {
-					echo "tets: $content_r";
+					echo "tets: $key";
 					echo '<script type="text/javascript">';
-					echo 'alert("Wrong Key used")';
+					echo 'alert("Wrong Key used1")';
 					echo '</script>';
 					return false;
 				}
@@ -92,19 +92,22 @@ function isRSAEncryption($key, $technique)
 					return true;
 				} else {
 					echo '<script type="text/javascript">';
-					echo 'alert("Wrong Key file used")';
+					echo 'alert("Wrong Key file used2")';
 					echo '</script>';
 					return false;
 				}
 			}
 		} else {
 			echo '<script type="text/javascript">';
-			echo 'alert("Wrong Key file used")';
+			echo 'alert("Wrong Key file used3")';
 			echo '</script>';
 			return false;
 		}
+	} else {
+		echo 'Public Key is invalid!';
 	}
 }
+
 
 function key_gen($key_size)
 {
@@ -133,7 +136,7 @@ function key_gen($key_size)
         </tr>
         <tr>
             <td style='text-align: center; vertical-align: middle;'>
-                <textarea id='textarea_private_Key' name='textarea_key' value=$privKey rows='10' cols='60' disabled> $privKey</textarea>
+                <textarea id='textarea_private_Key' name='textarea_key' value=$privKey rows='10' cols='60' disabled>$privKey</textarea>
                 <br>
                 <button onclick=copyToClipboard('#textarea_private_Key') id='copy'>Copy</button>
 				<button id='download' onclick=downloadPEMFile('private_Key')>Download</button>
@@ -152,7 +155,8 @@ function key_gen($key_size)
 }
 
 
-function rsa($str, $technique, $key, $padding){
+function rsa($str, $technique, $key, $padding)
+{
 	if ($technique === 'encrypt') {
 		$str = filter_var($str, FILTER_SANITIZE_STRING);
 		$key = filter_var($key, FILTER_SANITIZE_STRING);
@@ -168,11 +172,7 @@ function rsa($str, $technique, $key, $padding){
 
 	} else if ($technique === 'decrypt') {
 		$str = str_replace("'", '', $str);
-		echo $str;
 		global $priv_key;
-		//echo $priv_key;
-
-		echo "(base64_decode($str),  $priv_key, $padding);";
 		$str = filter_var($str, FILTER_SANITIZE_STRING);
 		$key = filter_var($key, FILTER_SANITIZE_STRING);
 
@@ -182,8 +182,55 @@ function rsa($str, $technique, $key, $padding){
 		} else if ($result) {
 			echo $decrypted;
 		}
-		} else {
-			echo "error";
-		}
+	} else {
+		echo "error";
+	}
 }
+
+function processUploadedFile()
+{
+	if (isset($_FILES['fileInput']['error']) && $_FILES['fileInput']['error'] == 0) {
+		$file = $_FILES['fileInput']['tmp_name'];
+		$fileContent = file_get_contents($file);
+		if (!empty($fileContent)) {
+			$status = 'File is not empty. ';
+			//check validity of key
+			if (preg_match('/-----BEGIN (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
+				if (preg_match('/-----END (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
+					$content_r = str_replace("'", '', $fileContent);
+					$key_rsa = openssl_pkey_get_private($content_r);
+					if ($key_rsa) {
+						$status =  'Private Key is valid!';
+
+					} else {
+						$status =  'Private Key is invalid!';
+					}
+				} else {
+					$status =  'Private Key is invalid!';
+				}
+			} else if (preg_match('/-----BEGIN (PUBLIC KEY|RSA PUBLIC KEY)-----/', $fileContent)) {
+				if (preg_match('/-----END (PUBLIC KEY|RSA PUBLIC KEY)-----/', $fileContent)) {
+					$key_rsa = openssl_pkey_get_public($fileContent);
+					if ($key_rsa) {
+						$status =  'Public Key is valid!';
+					} else {
+						$status =  'Public Key is invalid!';
+					}
+				}
+			} else {
+				echo 'Public Key is invalid!';
+			}
+		} else {
+			$status = 'File is empty. ';
+		}
+	} else {
+		$fileContent = '';
+		$status = 'File not uploaded';
+	}
+
+	return array('fileContent' => $fileContent, 'status' => $status);
+}
+
+$response = processUploadedFile();
+echo json_encode($response);
 ?>

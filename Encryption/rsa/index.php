@@ -48,10 +48,11 @@
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'en')">Encrypt</button>
         <button class="tablinks" onclick="openTab(event, 'de')">Decrypt</button>
+        <button class="tablinks" onclick="openTab(event, 'veri')">Verify Key File</button>
     </div>
 
     <div id="en" class="tabcontent">
-        <form id="form_rsa_en" ; onclick = "rsaFunction('encrypt')">
+        <form id="form_rsa_en" ; onclick="rsaFunction('encrypt')">
             <div class="row_deen">
                 <div class="column_deen">
                     <div class="card_en">
@@ -66,7 +67,8 @@
                             <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
 
                             <div class="brick__content">
-                                <textarea style="height: 400px; width: 420px;" ; name="text_en" ; id="text_en" ></textarea>
+                                <textarea style="height: 400px; width: 420px;" ; name="text_en" ;
+                                    id="text_en"></textarea>
                             </div>
                         </div>
                     </div>
@@ -103,26 +105,14 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" ; name="option" ; value="input" ; id="option" ; onclick="toggleTextarea();">
+                                        <input type="radio" ; name="option" ; value="input" ; id="option" ;
+                                            onclick="toggleTextarea();">
                                     </td>
                                     <td>
                                         <label for="pub">Public Key:</label>
                                         <br>
                                         <textarea style="height: 150px; width: 350px;" ; name="keyInput" ;
                                             id="keyInput"></textarea>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <input type="radio" ; name="option" ; value="upload" ; id="option" ; onclick="toggleTextarea();">
-                                    </td>
-                                    <td>
-                                        <input type="file" id="file_en" name="file_en" onchange="displayFileContent(event)">
-                                        <br>
-
-                                        <textarea id="key_up" rows="10" cols="50" disabled  ; hidden></textarea>
-
                                     </td>
                                 </tr>
                                 <br>
@@ -140,11 +130,11 @@
                                 </center>
                             </header>
                             <div class="brick__content">
-                                <textarea style="height: 400px; width: 420px;" ; id="result_en" ; name="result_en" ;
-                                    ></textarea>
-                
-                                    <br>
-                                    
+                                <textarea style="height: 400px; width: 420px;" ; id="result_en" ; name="result_en"
+                                    ;></textarea>
+
+                                <br>
+
                             </div>
                             <br>
                         </div>
@@ -171,7 +161,8 @@
                             <!-- //comment- Dnt use ciphertext, use (original Text) => use a simple/layman term -->
 
                             <div class="brick__content">
-                                <textarea style="height: 380px; width: 420px;" ; name="text_de" ; id="text_de" ></textarea>
+                                <textarea style="height: 380px; width: 420px;" ; name="text_de" ;
+                                    id="text_de"></textarea>
                             </div>
                         </div>
                     </div>
@@ -208,7 +199,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input type="radio" ; name="option" ; value="input" ; id="option" ; onclick="toggleTextarea();">
+                                        <input type="radio" ; name="option" ; value="input" ; id="option" ;
+                                            onclick="toggleTextarea();">
                                     </td>
                                     <td>
                                         <label for="pub">Private Key:</label>
@@ -217,19 +209,6 @@
                                             id="keyInput_de"></textarea>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>
-                                        <input type="radio" ; name="option" ; value="upload" ; id="option">
-                                    </td>
-                                    <td>
-                                    <input type="file" id="file_en" name="file_en" onchange="displayFileContent(event)">
-                                        <br>
-                                        <form id="key_up_f">
-                                        <textarea id="key_up" rows="10" cols="50" disabled  ; hidden ></textarea>
-                                    </td>
-                                </tr>
-
                                 <br>
                             </table>
                         </div>
@@ -245,7 +224,7 @@
                                 </center>
                             </header>
                             <div class="brick__content">
-                            <div class="box"></div>
+                                <div class="box"></div>
                                 <textarea style="height: 400px; width: 420px;" ; id="result_de" ; name="result_de" ;
                                     readonly></textarea>
                             </div>
@@ -253,9 +232,30 @@
                         </div>
                     </div>
                 </div>
+                <input type="text" ; id="technique" ; name="technique" ; value="decrypt" ; hidden>
             </div>
-            <input type="text" ; id="technique" ; name="technique" ; value="decrypt" ; hidden>
+        </form>
+    </div>
+    <div id="veri" class="tabcontent">
+    <form id="uploadForm">
+    <input type="file" id="fileInput" name="fileInput">
+    <input type="button" value="Upload" onclick="uploadFile()">
 </form>
+<table id="fileTable_veri" style="display: none">
+    <tr>
+        <td>Status:</td>
+        <td id="status"></td>
+    </tr>
+    <tr>
+        <td>File Content:</td>
+        <td id="fileContent"></td>
+    </tr>
+</table>
     </div>
 </body>
 </html>
+
+<script>
+   
+
+</script>

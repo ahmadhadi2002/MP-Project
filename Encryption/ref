@@ -1,0 +1,13 @@
+https://sectigostore.com/blog/types-of-encryption-what-to-know-about-symmetric-vs-asymmetric-encryption/
+https://www.simplilearn.com/tutorials/cryptography-tutorial/asymmetric-encryption#what_is_asymmetric_encryption
+https://www.simplilearn.com/data-encryption-methods-article?tag=symmetric%20encryption
+
+
+
+A method to encode information in a way making it unreadable without a secret
+key. This process transforms plaintext into ciphertext via an encryption algorithm
+and a secret key. The resulting ciphertext can only be deciphered and transformed back into the
+original plaintext through the usage of appropriate decryption key. The purpose of encryption is to
+protect
+sensitive data from unauthorized access, theft or tampering, and to ensure the privacy and
+confidentiality of the information being transmitted or stored.

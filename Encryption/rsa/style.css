@@ -191,3 +191,14 @@ tr:nth-child(even) {
   border-width: thin; 
   border-color: black;
 }
+
+#fileTable_veri {
+    border: 1px solid black;
+    color: white;
+    border-collapse: collapse;
+    display: none;
+}
+#fileTable td {
+    border: 1px solid black;
+    padding: 5px;
+}

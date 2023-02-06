@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>Rivest-Shamir-Adleman</title>
 
-<head>
-<style>
-    .topnav{
-        overflow: hidden;
-        background-color: teal;
-        top:0;
-        margin: 0;
-        padding: 0;
-        position: sticky;
-        z-index: 1;
-    }
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-<div class="topnav">
-        <h1>Header</h1>
-</div>
-</head>
+<?php
+require "../../ui/navbar.html";
+?>
 
 
 <body>
@@ -43,7 +27,7 @@
 <article class="container"; name="test"> 
   <h2>Let's Try it Out!</h2>
   <?php 
-  include("ajax.php");
+  include("index.php");
   ?>
   <hr>
 </article>
