@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.hashCheck table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 45%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    height: 190px;
+    font-size: 19px;
+    min-width: fit-content;
+    margin: 49px 0px 120px 393px;
+    }
+
+    .hashCheck td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    }
+
+    .hashCheck tr:nth-child(odd) {
+    background-color: #dddddd;
+    }
+
+    .information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+    .hashCheck_form{
+    margin-left: 393px;
+    margin-bottom: 70px;
+    font-size: 1.15em;
+    }
+
+    .hashCheck_input{
+        width: 400px;
+        height: 30px;
+        border-radius: 4px;
+        border-width: 1px;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    .hashCheck_option{
+        width: 130px;
+        font-size: 0.8em;
+        border-radius: 9px;
+        border-width: 1px;
+        margin-bottom: 10px;
+    }
+
+    .hashCheckBtn{
+        width: 80px;
+        height: 27px;
+        border-radius: 3px;
+        border-width: 1px;
+        margin-top: 15px;
+    }
+
+    .checkhashList{
+        margin-bottom: 10px;
+    }
+
+</style>
+</head>
+
+<body>
+
+    <div class="hashCheck_form">
+        <Label for="hashCheck_option">Select a Hash Algorithm</Label><br>
+        <select class="hashCheck_option" id="hashCheck_option" name=" hashCheck_option">
+            <option value="">Select a Option:</option>
+            <option value="1">MD5</option>
+            <option value="2">SHA-1</option>
+        </select><br>
+        <div id="checkhashList" style="display:none;" class="checkhashList"></div>
+        <label for="hashCheck_input">Key in a Hashed Password</label><br>
+        <input type="text" autocomplete="off" id="hashCheck_input" name="hashCheck_input" class="hashCheck_input"><br>
+        <button type="button" onClick="hashCheck(event)" class="hashCheckBtn">Submit</button><br> 
+    </div>
+
+    <div id="hashCheck" class="hashCheck"></div>
+
+</body>
+
+<script src="../ui/rainbow_largeArray.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    const hashCheckArray = document.getElementById('hashCheck_option');
+
+    hashCheckArray.addEventListener('change', (event) => {
+    const result = document.getElementById('checkhashList');
+
+    var inputValue = `${event.target.value}`;
+
+    if(inputValue =="1"){
+        result.style.display="block";
+        result.textContent = `Generated MD5 Hashed Passwords`;
+        generatePass(inputValue);
+    }
+
+    if(inputValue =="2"){
+        result.style.display="block";
+        result.textContent = `Generated SHA1 Hashed Passwords`;
+        generatePass(inputValue);
+    }
+    
+    });
+
+    function generatePass(inputValue){
+
+        
+        var tempmd5Array = md5Array;
+        var tempSha1Array = sha1Array;
+        var checkArray = [];
+
+        
+
+        // document.getElementById("test").innerHTML = md5Array.toString();
+        // document.getElementById("test1").innerHTML = sha1Array.stringify;
+
+        if (inputValue == "1"){
+
+
+
+            for (let i = 0; i < 3; i++) {
+            var keys = Object.keys(tempmd5Array);
+            var randomInput1 = Math.floor(Math.random() * keys.length);
+            var element1 = keys[randomInput1];
+
+            // check if password string exists within the array 
+            if (checkArray.indexOf(element1) === -1) {
+                checkArray.push(element1);
+            } else {
+                // decrement i to repeat the loop to generate a new password string
+                i--;
+            }
+            }
+
+        }
+
+        if (inputValue == "2"){
+
+            for (let i = 0; i < 3; i++) {
+            var keys = Object.keys(tempSha1Array);
+            var randomInput1 = Math.floor(Math.random() * keys.length);
+            var element1 = keys[randomInput1];
+
+            // check if password string exists within the array 
+            if (checkArray.indexOf(element1) === -1) {
+                checkArray.push(element1);
+            } else {
+                // decrement i to repeat the loop to generate a new password string
+                i--;
+                }
+
+            }
+        }
+
+        localStorage.setItem("checkArray", JSON.stringify(checkArray));
+
+    }
+
+    function hashCheck(event){
+
+    var hashCheck_input = document.getElementById("hashCheck_input").value;
+    const hashCheck_option = document.getElementById("hashCheck_option").value;
+
+    var hashData = {
+            'hashCheck_input': hashCheck_input,
+            'hashCheck_option': hashCheck_option,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_checker.php",
+        data:hashData,
+        success: function(data) {
+            // alert ("Form Received");
+            document.getElementById("hashCheck").innerHTML = data;
+        }
+    })
+
+}
+
+</script>
+
+
+</html>
