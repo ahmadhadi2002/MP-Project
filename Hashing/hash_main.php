@@ -128,28 +128,28 @@
 <button type="button" class="collapsible">Scenario 1 (MD5)</button>
 <div class="content">
   <img src="../ui/img/MD5.jpg" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>The MD5 message-digest algorithm is a widely used hash function producing a 128-bit hash value. </p>
   <a href="../Hashing/md5.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 2 (SHA1)</button>
 <div class="content">
   <img src="../ui/img/SHA1.png" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>SHA-1 is a hash function which takes an input and produces a 160-bit hash value known as a message digest, typically rendered as 40 hexadecimal digits.</p>
   <a href="../Hashing/sha1.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 3 (SHA256)</button>
 <div class="content">
   <img src="../ui/img/SHA256.jpg" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>SHA-256 stands for Secure Hash Algorithm 256-bit and it's used for cryptographic security.</p>
   <a href="../Hashing/sha256.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
 <button type="button" class="collapsible">Scenario 3 (Salt & Pepper)</button>
 <div class="content">
   <img src="../ui/img/SNP.jpg" class="scenimg">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Salt and Pepper is a hashing technique that acts as an additional character added into user's input to add an extra layer of defense.</p>
   <a href="../Hashing/snp.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 </div>
