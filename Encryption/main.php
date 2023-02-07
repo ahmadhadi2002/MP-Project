@@ -108,7 +108,7 @@
 
                     <div class="scencenter">
                         <h2><u>Encryption Techniques</u></h2>
-                        Primitive Encryption Technique <br>
+                        Primitive Encryption Technique  <br>
                         <button type="button" class="collapsible">Encryption Technique 1 (Caesar Cipher)</button>
                         <div class="content">
                             <img src="../ui/img/Encryption/cs.jpeg" class="scenimg">
