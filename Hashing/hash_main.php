@@ -114,7 +114,7 @@
 
         <div>
         <div class="image">
-            <img src="/ui/img/hashmain.jpg"; class="center">
+            <img src="../ui/img/hashmain.jpg"; class="center">
         </div>
         <div class="information">
             <p class="textcenter">Hashing is the process of transforming any given key or a string of characters into another value. This is usually represented by a shorter, fixed-length value or key that represents and makes it easier to find or employ the original string. In this exercise, we will be learning about the different hashes and performing the hashes. </p>
