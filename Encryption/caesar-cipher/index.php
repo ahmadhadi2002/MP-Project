@@ -1,7 +1,8 @@
 <html>
 
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="mid.js"></script>
 </head>
 
 <body>
@@ -13,7 +14,6 @@
         <div id="De_En" class="tabcontent">
             <div class="row_deen">
                 <div class="column_deen">
-
                     <div class="card">
                         <div class="container">
                             <header>
@@ -41,7 +41,6 @@
                                 </center>
                             </header>
                             <table>
-                                
                                 <tr>
                                     <td>
                                         Shift Key:
@@ -146,17 +145,4 @@
         </div>
     </div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-use framework - ease of web interaction
-
-wireframing - for the different encryption page

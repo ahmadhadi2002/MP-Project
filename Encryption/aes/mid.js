@@ -14,23 +14,53 @@ button.addEventListener("click", () => {
     }
 });
 
+function mode_checker(mode, technique) {
+    var mode = mode;
+    console
+    if (technique === "encrypt") {
+        if (mode === "ECB") {
+            console.log("12");
+            document.getElementById("iv_un").disabled = true;
+            aesFunction('encrypt');
+        } else {
+            document.getElementById("iv_un").disabled = false;
+            document.getElementById("mode_en").value = mode;
+            aesFunction('encrypt');
+        }
+    }
+    if (technique === "decrypt") {
+        if (mode === "ECB") {
+            document.getElementById("iv_de-un").disabled = true;
+            aesFunction('decrypt');
+        } else {
+            document.getElementById("iv_un").disabled = false;
+            document.getElementById("mode_de").value = mode;
+            aesFunction('decrypt');
+
+        }
+    }
+}
+
 function aesFunction(technique) {
-    console.log(technique);
+
     if (technique === "encrypt") {
         var str = document.getElementById("text_en").value;
-        console.log(str);
+        //var mode = document.getElementById("mode_en").value;
+
+
     } else if (technique === "decrypt") {
         var str = document.getElementById("text_de").value;
-        console.log(str);
+        //var mode = document.getElementById("mode-de").value;
+
+
     }
-    ajax(str, technique);
+    ajax(str, technique, mode);
 }
 
 
-function ajax(str, technique) {
+function ajax(str, technique, mode) {
     //other parameter
     var key = document.getElementById("key").value;
-    var mode = document.getElementById("mode").value;
     var option = document.querySelector("[name=\"option\"]:checked").value;
 
     if (technique === 'encrypt') {
@@ -52,7 +82,6 @@ function ajax(str, technique) {
         if (this.readyState == 4 && this.status == 200) {
 
             var result = this.responseText;
-            console.log(result);
             if (technique === 'encrypt') {
                 document.getElementById("result").innerHTML = result;
             } else if (technique === 'decrypt') {
@@ -70,10 +99,8 @@ function ajax(str, technique) {
 }
 
 function checker(iv, tech) {
-    console.log(iv);
     var iv = iv;
     let inputLength = iv.length;
-    console.log(inputLength);
     if (0 < inputLength && inputLength < 16) {
         if (tech === "en") {
             document.getElementById("checker_result_en").innerHTML = "please ensure that the length of iv is 16 characters long";
@@ -93,7 +120,6 @@ function checker(iv, tech) {
 
 
 function identifier(str) {
-    console.log(str);
     var xhttp;
     if (str.length == 0) {
         document.getElementById("result_iden").innerHTML = "";
@@ -124,8 +150,6 @@ function openTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
-
-    console.log(tabName);
 }
 
 window.onbeforeunload = function () {

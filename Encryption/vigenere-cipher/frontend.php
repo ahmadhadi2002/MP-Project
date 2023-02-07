@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Vigenere Cipher</title>
+<title>Vigenère Cipher</title>
 <?php
 require "../../ui/navbar.html";
 ?>
@@ -8,9 +8,9 @@ require "../../ui/navbar.html";
 <body>
 
   <section class="container" ; name="about">
-  <h1 style="font-size: 35px">VIGENÈRE CIPHER</h1>
-  Cryptography/Poly Alphabetic Cipher
-  <br>
+    <h1 style="font-size: 35px">VIGENÈRE CIPHER</h1>
+    Cryptography | Poly Alphabetic Cipher
+    <br>
     <h2><u>What is Vigenère cipher?</u></h2>
     <p style="font-size:18px">Vigenère cipher is a method of encryption uses a simple substitution to encode a message,
       Polyalphabetic
@@ -24,7 +24,7 @@ require "../../ui/navbar.html";
   </section>
 
   <section class="container" ; name="hist">
-    <h2><u>Brief history</u></h2>
+    <h2><u>Background (Brief)</u></h2>
     <p style="font-size:18px">Although the Vigenère cipher was first described by Blaise de Vigenère in the
       16th century, it is believed that the cipher was actually invented by Giovan Battista Bellaso who
       described it in a book published in 1553. The cipher was later misattributed to Vigenère, leading to it being
@@ -43,7 +43,7 @@ require "../../ui/navbar.html";
   </section>
 
   <section class="container" ; name="app">
-    <h2><u>Application</u></h2>
+    <h2><u>Application/Process</u></h2>
     <div
       style="background-color: white; height: auto; width: auto;  border: 1px solid black; margin: auto; overflow: hidden;">
       <p style="font-size:20px">
