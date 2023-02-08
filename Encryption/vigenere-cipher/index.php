@@ -7,7 +7,7 @@
 
 <body>
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'De_En')">Decrypt & Encrypt</button>
+        <button class="tablinks" onclick="openCity(event, 'De_En')" id="defaultOpen">Decrypt & Encrypt</button>
         <button class="tablinks" onclick="openCity(event, 'bf')">Bruteforce</button>
     </div>
     <form ; onkeyup="myFunction('de_en')">
@@ -110,15 +110,17 @@
             Length of Key: <input type="text" ; id="len" >
             Partial form of the Key: <input type="text" ; id="key_bf" ; onkeyup="myFunction('bruteforce')">
         </form>
+        <br>
         <b>DUE TO MEMORY ISSUE, THE HIGHEST DIFFERENCE BETWEEN THE PARTIAL FORM AND THE LENGTH OF THAT THE PROGRAM CAN
             RUN IS 5 ONLY</b>
         <br>
-
+        <br>
         <div class="row">
             <!-- <iframe id=display
                 style="width:1664.890; height: auto;">
             </iframe> -->
-            <div id="txtHint1" ; name="txtHint1">
+            <div id="txtHint1" ; name="txtHint1" >
+
             </div>
         </div>
         </div>
@@ -128,3 +130,8 @@
 </html>
 
 
+<script>
+    
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

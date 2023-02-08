@@ -1,19 +1,36 @@
-const plus = document.querySelector(".plus"),
-    minus = document.querySelector(".minus"),
-    num = document.querySelector(".num");
-let a = 1;
-plus.addEventListener("click", () => {
-    if (a < 26) {
+// const plus = document.querySelector(".plus"),
+//     minus = document.querySelector(".minus"),
+//     num = document.querySelector(".num");
+// let a = 1;
+// plus.addEventListener("click", () => {
+//     if (a < 26) {
+//         a++;
+//         num.innerText = a
+//     }
+// })
+// minus.addEventListener("click", () => {
+//     if (a > 0) {
+//         a--;
+//         num.innerText = a
+//     }
+// })
+
+function change_value(dir) {
+    a = document.getElementById("shift").innerText;
+    if (dir === "up") {
         a++;
-        num.innerText = a
+        a = (a < 10) ? a : a;
+        document.getElementById("shift").innerText = a;
+        myFunction('de_en');
+    } else {
+        if (a > 1) {
+            a--;
+            a = (a < 10) ? a : a;
+            document.getElementById("shift").innerText = a;
+            myFunction('de_en');
+        }
     }
-})
-minus.addEventListener("click", () => {
-    if (a > 0) {
-        a--;
-        num.innerText = a
-    }
-})
+}
 
 function myFunction(technique) {
     if (technique === 'bruteforce') {
@@ -38,16 +55,18 @@ function myFunction(technique) {
 
     } else if (technique === 'de_en') {
         var str = document.getElementById("plaintext").value;
-        var key = document.querySelector(".num").innerText;
+        var key = document.getElementById("shift").innerText;
+        var key2 = document.querySelector("[name=\"shift\"]").value;
         var option = document.querySelector("[name=\"option\"]:checked").value;
-
         if (option == "normal") {
             var list = "normal";
         } else if (option == "ASCII") {
             var list = "ASCII";
         } else if (option == "custom") {
-            var list = document.querySelector("[name=\"custom-input\"]").value;
+            var list = document.getElementById("custom-input").value;
         }
+        console.log(option)
+        console.log(list);
         showHint(str, key, list);
         function showHint(str, key, list) {
             var xhttp;
@@ -59,15 +78,16 @@ function myFunction(technique) {
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var result = this.responseText;
+                    console.log(result);
                     document.getElementById("result").innerHTML = result;
                 }
             };
-            xhttp.open("GET", "backend.php?q=" + str + "&key=" + key + "&list=" + list + "&technique=deen", true);
+            xhttp.open("GET", "backend.php?q=" + str + "&key=" + key + "&option=" + option + "&list=" + list + "&technique=deen", true);
             xhttp.send();
         }
     }
 }
-
+document.getElementById("defaultOpen").click();
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

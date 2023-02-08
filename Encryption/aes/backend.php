@@ -10,11 +10,11 @@ if ($tech === "iden") {
 	identifier($str);
 } else if ($tech === "en") {
 	$output_result = aes_function($str, $tech);
-	echo "PLain: $output_result";
+	//echo "PLain: $output_result";
 	$option = $_REQUEST["option"];
 	if ($option === "b64") {
 		$base64 = base64_encode($output_result);
-		echo "b64: $base64";
+		echo "$base64";
 	} elseif ($option === "hex") {
 		$hex = bin2hex($output_result);
 		echo $hex;

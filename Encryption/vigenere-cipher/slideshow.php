@@ -7,7 +7,7 @@
 <div class="mySlides fade">
 <div class="text" style="text-align: center;">Encryption</div>
         <img src="../../ui/img/Encryption/vc/enc.jpg" style="width:100%">
-    </div>--
+    </div>
 
     <div class="mySlides fade">
     <div class="text" style="text-align: center;">Decryption</div>

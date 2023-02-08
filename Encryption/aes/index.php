@@ -6,12 +6,15 @@
 </head>
 
 <body>
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'en')">Encrypt</button>
-        <button class="tablinks" onclick="openTab(event, 'de')">Decrypt</button>
-    </div>
-    <form ; onkeyup="aesFunction('encrypt')">
-        <div id="en" class="tabcontent">
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'en')" id="defaultOpen">Encryption</button>
+  <button class="tablinks" onclick="openTab(event, 'de')">Decryption</button>
+
+</div>
+
+
+<div id="en" class="tabcontent">
+        <form ; onkeyup="aesFunction('encrypt')">
             <div class="row_deen">
                 <div class="column_deen">
                     <div class="card_en">
@@ -62,7 +65,8 @@
                                     <td>
                                         <select name="mode" ; id="mode_en"
                                             onclick="mode_checker(this.value, 'encrypt')">
-                                            <option value="ECB" ; selected>ECB (Electronic Book Code)</option>
+                                            <option value=""></option>
+                                            <option value="ECB">ECB (Electronic Book Code)</option>
                                             <option value="CBC">CBC (Cipher Block Chaining)</option>
                                             <option value="CFB">CFB (Cipher Feedback)</option>
                                             <option value="CTR">CTR (Counter)</option>
@@ -127,11 +131,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 
 
-    <div id="de" class="tabcontent">
+<div id="de" class="tabcontent">
         <div class="row_deen">
             <div class="column_deen">
                 <div class="card_de">
@@ -196,7 +200,8 @@
                                     <td>
                                         <select name="mode_de" ; id="mode_de"
                                             onclick="mode_checker(this.value, 'decrypt')">
-                                            <option value="ECB" ; selected>ECB (Electronic Book Code)</option>
+                                            <option value=""></option>
+                                            <option value="ECB">ECB (Electronic Book Code)</option>
                                             <option value="CBC">CBC (Cipher Block Chaining)</option>
                                             <option value="CFB">CFB (Cipher Feedback)</option>
                                             <option value="CTR">CTR (Counter)</option>
@@ -252,8 +257,6 @@
             </div>
         </div>
         <br>
-
-
         <div id="container_tt" class="hidden_tt">
             <table class="tt_table">
                 <tr>
@@ -279,3 +282,8 @@
 </body>
 
 </html>
+
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

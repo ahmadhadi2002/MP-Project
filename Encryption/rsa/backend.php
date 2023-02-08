@@ -8,20 +8,6 @@ if ($pp === "key") {
 		$key_size = $_REQUEST['key'];
 		key_gen($key_size);
 	} else if ($action === "verify") {
-		// echo $content;
-		// if (!empty($content)) {
-		// 	if (isRSAEncryption($content, "")) {
-		// 		echo "valid";
-		// 	} else {
-		// 		echo '<script type="text/javascript">';
-		// 		echo 'alert("invalid Key file")';
-		// 		echo '</script>';
-		// 	}
-		// } else {
-		// 	echo '<script type="text/javascript">';
-		// 	echo 'alert("Please Refresh your page")';
-		// 	echo '</script>';
-		// }
 		processUploadedFile();
 	}
 } else if ($pp === "deen") {
@@ -63,6 +49,7 @@ function isRSAEncryption($key, $technique)
 
 	if ($technique === "decrypt") {
 		//echo $key;
+		//echo $content_a;
 
 		if (preg_match('/-----BEGIN (PRIVATE KEY|RSA PRIVATE KEY)-----/', $content_a)) {
 			if (preg_match('/-----END (PRIVATE KEY|RSA PRIVATE KEY)-----/', $content_a)) {
@@ -99,6 +86,7 @@ function isRSAEncryption($key, $technique)
 				}
 			}
 		} else {
+			echo $content_a;
 			echo '<script type="text/javascript">';
 			echo 'alert("Wrong Key file used3")';
 			echo '</script>';
@@ -188,13 +176,12 @@ function rsa($str, $technique, $key, $padding)
 	}
 }
 
-function processUploadedFile()
-{
+function processUploadedFile(){
 	if (isset($_FILES['fileInput']['error']) && $_FILES['fileInput']['error'] == 0) {
 		$file = $_FILES['fileInput']['tmp_name'];
 		$fileContent = file_get_contents($file);
 		if (!empty($fileContent)) {
-			$status = 'File is not empty. ';
+			$status = 'File is not a valid key. ';
 			//check validity of key
 			if (preg_match('/-----BEGIN (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
 				if (preg_match('/-----END (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
@@ -228,10 +215,13 @@ function processUploadedFile()
 		$fileContent = '';
 		$status = 'File not uploaded';
 	}
-
-	return array('fileContent' => $fileContent, 'status' => $status);
+	$data = array('fileContent' => "$fileContent", 'status' => $status);
+	$ew=implode(',', $data);
+	echo $ew;
+	return $data;
+	
 }
 
-$response = processUploadedFile();
-echo json_encode($response);
+
+
 ?>

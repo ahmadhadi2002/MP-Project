@@ -6,23 +6,27 @@ $tech = $_REQUEST["technique"];
 $str = $_REQUEST["q"];
 
 
+
 global $forward;
 global $backwards;
 $output = [];
 $output1 = [];
 
+
+
 if ($tech === "bf") {
 	caesarDecryptBF($str);
 } else if ($tech === "deen") {
 	$amount = $_REQUEST["key"];
-	$list = $_REQUEST["list"];
-	if ($list === "normal") {
+	$option = $_REQUEST["option"];
+	if ($option === "normal") {
 		caesarCipher_option1($str, $amount);
-	} elseif ($list === "ASCII") {
+	} elseif ($option === "ASCII") {
 		caesarCipher_option2($str, $amount);
-	} elseif ($list === "custom") {
+	} elseif ($option === "custom") {
+		$list = $_REQUEST["list"];
 		$list = str_split($list);
-		caesarCipher_option3($str, $amount, $list);
+		echo caesarCipher_option3($str, $amount, $list);
 	}
 } else {
 	echo " Please check your input again";
@@ -35,8 +39,7 @@ function caesarCipher($str, $amount)
 	}
 }
 //option 1
-function caesarCipher_option1($str, $amount)
-{
+function caesarCipher_option1($str, $amount){
 	//Caesar Cipher - Shift Forwards
 	for ($i = 0; $i < strlen($str); $i++) {
 		$c = $str[$i];
@@ -74,8 +77,7 @@ function caesarCipher_option1($str, $amount)
 }
 
 //option 2
-function caesarCipher_option2($str, $amount)
-{
+function caesarCipher_option2($str, $amount){
 	//Caesar Cipher - Shift Forwards
 	for ($i = 0; $i < strlen($str); $i++) {
 		$c = $str[$i];
@@ -110,20 +112,27 @@ function caesarCipher_option2($str, $amount)
 	foreach ($output1 as $key => $value) {
 		echo "<tr><td>$key</td><td>$value</td></tr>";
 	}
-} //option 3 
+}
 
-function caesarCipher_option3($str, $amount, $list)
-{
-	function custom_caesar_cipher($str, $amount, $list)
-	{
-		$chars = str_split($str);
-		foreach ($chars as $char) {
-			$index = (array_search($char, $list) + $amount) % count($list);
-			$ciphertext .= $list[$index];
-		}
-		return $ciphertext;
+//option 3 
+function caesarCipher_option3($str, $amount, $list){
+	$chars = str_split($str);
+	foreach ($chars as $char) {
+		$index = (array_search($char, $list) + $amount) % count($list);
+		$ciphertext_f .= $list[$index];
+	}
+	$output1["Forward $amount"] = $ciphertext_f;
+    foreach ($chars as $char) {
+		$index = (array_search($char, $list) + (26-$amount)) % count($list);
+		$ciphertext_b .= $list[$index];
+	}
+	$output1["Backward $amount"] = $ciphertext_b;
+
+	foreach ($output1 as $key => $value) {
+		echo "<tr><td>$key</td><td>$value</td></tr>";
 	}
 }
+
 
 
 
