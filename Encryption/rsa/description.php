@@ -185,6 +185,11 @@
                 public, it is extremely
                 hard to find out what d is.
           </p>
+          <br>
+          <Center><span style="font-size:25px"><b>To sum it up: </b> </span></Center>
+          <?php
+              include('slideshow.php')
+              ?>
         </div>
       </div>
       <hr class="hr-line">

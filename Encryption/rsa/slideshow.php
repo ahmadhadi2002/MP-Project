@@ -5,19 +5,35 @@
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-<div class="text" style="text-align: center;">AES Encryption/Decryption</div>
-        <img src="../../ui/img/Encryption/aes/deen.jpg" style="width:100%">
-    </div>--
-
-    <div class="mySlides fade">
-    <div class="text" style="text-align: center;">AES Round Function</div>
-        <img src="../../ui/img/Encryption/aes/func.jpg" style="width:100%">
+<div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/1.jpg" style="width:100%">
     </div>
 
     <div class="mySlides fade">
-    <div class="text" style="text-align: center;">AES Transformations</div>
-        <img src="../../ui/img/Encryption/aes/trans.jpg" style="width:100%">
+    <div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/2.jpg" style="width:100%">
     </div>
+
+    <div class="mySlides fade">
+    <div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/3.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+    <div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/4.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+    <div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/5.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+    <div class="text" style="text-align: center;"></div>
+        <img src="../../ui/img/Encryption/rsa/6.jpg" style="width:100%">
+    </div>
+
 
 
 
@@ -31,6 +47,9 @@
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
 </div>
 
 </html>

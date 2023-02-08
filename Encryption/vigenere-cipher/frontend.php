@@ -10,21 +10,25 @@ require "../../ui/navbar.html";
   include("description.php");
   ?>
 
-  <article class="container" ; name="test">
+  <section class="container" ; name="test">
     <h2><u>Let's Try it Out!</u></h2>
     <?php
     include("index.php");
     ?>
     <hr>
-  </article>
-  <div>
+  </section>
+  <section class="container" ; name="quiz">
+  <h2><u>Mini Activity</u></h2>
     <?php
     include('../quiz/vg_quiz.php');
     ?>
     <hr>
-  </div>
+  </section>
 
-  <div>
+  <section class="container" ; name="terminal">
+  <h2><u>Sample Code (python language)</u></h2>
+  <p style="font-size:18px"> 
+      The source code below is the implementation of the idea for the encryption techcnique, it is written using the python programming language. Hit the run below to try it out now! </p>
     <center>
       <iframe style='max-width:100%; border: none; height: 375px; width: 700px;' height=375 width=700
         src=https://www.interviewbit.com/embed/snippet/c82915252b47afca29dc
@@ -32,7 +36,7 @@ require "../../ui/navbar.html";
         referrerpolicy="unsafe-url"
         sandbox="allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox"></iframe>
     </center>
-  </div>
+  </section>
 </body>
 
 <footer>

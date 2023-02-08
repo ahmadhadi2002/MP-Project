@@ -19,21 +19,25 @@ require "../../ui/navbar.html";
     <hr>
   </section>
 
-  <div>
+  <section class="container" ; name="quiz">
+    <h2><u>Mini Activity</u></h2>
     <?php
     include('../quiz/aes_quiz.php');
     ?>
     <hr>
-  </div>
+  </section>
 
 
-  <div>
+  <section class="container" ; name="terminal">
+    <h2><u>Sample Code (python language)</u></h2>
+    <span style="font-size:18px"> 
+      The source code below is the implementation of the idea for the encryption techcnique, it is written using the python programming language. Hit the run below to try it out now! 
+      <br><span style="font-size:12px"></span> <b>(Note: You are require to pre-install the crypto library beforehand to run the code)</b></span>
+      <?php
+      require "terminal.php";
+      ?>
 
-    <?php
-    require "terminal.php";
-    ?>
-
-  </div>
+  </section>
 </body>
 
 <footer>

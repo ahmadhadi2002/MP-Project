@@ -223,6 +223,10 @@
                 XORed with the round keys in reverse order to obtain the original plaintext.
               </ol>
               <br>
+              <?php
+              include('slideshow.php')
+              ?>
+              <br>
               <p style="font-size:20px">The AES encryption algorithm is considered to be highly secure and is
                 widely used in a
                 variety of applications,

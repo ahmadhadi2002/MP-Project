@@ -8,30 +8,35 @@ require "../../ui/navbar.html";
 
 
 <body>
-<?php
-    include("description.php");
-    ?>
+  <?php
+  include("description.php");
+  ?>
 
   <article class="container" ; name="test">
-    <h2>Let's Try it Out!</h2>
+    <h2><u>Let's Try it Out!</u></h2>
     <?php
     include("index.php");
     ?>
     <hr>
   </article>
 
-  <div>
+  <section class="container" ; name="quiz">
+  <h2><u>Mini Activity</u></h2>
     <?php
     include('../quiz/rsa_quiz.php');
     ?>
     <hr>
-  </div>
+  </section>
 
-  <div>
+  <section class="container" ; name="terminal">
+  <h2><u>Sample Code (python language)</u></h2>
+  <span style="font-size:18px"> 
+      The source code below is the implementation of the idea for the encryption techcnique, it is written using the python programming language. Hit the run below to try it out now! 
+      <br><span style="font-size:12px"></span> <b>(Note: You are require to pre-install the crypto library beforehand to run the code)</b></span>
     <?php
     require "terminal.php";
     ?>
-  </div>
+  </section>
 </body>
 
 <footer>
