@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="icon" type="image/x-icon" href="/mp-project/ui/img/cs_logo.png">
 <title>Rivest-Shamir-Adleman</title>
 
 <?php
@@ -12,14 +13,24 @@ require "../../ui/navbar.html";
   include("description.php");
   ?>
 
-  <article class="container" ; name="test">
-    <h2><u>Let's Try it Out!</u></h2>
+<section class="container" ; name="test">
+    <h2><u>Hand's On Experience!</u></h2>
+    <div>
     <?php
+    include('../instruction/rsa.html');
+    ?>
+    </div>
+    <hr>
+    <div>
+    <span>
+        <h2>&nbsp; - Online Tool </h2>
+    </span>
+       <?php
     include("index.php");
     ?>
+    </div>
     <hr>
-  </article>
-
+  </section>
   <section class="container" ; name="quiz">
   <h2><u>Mini Activity</u></h2>
     <?php

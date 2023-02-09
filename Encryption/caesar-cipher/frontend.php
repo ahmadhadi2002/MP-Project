@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="icon" type="image/x-icon" href="/mp-project/ui/img/cs_logo.png">
 <title>Caesar Cipher</title>
 <?php
 require "../../ui/navbar.html";
@@ -17,10 +18,21 @@ require "../../ui/navbar.html";
   <br>
   <br>
   <section class="container" ; name="test">
-    <h2>Let's Try it Out!</h2>
+    <h2><u>Hand's On Experience!</u></h2>
+    <div>
     <?php
+    include('../instruction/caesar_cipher.html');
+    ?>
+    </div>
+    <hr>
+    <div>
+    <span>
+        <h2>&nbsp; - Online Tool </h2>
+    </span>
+       <?php
     include("index.php");
     ?>
+    </div>
     <hr>
   </section>
 

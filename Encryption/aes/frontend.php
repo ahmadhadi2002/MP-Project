@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<link rel="icon" type="image/x-icon" href="/mp-project/ui/img/cs_logo.png">
 <title>Advanced Encryption Standard</title>
 
 <?php
@@ -13,9 +14,20 @@ require "../../ui/navbar.html";
 
   <section class="container" ; name="test">
     <h2><u>Hand's On Experience!</u></h2>
+    <div>
     <?php
+    include('../instruction/aes.html');
+    ?>
+    </div>
+    <hr>
+    <div>
+    <span>
+        <h2>&nbsp; - Online Tool </h2>
+    </span>
+       <?php
     include("index.php");
     ?>
+    </div>
     <hr>
   </section>
 
