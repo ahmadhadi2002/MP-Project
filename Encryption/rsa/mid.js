@@ -17,21 +17,27 @@ button.addEventListener("click", () => {
 function uploadFile() {
     var formData = new FormData(document.getElementById("uploadForm"));
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "e.php?purpose=key&action=verify", true);
+    xhr.open("POST", "backend.php?purpose=key&action=verify", true);
     xhr.onreadystatechange = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        var response = JSON.parse(this.responseText);
-        document.getElementById("status").innerHTML = response.status;
-        document.getElementById("fileContent").innerHTML = response.fileContent;
-        document.getElementById("status").innerHTML = response.status;
-        document.getElementById("fileTable_veri").style.display = "table";
-        if (response.status.indexOf('valid') !== -1) {
-            document.getElementById("status").style.backgroundColor = 'green';
-        } else {
-            document.getElementById("status").style.backgroundColor = 'red';
-        }
+        var response = xhr.responseText;
+        var array = response.split(',');
+        console.log(array[0]); // first element of the array
+        console.log(array[1]); // second element of the array
+
+            document.getElementById("fileContent").innerHTML = array[0];
+            document.getElementById("status").innerHTML = array[1];
+            document.getElementById("fileTable_veri").style.display = "table";
+            var pattern = /valid/;
+            if (array[1].match(pattern)){
+                console.log("valis");
+                document.getElementById("status").style.backgroundColor = 'green';
+            } else {
+                document.getElementById("status").style.backgroundColor = 'red';
+            }
     }
 };
+
     xhr.send(formData);
 }
 
@@ -62,7 +68,7 @@ function keyGenerator() {
             document.getElementById("output_key").innerHTML = result;
         }
     };
-    xhttp.open("GET", "e.php?purpose=key&action=generate&key=" + key, true);
+    xhttp.open("GET", "backend.php?purpose=key&action=generate&key=" + key, true);
     xhttp.send();
 }
 
@@ -128,19 +134,19 @@ function ajax(str, technique) {
 
     // console.log(mode);
     // console.log(option);
-    if (option==="input"){
-        if (technique==="decrypt"){
+    if (option === "input") {
+        if (technique === "decrypt") {
             var key = document.getElementById("keyInput_de").value;
-        }else{
-        var key = document.getElementById("keyInput").value;
+        } else {
+            var key = document.getElementById("keyInput").value;
         }
-    }else if (option==="upload"){
+    } else if (option === "upload") {
         var key = document.getElementById("key_up").value;
     }
 
     //console.log(key);
     key = encodeURIComponent(key);
-    
+
     console.log(str);
     //AJAX
     var xhttp;
@@ -162,13 +168,13 @@ function ajax(str, technique) {
         }
     };
     if (technique === 'encrypt') {
-        xhttp.open("GET", "e.php?purpose=deen&text=" + str + "&key=" + key + "&mode=" + mode + "&option=" + option + "&technique=encrypt", true);
+        xhttp.open("GET", "backend.php?purpose=deen&text=" + str + "&key=" + key + "&mode=" + mode + "&option=" + option + "&technique=encrypt", true);
         xhttp.send();
     } else if (technique === 'decrypt') {
         str = encodeURIComponent(str);
-        xhttp.open("GET", "e.php?purpose=deen&text=" + str + "&key=" + key + "&mode=" + mode + "&option=" + option + "&technique=decrypt", true);
-        console.log("e.php?purpose=deen&text='" + str + "'&key='" + key + "'&mode=" + mode + "&option=" + option + "&technique=decrypt");
+        xhttp.open("GET", "backend.php?purpose=deen&text=" + str + "&key=" + key + "&mode=" + mode + "&option=" + option + "&technique=decrypt", true);
+        console.log("backend.php?purpose=deen&text='" + str + "'&key='" + key + "'&mode=" + mode + "&option=" + option + "&technique=decrypt");
         xhttp.send();
     }
-   
+
 }

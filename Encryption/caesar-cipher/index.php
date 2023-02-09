@@ -7,7 +7,7 @@
 
 <body>
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'De_En')">Decrypt & Encrypt</button>
+        <button class="tablinks" onclick="openCity(event, 'De_En')" id="defaultOpen">Decrypt & Encrypt</button>
         <button class="tablinks" onclick="openCity(event, 'bf')">Bruteforce</button>
     </div>
     <form ; onkeyup="myFunction('de_en')">
@@ -47,10 +47,11 @@
                                     </td>
                                     <td>
                                         <div class="wrapper">
-                                            <span class="minus">-</span>
-                                            <span class="num" ; id="shift" ; name="shift" ; value="" ;
+                                            <span class="minus" ; onclick="change_value('down')">-</span>
+                                            <span class="num_cs" ; id="shift" ; name="shift" ; value="" ;
                                                 onkeyup="myFunction('de_en')">1</span>
-                                            <span class="plus">+</span>
+                                            <span class="plus" ; onclick="change_value('up')">+</span>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -145,4 +146,9 @@
         </div>
     </div>
 </body>
+
 </html>
+
+<script>
+    document.getElementById("defaultOpen").click();
+</script>

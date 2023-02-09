@@ -46,7 +46,7 @@
     <br>
 
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'en')">Encrypt</button>
+        <button class="tablinks" onclick="openTab(event, 'en')" id="defaultOpen">Encrypt</button>
         <button class="tablinks" onclick="openTab(event, 'de')">Decrypt</button>
         <button class="tablinks" onclick="openTab(event, 'veri')">Verify Key File</button>
     </div>
@@ -240,6 +240,8 @@
     <form id="uploadForm">
     <input type="file" id="fileInput" name="fileInput">
     <input type="button" value="Upload" onclick="uploadFile()">
+    <br>
+    <br>
 </form>
 <table id="fileTable_veri" style="display: none">
     <tr>
@@ -256,6 +258,6 @@
 </html>
 
 <script>
-   
-
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 </script>

@@ -1,0 +1,44 @@
+
+#terminal {
+    width: 95%;
+    height: 100%;
+    border: 1px solid black;
+    padding: 10px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+}
+
+#input_field {
+    width: 600px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    overflow: scroll;
+    margin-right: 4%;
+    word-wrap: break-word;
+}
+
+#output {
+    width: 48%;
+    height: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 4%;
+    word-wrap: break-word;
+}
+
+.input_field {
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#button_t {
+    width: 50px;
+    height: 25px;
+    margin: auto auto;
+    display: block;
+    margin-left: 56px;
+}

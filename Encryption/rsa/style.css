@@ -194,7 +194,7 @@ tr:nth-child(even) {
 
 #fileTable_veri {
     border: 1px solid black;
-    color: white;
+    color: black;
     border-collapse: collapse;
     display: none;
 }
@@ -202,3 +202,4 @@ tr:nth-child(even) {
     border: 1px solid black;
     padding: 5px;
 }
+

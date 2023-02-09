@@ -5,7 +5,7 @@
 <title>Encryption Homepage</title>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style(m).css">
 <script type="text/javascript" src="main.js"></script>
 <html>
 
@@ -32,38 +32,7 @@
                 and integrity, proving that the underlying data or messages have not been altered in any way from their
                 original state.Encrypted data is commonly referred to as <b>ciphertext</b>, while unencrypted data is
                 called <b>plaintext</b>.
-                Existing data encryption consist of 2 main types:
-                <br>
-                <br>
-                <b>Asymmetric encryption </b> <small>(also known as public-key encryption)</small>
-                <ul>
-                    <li>
-                        Asymmetric encryption use two different keys for encryption and decryption. The key
-                        used for encryption is the public key, and the key used for decryption is the private key. Both
-                        the keys must belong to the receiver.
-                        <br>
-                        <img src="../ui/img/Encryption/asy.jpeg" ; class="center">
-                        <br>
-                        This eliminates the need of exchanging any secret key between sender and receiver, therefore
-                        reducing the window of exploitation.
-                    </li>
-
-                </ul>
-                <br>
-                <b>Symmetric Encryption</b> <small>(Also known as private-key cryptography/secret key cryptographic
-                    algorithm) </small>
-                <ul>
-                    <li> Symmetric encryption use one keys for encryption and decryption. The sender and the receiver
-                        have
-                        access to the same key for encryption and decryption. This method works best for closed systems,
-                        which have less risk of a third-party intrusion.
-                        <br>
-                        <img src="../ui/img/Encryption/sym.jpeg" ; class="center">
-                        <br>
-                        Although symmetric-key encryption is fairly easy to use, but it comes with some security
-                        concerns. Thus, it requires a very safe and secure method of transferring keys between different
-                        parties.
-                        <br>
+                
 
                     </li>
                 </ul>
@@ -108,7 +77,7 @@
 
                     <div class="scencenter">
                         <h2><u>Encryption Techniques</u></h2>
-                        Primitive Encryption Technique <br>
+                        Primitive Encryption Technique  <br>
                         <button type="button" class="collapsible">Encryption Technique 1 (Caesar Cipher)</button>
                         <div class="content">
                             <img src="../ui/img/Encryption/cs.jpeg" class="scenimg">

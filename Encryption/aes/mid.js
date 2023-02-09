@@ -1,3 +1,4 @@
+
 const button = document.getElementById("open-container-button_tt");
 const container = document.getElementById("container_tt");
 let isOpen = false;
@@ -21,6 +22,7 @@ function mode_checker(mode, technique) {
         if (mode === "ECB") {
             console.log("12");
             document.getElementById("iv_un").disabled = true;
+            document.getElementById("iv_un").value = "";
             aesFunction('encrypt');
         } else {
             document.getElementById("iv_un").disabled = false;
@@ -34,6 +36,7 @@ function mode_checker(mode, technique) {
             aesFunction('decrypt');
         } else {
             document.getElementById("iv_un").disabled = false;
+            document.getElementById("iv_un").value = "";
             document.getElementById("mode_de").value = mode;
             aesFunction('decrypt');
 
@@ -45,12 +48,12 @@ function aesFunction(technique) {
 
     if (technique === "encrypt") {
         var str = document.getElementById("text_en").value;
-        //var mode = document.getElementById("mode_en").value;
+        var mode = document.getElementById("mode_en").value;
 
 
     } else if (technique === "decrypt") {
         var str = document.getElementById("text_de").value;
-        //var mode = document.getElementById("mode-de").value;
+        var mode = document.getElementById("mode-de").value;
 
 
     }
@@ -137,20 +140,24 @@ function identifier(str) {
     xhttp.send();
 
 }
+ // Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 
-function openTab(evt, tabName) {
+function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+      tabcontent[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(tabName).style.display = "block";
+    document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
-}
+  }
+  
+ 
 
 window.onbeforeunload = function () {
     window.history.replaceState({}, document.title, "/");
