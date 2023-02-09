@@ -55,7 +55,7 @@
   border-collapse: collapse;
   width: 70%;
   margin-top: 30px;
-  margin-bottom:70px;
+  margin-bottom:20px;
 }
 
 .profGuessTable td, .profGuessTable th {
@@ -134,7 +134,7 @@
 
     <hr style="width: 1090px">
 
-    <p class="information" style="font-size:1rem;">Hint: Passwords are generated with 2 words combined, e.g (john1978).Dates only uses year.</p>
+    <p class="information" style="font-size:1rem;">Hint: Passwords are generated with 2 words combined, e.g (john1978). Date only uses year as variable.</p>
 
     <div class="profileMain">
         <table>
@@ -190,6 +190,8 @@
                     <td id="correctTable" class="inputbox"></td>
                 </tr>
             </table>
+
+            <button type="button" onclick="clearAttempt()" class="array_clear_btn" style="margin-top:0px; margin-bottom: 0px; width: 120px;">Clear Attempts</button>
         </div>
 
     </div>
@@ -261,6 +263,16 @@ const organizationNames = ["Global Solutions", "Bright Future Inc.", "Eco Friend
 const countryNames = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan","Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the" , "Congo, Republic of the","Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus", "Czechia", "Denmark", "Djibouti", "Dominica", "Dominican Republic","Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland","France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea","Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq","Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kosovo","Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania","Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius","Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia","Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway","Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal","Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Singapore"];
         
 const dob = ["2/11/1995", "12/7/1960", "8/1/1995", "9/20/1997", "12/11/1984", "4/4/1976", "10/23/1965", "4/3/1971", "3/5/2001", "6/7/1989", "1/1/1964", "8/18/1970", "6/8/1994", "12/25/1968", "3/8/1981", "9/9/1974", "6/6/1963", "7/9/1977", "8/20/2001", "11/5/2005", "9/12/1987", "12/2/1978", "12/10/1976", "8/6/1994", "10/9/1975", "12/22/1980", "5/12/1965", "6/11/1962", "7/2/2001", "11/10/1960", "10/12/1970", "12/3/1973", "8/10/1989", "7/14/1995", "4/28/1980", "5/25/1983", "3/26/2004", "9/23/1968", "10/21/1977", "9/7/1978", "6/3/1998", "4/3/1981", "12/4/1987", "5/23/1996", "3/1/1975", "2/27/1970", "10/18/1993", "3/5/1987", "5/2/1993", "9/4/1986"];
+
+
+function clearAttempt(){
+
+    localStorage.removeItem("attemptedPass")
+    var localarray = [];
+    localStorage.setItem("attemptedPass", JSON.stringify(localarray));
+    var setArray = JSON.parse(localStorage.getItem("attemptedPass"));
+    document.getElementById("attemptedTable").innerHTML = setArray;
+}
 
 
 function randomInfo(){

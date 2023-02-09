@@ -97,11 +97,11 @@
 </div>
 
 <div id="passinputbox" class="bruteInput">
-    <form action="../Password Cracking/bruteforce.php" method="post">
+    <form>
         <label for="brute_input" style="font-weight: bold; font-size: 19px;">Password (4 Letter Input Only)</label><br>
-        <input type="text" id="brute_input" autocomplete="off" name="brute_input" maxlength="4" style="background-color: lightgrey;border-width: 0px;height: 30px;width: 37%; border-radius: 6px;font-size:16px">
-
-        <br><input type="submit" value="Submit" onclick="submitForm(event); loading()" style="margin-top: 10px;width: 90px;height: 30px;border-radius: 9px;border-width: 0px;background-color: lightgrey;font-weight: bold;">
+        <input type="text" id="brute_input" autocomplete="off" name="brute_input" maxlength="4" style="background-color: lightgrey;border-width: 0px;height: 30px;width: 37%; border-radius: 6px;font-size:16px"><br>
+        <div id="bruteError1" style="color: red; font-size: 1em; display: none; margin-top:10px;">Please Key in a input</div>
+        <button type="button" onclick="submitForm(event)" style="width: 90px;height: 30px; margin-top:10px;border-radius: 9px;border-width: 0px;background-color: lightgrey;font-weight: bold;">Submit</button>
     </form>
 </div>
 
@@ -148,12 +148,34 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    function submitForm(event) {
+
+// function bruteinputCheck(event){
+//   event.preventDefault();
+//   var bruteInput = document.getElementById("brute_input").value;
+
+//   if(bruteInput == ""){
+//     document.getElementById("bruteError1").style.display = "block";
+//   }
+
+//   if (bruteInput != ""){
+//     document.getElementById("bruteError1").style.display = "none";
+//     loading();
+//     submitForm(event);
+//   }
+// }
+
+function submitForm(event) {
+
+
       event.preventDefault();
       // submit form through ajax or any other method
 
     const attackInput = document.getElementById("brute_input").value;
-  
+
+if (attackInput != ""){
+    document.getElementById("bruteError1").style.display = "none";
+    loading();
+
     var formData = {
         'brute_input': attackInput
       };
@@ -172,6 +194,7 @@
             document.getElementById('attempt').innerHTML = bruteFound;
             document.getElementById('bruteStatus').innerHTML = foundStatus;
             document.getElementById('bruteTime').innerHTML = bruteTime;
+            document.getElementById("brute_input").value = "";
 
         //alert("Success send form");
         //   document.getElementById("table_div").innerHTML=table;
@@ -181,7 +204,10 @@
           alert("An error occurred while submitting the form.");
         }
       });
+    }else{
+      document.getElementById("bruteError1").style.display = "block";  
     }
+  }
 
 function loading(){
   document.getElementById("bruteAttack_table").style.display="block";

@@ -88,6 +88,20 @@
   background-color: #dddddd;
 }
 
+.rainMain_img1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.chainErrorMsg{
+    font-size: 1em;
+    color:red;
+    display: none;
+    margin-bottom: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -100,10 +114,18 @@
             Although rainbow table and dictionary cracking may be similar, they differentiate in how they handle storing of information. For dictionary cracking, a set of characters are stored, hashes could also be stored in this manner but would get very large very quickly. An example of this, a plaintext and a 32 Byte Hash. With a library of 1 Billion passwords would be 40GB of data that a computer would need to sort through, which can take up a lot of time and computational power.
         </p>
         <p>
-            Instead rainbow tables uses a reduction function to generate the table. In a rainbow table contains many different “chains” with the starting of each “chain” being a plaintext password. The rainbow table will only store the plaintext of the first plaintext value of a “Chain”. 
+            Instead rainbow tables uses a reduction function to generate the table, there exists thousands of different reduction functions, but for this exercise we will use 1 reduction function.
+            A rainbow table contains many different “chains” with the starting of each “chain” being a plaintext password. Rainbow tables in an effort to reduce storage use, will only store the first text value of the “Chain” and use a reduction function to generate new random hashes, this would be done until a user specified chain length is reached. A figure below shows an example of a reduction function
+        </p>
+        <figure style="margin: 0 auto;">
+            <img src="../ui/img/rainbow_chain.png" class="rainMain_img1">
+            <figcaption style="font-size: 12px;">Figure 1- Example reduction function</figcaption>
+        </figure>
+        <p>
+            In a real rainbow table, there would exist millions of plaintext values and thousands of “chains” which would each have a unique reduction function. This is to generate as much variability possible. These complex methods are made to reduce the amount of storage required for an attack and to rely more heavily on a computing power to generate hashes to find a match to the original password hash. 
         </p>
         <p>
-            This chain would then be hashed and the first couple of characters will be used to generate a new hash text. If a hash matches the password hash, it will then look back at the plaintext value stored within the rainbow table. From there it will go down the “Chain” and look for the plaintext value of the matching hash. The exercise below will allow you to try a rainbow table generation.
+            Have a try with generating a sample hash chain with the exercise below.
         </p>
     </div>
 
@@ -115,7 +137,7 @@
 
     <div class="information">
         <p>
-            Key in a starter string key and select a hash algorithm, from there the reduction chain will be produced, in a real scenario the chain would be hundreds or thousands of strings in length but for our exercise, we will simply print out the first 20.
+            Key in a starter string key and select a hash algorithm, from there the reduction formula which will select the first 8 characters of the previous hash will be used to product a chain. In a real scenario the chain would be hundreds or thousands of strings in length but for our exercise, we will simply print out the first 20.
         </p>
         </div>
 
@@ -124,12 +146,13 @@
         <input type="text" autocomplete="off" id="chainHash_input" name="chainHash_input" class="chainhash_input"><br>
         <Label for="chain_option">Select a Hash Algorithm</Label><br>
         <select class="chain_option" id="chain_option" name=" chain_option">
-                <option value="">Select a Option:</option>
+                <option value="0">Select a Option:</option>
                 <option value="1">MD5</option>
                 <option value="2">SHA-1</option>
         </select><br>
-        <button type="button" onClick="chainHash(event)" class="chainBtn">Submit</button><br> 
-
+        <div class="chainErrorMsg" id="chainError1">Please key in a input</div>
+        <div class="chainErrorMsg" id="chainError2">Please Select a hashing algorithm</div>
+        <button type="button" onClick="checkChainHash()" class="chainBtn">Submit</button><br> 
         <div class="chainVal" id="chainVal">
         <table  id="chainTable">
             <tr>
@@ -155,6 +178,38 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+function checkChainHash(){
+
+    var option = document.getElementById("chain_option").value;
+    var input = document.getElementById("chainHash_input").value;
+    var inputError = document.getElementById("chainError1");
+    var optionError = document.getElementById("chainError2");
+
+    if ( option == "0"){
+        optionError.style.display = "block"
+        inputError.style.display = "none"
+        if ( input == "" || input == null || input == undefined ){
+            inputError.style.display = "block"
+        }
+    }
+
+    if ( input == "" || input == null || input == undefined ){
+        inputError.style.display = "block"
+        optionError.style.display = "none"
+        if ( option == "0" || option == "" || option === null || option === undefined){
+            optionError.style.display = "block"
+        }
+    }
+
+    if (input != "" && option != "0"){
+        inputError.style.display = "none";
+        optionError.style.display = "none";
+        chainHash(event);
+    }
+}
+
+
 
 function chainHash(event){
 
@@ -194,7 +249,11 @@ function chainHash(event){
                 tr.appendChild(tdValue2);
             });
                 document.getElementById("chainTable").appendChild(tr);
-            });           
+            });  
+            
+            document.getElementById("chainHash_input").value = "";
+            document.getElementById("chain_option").value = "0";
+
         }
     })
 

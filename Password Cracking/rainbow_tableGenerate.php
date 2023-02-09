@@ -5,22 +5,22 @@ error_reporting(0);
 if (isset($_POST["hashMain_input"]) && isset($_POST["hashMain_option"])){
     
     $hashOption = $_POST['hashMain_option'];
-    $hashInput = $_POST['hashMain_input']."\n";
-    // $dictword = file('../Password Cracking/dictattack_files/words.txt');
+    $inputHash = $_POST['hashMain_input'];
     $check="0";
-
+    // $inputFolderPath = "../Password Cracking/rainbow_files/md5hash/";
 
     $start = new DateTime();
 
     if($hashOption == "1"){
-        $inputHash = md5($hashInput);
+        // $inputHash = md5($hashInput);
         $inputFolderPath = '../Password Cracking/rainbow_files/md5hash/';
     }
 
     if($hashOption == "2"){
-        $inputHash = sha1($hashInput);
+        // $inputHash = sha1($hashInput);
         $inputFolderPath = '../Password Cracking/rainbow_files/sha1hash/';
     }
+
 
 // Get a list of all the files in the input folder
 $files = scandir($inputFolderPath);
@@ -73,6 +73,7 @@ foreach ($files as $file) {
                 </table>";
             
                 echo $return;
+                break 2;
             }
         }
         // Close the input file
@@ -80,6 +81,7 @@ foreach ($files as $file) {
     }
 
 }
+
     if($check == "0"){
 
 
@@ -110,7 +112,6 @@ foreach ($files as $file) {
     </table>";
 
     echo $return;
-
     }
 
 

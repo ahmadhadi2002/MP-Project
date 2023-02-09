@@ -19,6 +19,7 @@
   width: 58%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 70px;
 }
 
 .bruteForce_scroll td, .bruteForce_scroll th {
@@ -314,7 +315,7 @@
         }
 
         if(charInput =="4"){
-            charClean = /^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>\/?\`~]+$/;
+            charClean = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/;
             document.getElementById("error").innerHTML = charInput;
         }
 
