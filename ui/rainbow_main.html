@@ -35,12 +35,22 @@
     }
 
     .hashMain_form{
-    margin-left: 393px;
+    /* margin-top: 35px; */
+    margin-left: 398px;
     margin-bottom: 70px;
     font-size: 1.15em;
     }
 
     .hashMain_input{
+        width: 400px;
+        height: 30px;
+        border-radius: 4px;
+        border-width: 1px;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+
+    .hashMainTable_input{
         width: 400px;
         height: 30px;
         border-radius: 4px;
@@ -65,6 +75,14 @@
         margin-top: 15px;
     }
 
+    .hashMainBtn2{
+        width: 80px;
+        height: 27px;
+        border-radius: 3px;
+        border-width: 1px;
+        margin-top: 15px;
+    }
+
     .loading{
         display: none;
         font-size: 1.5em;
@@ -75,29 +93,143 @@
         margin-bottom: 15px;
     }
 
+    .rainMain_header{
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.9rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+    }
+
+    .information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+    .rainMain_img2{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+.hashMainTable{
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    border-collapse: collapse;
+    width: 28%;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    text-align: left;
+    display: none;
+}
+
+.hashMainTable td, .hashMainTable th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px 10px 10px 10px;
+}
+
+.hashMainTable tr:nth-child(odd) {
+  background-color: #dddddd;
+}
+
+.hidden_form{
+    display: none;
+}
+
+.rainmain_error{
+    display: none;
+    color: red;
+    font-size: 1em;
+}
 
 </style>
 </head>
 
 <body>
 
+    <div class="rainMain_header">How do rainbow table attacks work?</div>
+
+    <div class="information">
+        <p>
+            Now with a rainbow table generated and a handful of chains have been made, let us go in depth in how rainbow table attacks work. The first step of a rainbow table attack consists of making a comparison to the password hash and the hash values of the rainbow table. In a similar manner to dictionary-based attacks, we simply need to find the password hash within the rainbow table. If there is a match in hash values then we can find the text value of the password, if there isn’t a match, we would not be able to find the text value of the password.
+        </p>
+        <p>
+            The next step in a rainbow table attack once a matching hash has been found in a “chain”, is to remember the first value of the chain and its reduction function. We would then generate that single chain and we would go down the length of the chain and find the matching password hash and chain hash. Finally, we would obtain the text value of the matching password hash and “chain” hash and thus have found the original text value of the password. A diagram can be shown below to give you a better understanding of how it works
+        </p>
+        <figure style="margin: 0 auto;">
+            <img src="../ui/img/rainbow_attack.png" class="rainMain_img2">
+            <figcaption style="font-size: 12px;">Figure 2- Rainbow Table Logic Diagram</figcaption>
+        </figure>
+        <p>
+            At its core, it is simply a dictionary attack using hashes instead of words. The main reason why we generate “chains” and separate finding of the password hash and the password text value is because they aid in reducing memory and computational load. Which is the primary reason why rainbow table attacks are more effective, it utilizes both storage and computational power in an efficient manner, thus reducing the time it takes to crack passwords.
+        </p>
+
+        <p>
+            Have a try with a simulated rainbow table attack with the exercise below.
+        </p>
+    </div>
+
+    
+    <!-- Try It Out Section -->
+    
+    <div>
+        <h1 style="font-size: 40px; padding-left: 393px; margin-bottom: 5px;">Try It Out!</h1>
+    </div>
+
+    <hr style="width: 1090px">
+
+    <div class="information" style="font-size: 1.1em;">
+        <p>
+            For the first part of this exercise simply choose a hashing algorithm and key in a password to be hashed as seen in the sample below.
+        </p>
+        <p>
+            Once you have gotten a hashed password back, you are now able to copy your hashed password from the table and key it into the hashed password section and the rainbow table attack will commence. Have a go at understanding rainbow table attacks and its strengths and weaknesses. [ Note: Rainbow table that is stored mainly utilizes the same variables as the Dictionary Library ] 
+        </p>
+
+    </div>
+
+
     <div class="hashMain_form">
         <Label for="hashMain_option">Select a Hash Algorithm</Label><br>
         <select class="hashMain_option" id="hashMain_option" name=" hashMain_option">
-            <option value="">Select a Option:</option>
+            <option value="0">Select a Option:</option>
             <option value="1">MD5</option>
             <option value="2">SHA-1</option>
         </select><br>
-        <div id="hashList" style="display:none;" class="main_hashList"></div>
-        <label for="hashMain_input">Key in a password</label><br>
+        <!-- <div id="hashList" style="display:none;" class="main_hashList"></div> -->
+        <label for="hashMainTable_input">Key in a password</label><br>
+        <input type="text" autocomplete="off" id="hashMainTable_input" name="hashMainTable_input" class="hashMainTable_input"><br>
+        <p id="rainmain_error" class="rainmain_error">Please Select a Hash Algorithm</Input></p>
+        <p id="rainmain_error2" class="rainmain_error">Please key in a password</p>
+        <button type="button" onClick="hashChecker()" class="hashMainBtn2">Get Hash</button>
+        <table class="hashMainTable" id="hashMainTable">
+            <tr>
+                <th>Generated Hash</th>
+            </tr>
+            <tr>
+                <td id="hashMainVal"></td>
+            </tr>
+        </table>
+
+        <div class="hidden_form" id="hidden_form">
+        <label for="hashMain_input">Key in a Hashed password</label><br>
         <input type="text" autocomplete="off" id="hashMain_input" name="hashMain_input" class="hashMain_input"><br>
-        <button type="button" onClick="hashMain(event)" class="hashMainBtn">Submit</button><br> 
+        <p id="rainmain_error3" class="rainmain_error">Key in Secret Hashed Password</p>
+        <button type="button" onClick="inputChecker()" class="hashMainBtn">Submit</button>
+        </div>
 
         <div id="loading" class="loading"><Loading class="">Loading...</div>
     </div>
     <div id="hashMain" class="hashMain"></div>
 
-
+    <hr style="width: 1090px">
 
 </body>
 
@@ -105,32 +237,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-    const changeArray = document.getElementById('hashMain_option');
-
-    changeArray.addEventListener('change', (event) => {
-    const result = document.getElementById('hashList');
-
-    var inputValue = `${event.target.value}`;
-
-    if(inputValue =="1"){
-        result.style.display="block";
-        result.textContent = `You have Chosen MD5 Hashing Algorithm`;
-    }
-
-    if(inputValue =="2"){
-        result.style.display="block";
-        result.textContent = `You Chosen SHA1 Hashing Algorithm`;
-    }
-    
-    });
-
-
     function hashMain(event){
 
     document.getElementById("loading").style.display="block";
 
     var hashMain_input = document.getElementById("hashMain_input").value;
-    const hashMain_option = document.getElementById("hashMain_option").value;
+    var hashMain_option = document.getElementById("hashMain_option").value;
     
 
     var hashData = {
@@ -148,9 +260,96 @@
             document.getElementById("hashMain").innerHTML = data;
         }
     })
+}
+
+
+function hashChecker(){
+
+    var option = document.getElementById("hashMain_option").value;
+    var input = document.getElementById("hashMainTable_input").value;
+    var input_hash = document.getElementById("hashMain_input").value;
+
+    if ( option == "0"){
+        document.getElementById("rainmain_error").style.display = "block"
+        document.getElementById("rainmain_error2").style.display = "none"
+        if ( input == "" || input == null || input == undefined ){
+            document.getElementById("rainmain_error2").style.display = "block"
+        }
+    }
+
+    if ( input == "" || input == null || input == undefined ){
+        document.getElementById("rainmain_error2").style.display = "block"
+        document.getElementById("rainmain_error").style.display = "none"
+        if ( option == "0" || option == "" || option === null || option === undefined){
+            document.getElementById("rainmain_error").style.display = "block"
+        }
+    }
+
+    if (input != "" && option != "0"){
+        document.getElementById("rainmain_error").style.display = "none";
+        document.getElementById("rainmain_error2").style.display = "none";
+        getHash(event);
+    }
 
 }
 
+function inputChecker(){
+
+    var option = document.getElementById("hashMain_option").value;
+    var input_hash = document.getElementById("hashMain_input").value;
+
+    if(input_hash == ""){
+        document.getElementById("rainmain_error3").style.display = "block";
+        document.getElementById("rainmain_error").style.display = "none";
+        if ( option == "0" || option == "" || option === null || option === undefined){
+            document.getElementById("rainmain_error").style.display = "block";
+        }
+    }
+
+    if ( option == "0" || option == "" || option === null || option === undefined){
+            document.getElementById("rainmain_error").style.display = "block";
+            document.getElementById("rainmain_error3").style.display = "none";
+            if(input_hash == ""){
+                document.getElementById("rainmain_error3").style.display = "block";
+            }
+        }
+
+    if (input_hash !="" && option !="0"){
+        document.getElementById("rainmain_error3").style.display = "none";
+        document.getElementById("rainmain_error").style.display = "none";
+        hashMain(event);
+    }
+
+}
+
+function getHash(event){
+
+    var newpassHash = document.getElementById("hashMainTable_input").value;
+    var hashChoice = document.getElementById("hashMain_option").value;
+
+    var passHash = newpassHash+"\n";
+
+    var formData = {
+            'passHash': passHash,
+            'hashChoice': hashChoice,
+        };
+  
+    $.ajax({
+        type: "POST",
+        url: "../Password Cracking/rainbow_hash.php",
+        data:formData,
+        // dataType: 'json',
+        success: function(data) {
+            //alert ("Form Received");
+            document.getElementById("hashMainTable_input").value = "";
+            document.getElementById("hashMainVal").innerHTML = data;
+            document.getElementById("hashMainTable").style.display = "block";
+            document.getElementById("hidden_form").style.display="block";
+        }
+    })
+
+}
+        
 </script>
 
 

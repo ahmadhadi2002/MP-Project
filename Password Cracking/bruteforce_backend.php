@@ -2,7 +2,9 @@
 
 if (isset($_POST["brute_input"])){
 
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>/?\`~";
+    $chars = <<<EOD
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:'",.<>/?\\~
+EOD;
     $maxLength = 4;
     $password=$_POST["brute_input"];  
     $found="false";

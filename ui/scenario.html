@@ -27,7 +27,7 @@
 
 .content {
   text-align: justify;
-  padding:0px 18px 30px 18px;
+  padding:0px 18px 15px 18px;
   width: 45%;
   display: none;
   overflow: hidden;
@@ -36,6 +36,7 @@
   margin-right: auto;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+  box-shadow: 10px 9px 15px -5px grey;
 }
 
 .scencenter{
@@ -43,11 +44,11 @@
 }
 
 .scenimg{
-    padding-top: 10px;
+    padding-top: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 640px;
+    width: 765px;
     height: 300px;
 }
 
@@ -71,18 +72,22 @@
 
 .text_header{
     margin-left: 468px;
-    margin-top: 60px;
+    margin-top: 30px;
     font-size: 33px;
     text-decoration: underline;
 }
 
 .text_information{
-  margin-top: 50px;
-    margin-bottom: 40px;
-    margin-left: 100px;
-    margin-right: 100px;
-    line-height: 1.5em;
-    font-size: 1.5rem;
+    /* margin-top: 50px;  */
+    /* margin-bottom: 40px; */
+    margin-left: 37px;
+    margin-right: 37px;
+    /* line-height: 1.5em; */
+    text-align: center;
+    font-size: 1.3rem;
+    /* background-color: white; */
+    padding: 20px;
+    margin-top: 0;
 }
 
 .textinformation{
@@ -103,31 +108,36 @@
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
 <!-- </div> -->
 
-<h2 class="text_header">Cracking Scenarios</h2>
-<p class="textinformation">To get a better understanding of password cracking, scenarios have been prepared to simulate and give you a hands on experience on cracking passwords and the points that hackers look for when attempting to exploit a flaw within a system to either guess and obtain a password</p>
+<h2 class="text_header">Password Cracking Methods</h2>
+<p class="textinformation">
+  3 Core Password Cracking lessons have been prepared for you to learn the basic concepts of password cracking and the different processes involved in producing and attack and cracking passwords. The 3 core password cracking methods are dictionary based attacks, brute force attacks and rainbow table attacks, this is due to many other forms of password cracking which contain the same core concepts of these 3 methods. On top of this, these password cracking methods are viewed as the most common and easiest type of password cracking to deploy.  Have a go at the lessons below and learn about password cracking.
+</p>
 
 <div class="scencenter">
-<button type="button" class="collapsible">Scenario 1 (Dictionary Attack)</button>
+<button type="button" class="collapsible">Dictionary Attacks</button>
 <div class="content">
-  <img src="../ui/img/dict_attack.jpg" class="scenimg">
+  <img src="../ui/img/dictionary.jpg" class="scenimg">
   <p class="text_information">
-    A hacker is conducting an automated attack called password spraying on a social media login page, this attack utilizes a dictionary list to crack passwords. 
+    In this page, we aim to teach you all about what dictionary attacks are, real world application of dictionary based attacks, how dictionary attacks work and many more. Take a look into the world of hacking and equip yourself with the knowledge of password cracking.
   </p>
   <a href="../Password Cracking/dictattack.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
-<button type="button" class="collapsible">Scenario 2 (Brute Force Attack)</button>
+<button type="button" class="collapsible">Brute Force Attacks</button>
 <div class="content">
-  <img src="../ui/img/brute_force.jpg" class="scenimg">
+  <img src="../ui/img/bruteforce.jpg" class="scenimg">
   <p class="text_information">
-    A Blog Login Page is found not containing any type of protection against persistent password attempts. A hacker will utilize this to brute force attack users passwords.
+    In this page, we aim to teach you about what brute force attacks are, how it works, and the different strength and weaknesses of brute force attacks. Take a look into the world of hacking and equip yourself with the knowledge of password cracking.
   </p>
   <a href="../Password Cracking/bruteforce.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 <br>
-<button type="button" class="collapsible">Scenario 3 (Rainbow Table Attack)</button>
+<button type="button" class="collapsible">Rainbow Table Attacks</button>
 <div class="content">
-  <p class="text_information">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <img src="../ui/img/rainbow_table.jpg" class="scenimg">
+  <p class="text_information">
+    In this page, we aim to teach you about understanding the process of rainbow table attacks and the different steps that are taken in order to initiate an attack, with processes such as rainbow table generation, how it works and other lessons. Hop into lessons that will aid in deepening your understanding of what password cracking is and how to avoid such forms of password cracking.
+  </p>
   <a href="../Password Cracking/rainbow.php"><button class="tryitbutton">Investigate!</button></a>
 </div>
 </div>

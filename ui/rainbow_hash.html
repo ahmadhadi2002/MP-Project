@@ -62,6 +62,13 @@
   background-color: #dddddd;
 }
 
+.errorMsg{
+    font-size: 1em;
+    color:red;
+    display: none;
+    margin-bottom: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -77,11 +84,13 @@
         <input type="text" autocomplete="off" id="rainHash_input" name="rainHash_input" class="rainhash_input"><br>
         <Label for="hash_option">Select a Hash Algorithm</Label><br>
         <select class="hash_option" id="hash_option" name=" hash_option">
-                <option value="">Select a Option:</option>
+                <option value="0">Select a Option:</option>
                 <option value="1">MD5</option>
                 <option value="2">SHA-1</option>
         </select><br>
-        <button type="button" onClick="rainHash(event)" class="hashBtn">Submit</button><br> 
+        <div id="hashError1" class="errorMsg">Please Key in a input</div>
+        <div id="hashError2" class="errorMsg">Please Select a hashing algorithm</div>
+        <button type="button" onClick="checkRainHash()" class="hashBtn">Submit</button><br> 
 
         <table class="hashVal" id="hashTable">
             <tr>
@@ -104,6 +113,37 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+function checkRainHash(){
+
+    var option = document.getElementById("hash_option").value;
+    var input = document.getElementById("rainHash_input").value;
+    var inputError = document.getElementById("hashError1");
+    var optionError = document.getElementById("hashError2");
+
+    if ( option == "0"){
+        optionError.style.display = "block"
+        inputError.style.display = "none"
+        if ( input == "" || input == null || input == undefined ){
+            inputError.style.display = "block"
+        }
+    }
+
+    if ( input == "" || input == null || input == undefined ){
+        inputError.style.display = "block"
+        optionError.style.display = "none"
+        if ( option == "0" || option == "" || option === null || option === undefined){
+            optionError.style.display = "block"
+        }
+    }
+
+    if (input != "" && option != "0"){
+        inputError.style.display = "none";
+        optionError.style.display = "none";
+        rainHash(event);
+    }
+}
+
 
 function rainHash(event){
 

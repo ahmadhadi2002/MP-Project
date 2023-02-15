@@ -6,13 +6,13 @@
 .hashCheck table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 45%;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
     height: 190px;
     font-size: 19px;
     min-width: fit-content;
-    margin: 49px 0px 120px 393px;
+    margin: 49px auto 120px auto;
     }
 
     .hashCheck td, th {
@@ -69,25 +69,115 @@
         margin-bottom: 10px;
     }
 
+    .rainCheck_header{
+        padding-left: 398px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 2.9rem;
+        letter-spacing: 1e-06em;
+        font-weight: bold;
+        margin-top: 90px
+    }
+
+    .information{
+        padding: 10px 398px 10px 398px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+        font-size: 1.25rem;
+        letter-spacing: 1e-06em;
+    }
+
+    .checkImg1{
+        display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1075px;
+    height: 430px;
+    }
+
+    .hashCheckError{
+        display: none;
+        color: red;
+        font-size: 1em;
+    }
+
+    .hashCheck_loading{
+        margin-top: 50px;
+    margin-right: 398px;
+    font-size: 2.5em;
+    display: none;
+    text-align: center;
+    }
+
 </style>
 </head>
 
 <body>
 
+    <div class="rainCheck_header">Hash Treasure Hunt</div>
+
+    <div class="information">
+        <img src="../ui/img/treasure.jpg" class="checkImg1">
+        <p>
+            This exercise will allow you to get your hands dirty and go more in depth into the hands-on experience of an attacker and allow you to further understand the process of password cracking.  Firstly, this exercise will generate 3 random hashed passwords of your choosing by selecting the drop down menu and its options. 
+        </p>
+        <p>
+            Secondly , you will need to attempt to find the secret hashes and key it into the input to initiate a rainbow table attack to find out the text values of the hashes. Overall, this exercise will aim to put you in an attackers point of view and experience the act of obtaining hashes, and running them through a rainbow table attack to get the plaintext passwords.
+        </p>
+
+    </div>
+
+    <div>
+        <h1 style="font-size: 40px; padding-left: 393px; margin-bottom: 5px;">Try It Out!</h1>
+    </div>
+
+    <hr style="width: 1090px">
+
+    <div class="information" style="font-size: 1em;">
+        <p>
+            Hint: Press “Ctl + Shift + C” to open a menu, start to search for local storage in the application tab and look for “checkarray”.
+        </p>
+    </div>
+
     <div class="hashCheck_form">
         <Label for="hashCheck_option">Select a Hash Algorithm</Label><br>
         <select class="hashCheck_option" id="hashCheck_option" name=" hashCheck_option">
-            <option value="">Select a Option:</option>
+            <option value="0">Select a Option:</option>
             <option value="1">MD5</option>
             <option value="2">SHA-1</option>
         </select><br>
         <div id="checkhashList" style="display:none;" class="checkhashList"></div>
         <label for="hashCheck_input">Key in a Hashed Password</label><br>
         <input type="text" autocomplete="off" id="hashCheck_input" name="hashCheck_input" class="hashCheck_input"><br>
-        <button type="button" onClick="hashCheck(event)" class="hashCheckBtn">Submit</button><br> 
+        <div class="hashCheckError" id="hashCheckError1">Please key in a input</div>
+        <div class="hashCheckError" id="hashCheckError2">Please Select a Hashing algorithm</div>
+        <button type="button" onClick="checkRainHash(); loading()" class="hashCheckBtn">Submit</button><br>
+        <div id="hashCheck_loading" class="hashCheck_loading">Loading...</div> 
     </div>
 
     <div id="hashCheck" class="hashCheck"></div>
+
+    <div class="rainCheck_header" style="font-size: 2.5em;">Conclusion</div>
+    <hr style="width: 1090;">
+
+    <div class="information">
+        <p>
+            In conclusion to the rainbow table attack page let us go through the topics and practices we have gone through during the course of this page
+        </p>
+
+        <ul>
+            <li>Understanding what rainbow table attacks are</li>
+            <li>Rainbow Table Generation</li>
+            <li>How do rainbow table attacks work?</li>
+            <li>Hash Treasure Hunt</li>
+        </ul>
+
+        <p>
+            We hope by the end of the exercise that you have understood the different steps and processes of rainbow table attacks and understand password cracking better as a whole.
+        </p>
+
+    </div>
 
 </body>
 
@@ -116,7 +206,8 @@
     
     });
 
-    function generatePass(inputValue){
+
+function generatePass(inputValue){
 
         
         var tempmd5Array = md5Array;
@@ -168,9 +259,41 @@
 
         localStorage.setItem("checkArray", JSON.stringify(checkArray));
 
-    }
+}
 
-    function hashCheck(event){
+
+function checkRainHash(){
+
+var option = document.getElementById("hashCheck_option").value;
+var input = document.getElementById("hashCheck_input").value;
+var inputError = document.getElementById("hashCheckError1");
+var optionError = document.getElementById("hashCheckError2");
+
+if ( option == "0"){
+    optionError.style.display = "block"
+    inputError.style.display = "none"
+    if ( input == "" || input == null || input == undefined ){
+        inputError.style.display = "block"
+    }
+}
+
+if ( input == "" || input == null || input == undefined ){
+    inputError.style.display = "block"
+    optionError.style.display = "none"
+    if ( option == "0" || option == "" || option === null || option === undefined){
+        optionError.style.display = "block"
+    }
+}
+
+if (input != "" && option != "0"){
+    inputError.style.display = "none";
+    optionError.style.display = "none";
+    hashCheck(event);
+}
+}
+
+
+function hashCheck(event){
 
     var hashCheck_input = document.getElementById("hashCheck_input").value;
     const hashCheck_option = document.getElementById("hashCheck_option").value;
@@ -186,10 +309,18 @@
         data:hashData,
         success: function(data) {
             // alert ("Form Received");
+            document.getElementById("hashCheck_loading").style.display = "none";
+            document.getElementById("hashCheck").style.display = "block";
             document.getElementById("hashCheck").innerHTML = data;
+            document.getElementById("hashCheck_input").value = "";
         }
     })
 
+}
+
+function loading(){
+    document.getElementById("hashCheck_loading").style.display = "block";
+    document.getElementById("hashCheck").style.display="none";
 }
 
 </script>
