@@ -1,19 +1,5 @@
 
-const button = document.getElementById("open-container-button_tt");
-const container = document.getElementById("container_tt");
-let isOpen = false;
 
-button.addEventListener("click", () => {
-    if (!isOpen) {
-        container.classList.remove('hidden_tt');
-        isOpen = true;
-        button.innerHTML = "Close";
-    } else {
-        container.classList.add('hidden_tt');
-        isOpen = false;
-        button.innerHTML = "Click here!";
-    }
-});
 
 function mode_checker(mode, technique) {
     var mode = mode;
@@ -32,11 +18,11 @@ function mode_checker(mode, technique) {
     }
     if (technique === "decrypt") {
         if (mode === "ECB") {
-            document.getElementById("iv_de-un").disabled = true;
+            document.getElementById("iv_de").disabled = true;
+            document.getElementById("iv_de").value = "";
             aesFunction('decrypt');
         } else {
             document.getElementById("iv_un").disabled = false;
-            document.getElementById("iv_un").value = "";
             document.getElementById("mode_de").value = mode;
             aesFunction('decrypt');
 
@@ -53,7 +39,7 @@ function aesFunction(technique) {
 
     } else if (technique === "decrypt") {
         var str = document.getElementById("text_de").value;
-        var mode = document.getElementById("mode-de").value;
+        var mode = document.getElementById("mode_de").value;
 
 
     }

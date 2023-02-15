@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../shared_css/style(q).css">
 
 <div class="quiz_all">
-  <div class="quiz-container" style="height: 350px;">
+  <div class="quiz-container" style="height: 325px;">
     <div id="quiz"></div>
   </div>
   <button class="button" id="previous">Previous Question</button>
@@ -101,17 +101,17 @@
       },
       correctAnswer: "b"
     }, {
-      question: 'Task: Encrypt the data stated under the parameter<br><iframe src="/MP-project/Encryption/quiz/aes/qn2.html" width="550px" height="225px"></iframe> <br>',
+      question: 'Task: Decrypt another the data stated under the parameter<br><iframe src="/MP-project/Encryption/quiz/aes/qn2.html" width="550px" height="165px"></iframe> <br>',
       answers: {
-        a: "K2txQ2MyZXUydlhpL21EUGY2UVdzRWtYejAzMlRqaVdPOGd6U09NZk9HcXlyb0RvS3RZR0RMS05wYkE9PQ==",
-        b: "4834324877376b472f704270556864747875725439673d3d",
-        c: "634432536d6d796e4a4b423375546b774c79597673773d3d",
-        d: "cTg0K20yYWpETjcyZVFsazN1Y2RSL3J2K0ZNbTE1TFJOOXZyazR4N3ZiUDdwT0ZiK3o5VWpFWlBJTGtHdnV0a3RnTW8="
+        a: "Cryptography is typically bypassed, not penetrated.",
+        b: "Every secret creates a potential failure point",
+        c: "Random numbers should not be generated with a method chosen at random",
+        d: "Anyone can create an algorithm they can’t break."
       },
       correctAnswer: "d"
       
     }, {
-      question: 'Task: The text format of the encrypted data is Base64.<p style="font-size: 20px;">Encrypted Data (Ciphertext): dE5yQnVUS3RKVk8zazlzSVZDajh3UT09 </p><br><p style="font-size: 15px;">Hint: You would need to use the "Decryption" tab! </p>',
+      question: 'Task: The text format of the encrypted data is Base64.<p style="font-size: 20px;">Encrypted Data (Ciphertext): dE5yQnVUS3RKVk8zazlzSVZDajh3UT09 </p><br><p style="font-size: 15px;">Hint: You would need to use the "Text Identifier" tab! </p>',
       answers: {
         a: "True",
         b: "False",

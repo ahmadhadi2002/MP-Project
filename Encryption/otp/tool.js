@@ -1,4 +1,3 @@
-
 var inputArray = [];
 
 function otpFunction(technique) {
@@ -32,20 +31,27 @@ function otpFunction(technique) {
             console.log(response.output);
             console.log(response.table);
             console.log(technique);
+            document.getElementById("txtHint1").innerHTML = response.table;
             if (technique === 'Encrypt') {
-                console.log(technique);
-                document.getElementById("result").innerHTML = response.output;
-                document.getElementById("txtHint1").innerHTML = response.table;
+                document.getElementById("result_en").innerHTML = response.output;
             } else if (technique === 'Decrypt') {
                 document.getElementById("result_de").innerHTML = response.output;
-                document.getElementById("txtHint1").innerHTML = response.table;
             }
         }
     };
-    xhttp.open("POST", "back.php", true);
+    if (technique === 'Encrypt') {
+        xhttp.open("POST", "back.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("str=" + textarea + "&secret=" + input + "&option=" + option + "&technique=en");
+    } else if (technique === 'Decrypt') {
+        xhttp.open("POST", "back.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("str=" + textarea + "&secret=" + input + "&option=" + option + "&technique=en");
-    console.log(secret);
+    xhttp.send("str=" + textarea + "&secret=" + input + "&option=" + option + "&technique=de");
+    }
+    // xhttp.open("POST", "back.php", true);
+    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // xhttp.send("str=" + textarea + "&secret=" + input + "&option=" + option + "&technique=en");
+    // console.log(secret);
 }
 
 window.onbeforeunload = function () {
@@ -77,4 +83,24 @@ function generateAndAppend() {
     }
     input.value = "";
     input.value += randomString;
+    document.getElementById('result').value="";
+}
+
+function identifier(str) {
+    var xhttp;
+    if (str.length == 0) {
+        document.getElementById("result_iden").innerHTML = "";
+        return;
+    }
+
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var result = this.responseText;
+            document.getElementById("result_iden").innerHTML = result;
+        }
+    };
+    xhttp.open("GET", "back.php?value=" + str + "&iden=iden", true);
+    xhttp.send();
+
 }

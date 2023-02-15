@@ -72,7 +72,7 @@ function caesarCipher_option1($str, $amount){
 	$backwards = implode('', $output);
 	$output1["Backward $amount"] = $backwards;
 	foreach ($output1 as $key => $value) {
-		echo "<tr><td>$key</td><td>$value</td></tr>";
+		echo "<table><tr><td>$key</td><td>$value</td></tr></table>";
 	}
 }
 
@@ -110,7 +110,7 @@ function caesarCipher_option2($str, $amount){
 	$backwards = implode('', $output);
 	$output1["Backward $amount"] = $backwards;
 	foreach ($output1 as $key => $value) {
-		echo "<tr><td>$key</td><td>$value</td></tr>";
+		echo "<table><tr><td>$key</td><td>$value</td></tr></table>";
 	}
 }
 
@@ -164,7 +164,7 @@ function caesarDecryptBF($str)
 	echo "<div class='column'>
 	<table>
 	<tr>
-	<th>Direction</th><th>Shift Key</th><th>Ciphertext</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Direction</th><th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Shift Key</th><th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Ciphertext</th>
 	</tr>";
 	foreach ($output1 as $key => $value) {
 		echo "
@@ -195,7 +195,9 @@ function caesarDecryptBF($str)
 	echo "<div class='column'>
 	<table>
 	<tr>
-	<th>Direction</th><th>Shift Key</th><th>Ciphertext</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Direction</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Shift Key</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Ciphertext</th>
 	</tr>";
 	foreach ($output1 as $key => $value) {
 		echo "<tr>

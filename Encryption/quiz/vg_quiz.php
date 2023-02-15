@@ -94,19 +94,19 @@
     {
       question: 'Key: secret <br> Plaintext: Wednesday <br> What is the ciphertext? ',
       answers: {
-        a: "Oifeilvea",
+        a: "Sifeilvea",
         b: "Trdehimes",
         c: "Bthdjlmds",
         d: "Qwertyuii"
       },
       correctAnswer: "a"
     }, {
-      question: 'Key: Test <br> Ciphertext: Ttheqpgmmgg <br> What is the ciphertext? ',
+      question: 'Key: test <br> Ciphertext: ttheqpgmmgg <br> What is the plaintext? ',
       answers: {
-        a: "Handling",
-        b: "Fowarding",
-        c: "Application",
-        d: "Wednesday"
+        a: "handling",
+        b: "fowarding",
+        c: "application",
+        d: "wednesday"
       },
       correctAnswer: "c"
     }, {

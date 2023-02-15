@@ -99,8 +99,10 @@
                                 </center>
                             </header>
                             <div class="brick__content">
-                                <textarea style="height: 400px; width: 420px;" ; id="result" ; name="result"
-                                    ;></textarea>
+                            <div id="box">
+                                <div id="result"></div>
+                            </div>
+                                
                             </div>
                             <br>
                         </div>
@@ -111,10 +113,10 @@
     </form>
 
     <div id="bf" class="tabcontent">
-        <h3>Caesar Cipher Decryption (Bruteforce)</h3>
+        <h3>Caesar Cipher De/Encryption (Bruteforce)</h3>
         <b>Start typing a name in the input field below:</b>
         <form>
-            Plaintext: <input type="text" ; id="fname" ; onkeyup="myFunction('bruteforce')">
+        Plaintext/Ciphertext: <input type="text" ; id="fname" ; onkeyup="myFunction('bruteforce')">
         </form>
         <div class="row">
             Suggestions:

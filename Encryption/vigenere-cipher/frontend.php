@@ -43,7 +43,7 @@ require "../../ui/navbar.html";
   <p style="font-size:18px"> 
       The source code below is the implementation of the idea for the encryption techcnique, it is written using the python programming language. Hit the run below to try it out now! </p>
     <center>
-      <iframe style='max-width:100%; border: none; height: 375px; width: 700px;' height=375 width=700
+      <iframe style='max-width:100%; border: none; height:800px; width: 100%;' height=375 width=700
         src=https://www.interviewbit.com/embed/snippet/c82915252b47afca29dc
         title='Interviewbit Ide snippet/c82915252b47afca29dc' loading="lazy" allow="clipboard-write" allowfullscreen
         referrerpolicy="unsafe-url"

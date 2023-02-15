@@ -52,8 +52,8 @@
     </div>
 
     <div id="en" class="tabcontent">
-        <form id="form_rsa_en" ; onclick="rsaFunction('encrypt')">
-            <div class="row_deen">
+        <div class="row_deen">
+            <form id="form_rsa_en" ; onclick="rsaFunction('encrypt')">
                 <div class="column_deen">
                     <div class="card_en">
                         <div class="container">
@@ -73,7 +73,8 @@
                         </div>
                     </div>
                 </div>
-
+                </form>
+                <form id="form_rsa_en" ; onclick="rsaFunction('encrypt')">
                 <div class="column_deen">
                     <div class="card_en" ; style="height: fit-content; ">
                         <div class="container">
@@ -120,29 +121,31 @@
                         </div>
                     </div>
                 </div>
+                </form>
+            
+            <div class="column_deen">
+                <div class="card_en">
+                    <div class="container">
+                        <header>
+                            <center>
+                                <h2><b>Output Encoded text</b></h2>
+                            </center>
+                        </header>
+                        <div class="brick__content">
+                            <textarea style="height: 400px; width: 420px;" ; id="result_en" ; name="result_en"
+                                ;></textarea>
 
-                <div class="column_deen">
-                    <div class="card_en">
-                        <div class="container">
-                            <header>
-                                <center>
-                                    <h2><b>Output Encoded text</b></h2>
-                                </center>
-                            </header>
-                            <div class="brick__content">
-                                <textarea style="height: 400px; width: 420px;" ; id="result_en" ; name="result_en"
-                                    ;></textarea>
-
-                                <br>
-
-                            </div>
                             <br>
+
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>
-            <input type="text" ; id="technique" ; name="technique" ; value="encrypt" ; hidden>
-        </form>
+
+        </div>
+        <input type="text" ; id="technique" ; name="technique" ; value="encrypt" ; hidden>
+
     </div>
 
     <div id="de" class="tabcontent">
@@ -237,27 +240,28 @@
         </form>
     </div>
     <div id="veri" class="tabcontent">
-    <form id="uploadForm">
-    <input type="file" id="fileInput" name="fileInput">
-    <input type="button" value="Upload" onclick="uploadFile()">
-    <br>
-    <br>
-</form>
-<table id="fileTable_veri" style="display: none">
-    <tr>
-        <td>Status:</td>
-        <td id="status"></td>
-    </tr>
-    <tr>
-        <td>File Content:</td>
-        <td id="fileContent"></td>
-    </tr>
-</table>
+        <form id="uploadForm">
+            <input type="file" id="fileInput" name="fileInput">
+            <input type="button" value="Upload" onclick="uploadFile()">
+            <br>
+            <br>
+        </form>
+        <table id="fileTable_veri" style="display: none">
+            <tr>
+                <td>Status:</td>
+                <td id="status"></td>
+            </tr>
+            <tr>
+                <td>File Content:</td>
+                <td id="fileContent"></td>
+            </tr>
+        </table>
     </div>
 </body>
+
 </html>
 
 <script>
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
 </script>

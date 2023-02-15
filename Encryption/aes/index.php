@@ -9,6 +9,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openTab(event, 'en')" id="defaultOpen">Encryption</button>
   <button class="tablinks" onclick="openTab(event, 'de')">Decryption</button>
+  <button class="tablinks" onclick="openTab(event, 'veri')">Text Format</button>
 
 </div>
 
@@ -161,11 +162,7 @@
                                         </div>
                             </center>
                         </form>
-                        <div class="container-tt">
-                            Don't Know what is the format of the text?
-                            <button class="open-container-button_tt" ; id="open-container-button_tt" ;>Click
-                                here!</button>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -198,7 +195,7 @@
                                         Mode:
                                     </td>
                                     <td>
-                                        <select name="mode_de" ; id="mode_de"
+                                        <select name="mode_de" ; id="mode_de" value="" ;
                                             onclick="mode_checker(this.value, 'decrypt')">
                                             <option value=""></option>
                                             <option value="ECB">ECB (Electronic Book Code)</option>
@@ -257,8 +254,11 @@
             </div>
         </div>
         <br>
-        <div id="container_tt" class="hidden_tt">
-            <table class="tt_table">
+        
+    </div>
+
+    <div id="veri" class="tabcontent">
+    <table class="tt_table">
                 <tr>
                     <td rowspan="2">
                         <br>
@@ -277,7 +277,6 @@
                     </td>
                 </tr>
             </table>
-        </div>
     </div>
 </body>
 
@@ -286,4 +285,8 @@
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+
+
+
 </script>

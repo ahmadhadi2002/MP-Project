@@ -92,22 +92,6 @@
   const submitBtn = document.getElementById('submit');
   const qn = [
     {
-      question: 'Task: Download the file below and verify if it is a valid key file<br><iframe src="/MP-project/Encryption/quiz/rsa/qn3.html" width="550px" height="255px"></iframe> <br><p style="font-size: 15px;">Hint: You would need to use the "verify Key File" tab </p>',
-      answers: {
-        a: "Well Done!",
-        b: "well done",
-        c: "Good Job?",
-        d: "good job"
-      },
-      correctAnswer: "a"
-    }, {
-      question: '<center><p style="font-size: 30px;">Task: Download the file below and verify if it is a valid key file </p><p style="font-size: 25px;">Click on the link to download the file:<a href="rsa/qn_2.pem" download >key file</a></p> <p style="font-size: 15px;">Hint: You never know until you try the "verify Key File" tab! </p></center>',
-      answers: {
-        a: "Valid",
-        b: "Invalid",
-      },
-      correctAnswer: "a"
-    }, {
       question: 'Look at the following options and choose the correct combination of action and key: ',
       answers: {
         a: "Encryption - Private Key, Decryption - Private  Key",
@@ -116,6 +100,22 @@
         d: "Encryption - Public Key, Decryption - Private  Key"
       },
       correctAnswer: "d"
+    }, {
+      question: '<center><p style="font-size: 30px;">Task: Download the file below and verify if it is a valid key file </p><p style="font-size: 25px;">Click on the link to download the file:<a href="/MP-project/Encryption/quiz/rsa/qn_2.pem" download >key file</a></p> <p style="font-size: 15px;">Hint: You never know until you try the "verify Key File" tab! </p></center>',
+      answers: {
+        a: "Valid",
+        b: "Invalid",
+      },
+      correctAnswer: "a"
+    }, {
+      question: 'Task: Download the file below and verify if it is a valid key file<br><iframe src="/MP-project/Encryption/quiz/rsa/qn3.html" width="550px" height="255px"></iframe> <br><p style="font-size: 15px;">Hint: You would need to use the "verify Key File" tab </p>',
+      answers: {
+        a: "Well Done!",
+        b: "well done",
+        c: "Good Job?",
+        d: "good job"
+      },
+      correctAnswer: "a"
     }
   ];
 

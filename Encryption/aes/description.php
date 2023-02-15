@@ -2,53 +2,45 @@
 <html>
 <link rel="stylesheet" type="text/css" href="../shared_css/style(t).css">
 
-  <main>
-    <div class="faq-heading">
-      <h1 style="font-size: 35px; font-size: 35px;margin-bottom: 0px;">
-        ADVANCED ENCRYPTION STANDARD (AES)
-      </h1>
-      <p style="padding-top: 0px; margin-top: 0px;"> Cryptography | Symmetric Key Encryption Cipher</p>
-      <div <section class="faq-container">
-        <div class="faq-one">
-          <!-- faq question -->
-          <h1 class="faq-page">What is AES?</h1>
-          <!-- faq answer -->
-          <div class="faq-body">
-            <section class="container" name="about">
+<main>
+  <div class="faq-heading">
+    <h1 style="font-size: 35px; font-size: 35px;margin-bottom: 0px;">
+      ADVANCED ENCRYPTION STANDARD (AES)
+    </h1>
+    <p style="padding-top: 0px; margin-top: 0px;"> Cryptography | Symmetric Key Encryption Cipher</p>
+    <p style="font-size:18px">The Advanced Encryption Standard (AES) algorithm, also referred to as
+      the Rijndael
+      algorithm, is a symmetrical block
+      cipher algorithms that transform a block of 128 bits message into a 128 bits of
+      ciphertext using either 128, 192 or 256 bit keys, making it a strong, secure and
+      exponentially stronger algorithm.
+      <br>
+      The AES algorithm use a substitution-permutation, or SP network, with several rounds to
+      generate ciphertext, the
+      number of rounds will be determined by the key length used.
+    </p>
+    <p style="font-size:18px"> In each case, all the rounds are identical except for the last round
+      where it would not
+      have the mix column step. AES arranges
+      the bytes/bits in a 4x4 grid instead of one line like most ciphers. </p>
+    <center>
+      <img src="../../ui/img/Encryption/aes/byte.jpg">
+    </center>
 
-              <p style="font-size:18px">The Advanced Encryption Standard (AES) algorithm, also referred to as
-                the Rijndael
-                algorithm, is a symmetrical block
-                cipher algorithms that transform a block of 128 bits message into a 128 bits of
-                ciphertext using either 128, 192 or 256 bit keys, making it a strong, secure and
-                exponentially stronger algorithm.
-                <br>
-                The AES algorithm use a substitution-permutation, or SP network, with several rounds to
-                generate ciphertext, the
-                number of rounds will be determined by the key length used.
-              </p>
-              <p style="font-size:18px"> In each case, all the rounds are identical except for the last round
-                where it would not
-                have the mix column step. AES arranges
-                the bytes/bits in a 4x4 grid instead of one line like most ciphers. </p>
-              <center>
-                <img src="../../ui/img/Encryption/aes/byte.jpg">
-              </center>
+    In conclusion, AES is a trusted standard algorithm and it is used by the United States
+    government and other
+    organizations. Although extremely efficient in the 128-bit form, AES also uses 192- and 256-bit
+    keys
+    for very demanding encryption purposes. It is widely considered invulnerable to all attacks
+    except for brute force.
+    Regardless, many internet security experts believe that AES will eventually be regarded as the
+    go-to standard for
+    encrypting data in the private sector.
+    <br>
+    <br>
+    <div>
+      <section class="faq-container">
 
-              In conclusion, AES is a trusted standard algorithm and it is used by the United States
-              government and other
-              organizations. Although extremely efficient in the 128-bit form, AES also uses 192- and 256-bit
-              keys
-              for very demanding encryption purposes. It is widely considered invulnerable to all attacks
-              except for brute force.
-              Regardless, many internet security experts believe that AES will eventually be regarded as the
-              go-to standard for
-              encrypting data in the private sector.
-              <hr>
-            </section>
-          </div>
-        </div>
-        <hr class="hr-line">
 
         <div class="faq-two">
 
@@ -225,7 +217,7 @@
               <br>
               <?php
               include('slideshow.php')
-              ?>
+                ?>
               <br>
               <p style="font-size:20px">The AES encryption algorithm is considered to be highly secure and is
                 widely used in a
@@ -323,8 +315,8 @@
         <hr class="hr-line">
 
 
-        </section>
-  </main>
+      </section>
+</main>
 
 </html>
 

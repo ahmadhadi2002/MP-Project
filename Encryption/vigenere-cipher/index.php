@@ -103,16 +103,20 @@
     </form>
 
     <div id="bf" class="tabcontent">
-        <h3>Vigenere Cipher Decryption (Bruteforce)</h3>
+        <h3>Vigenere Cipher De/Encryption (Bruteforce)</h3>
         Start typing a name in the input field below:
         <form>
-            Plaintext: <input type="text" ; id="fname" >
+            Plaintext/Ciphertext: <input type="text" ; id="fname" >
             Length of Key: <input type="text" ; id="len" >
             Partial form of the Key: <input type="text" ; id="key_bf" ; onkeyup="myFunction('bruteforce')">
         </form>
         <br>
-        <b>DUE TO MEMORY ISSUE, THE HIGHEST DIFFERENCE BETWEEN THE PARTIAL FORM AND THE LENGTH OF THAT THE PROGRAM CAN
-            RUN IS 5 ONLY</b>
+        <b>TO TAKE NOTE:</b>
+        <ul>
+            <li>PLEASE GIVE IT A WHILE TO RUN</li>
+            <li>DUE TO MEMORY ISSUE, THE HIGHEST DIFFERENCE BETWEEN THE PARTIAL FORM AND THE LENGTH OF THAT THE PROGRAM CAN
+            RUN IS <b>5</b> ONLY</li>
+
         <br>
         <br>
         <div class="row">

@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
+
 $pp = $_REQUEST["purpose"];
 global $priv_key;
 if ($pp === "key") {
@@ -60,10 +61,7 @@ function isRSAEncryption($key, $technique)
 					return true;
 
 				} else {
-					echo "tets: $key";
-					echo '<script type="text/javascript">';
-					echo 'alert("Wrong Key used1")';
-					echo '</script>';
+					echo 'ERROR ENCOUNTER: Wrong Key used';
 					return false;
 				}
 			} else {
@@ -79,17 +77,13 @@ function isRSAEncryption($key, $technique)
 				if ($key_rsa) {
 					return true;
 				} else {
-					echo '<script type="text/javascript">';
-					echo 'alert("Wrong Key file used2")';
-					echo '</script>';
+					echo 'ERROR ENCOUNTER: Wrong Key used';
 					return false;
 				}
 			}
 		} else {
 			echo $content_a;
-			echo '<script type="text/javascript">';
-			echo 'alert("Wrong Key file used3")';
-			echo '</script>';
+			echo 'ERROR ENCOUNTER: Wrong Key used';
 			return false;
 		}
 	} else {
@@ -176,33 +170,40 @@ function rsa($str, $technique, $key, $padding)
 	}
 }
 
-function processUploadedFile(){
+function processUploadedFile()
+{
 	if (isset($_FILES['fileInput']['error']) && $_FILES['fileInput']['error'] == 0) {
 		$file = $_FILES['fileInput']['tmp_name'];
 		$fileContent = file_get_contents($file);
+
 		if (!empty($fileContent)) {
+
 			$status = 'File is not a valid key. ';
 			//check validity of key
 			if (preg_match('/-----BEGIN (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
+
 				if (preg_match('/-----END (PRIVATE KEY|RSA PRIVATE KEY)-----/', $fileContent)) {
+
 					$content_r = str_replace("'", '', $fileContent);
+
 					$key_rsa = openssl_pkey_get_private($content_r);
 					if ($key_rsa) {
-						$status =  'Private Key is valid!';
+						$status = 'Private Key is valid!';
 
 					} else {
-						$status =  'Private Key is invalid!';
+						$status = 'Private Key is invalid!';
 					}
+
 				} else {
-					$status =  'Private Key is invalid!';
+					$status = 'Private Key is invalid!';
 				}
 			} else if (preg_match('/-----BEGIN (PUBLIC KEY|RSA PUBLIC KEY)-----/', $fileContent)) {
 				if (preg_match('/-----END (PUBLIC KEY|RSA PUBLIC KEY)-----/', $fileContent)) {
 					$key_rsa = openssl_pkey_get_public($fileContent);
 					if ($key_rsa) {
-						$status =  'Public Key is valid!';
+						$status = 'Public Key is valid!';
 					} else {
-						$status =  'Public Key is invalid!';
+						$status = 'Public Key is invalid!';
 					}
 				}
 			} else {
@@ -211,15 +212,16 @@ function processUploadedFile(){
 		} else {
 			$status = 'File is empty. ';
 		}
+		$data = array('fileContent' => "$fileContent", 'status' => $status);
+		$display= implode(",", $data);
+		echo $display;
+		return $data;
 	} else {
 		$fileContent = '';
 		$status = 'File not uploaded';
 	}
-	$data = array('fileContent' => "$fileContent", 'status' => $status);
-	$ew=implode(',', $data);
-	echo $ew;
-	return $data;
-	
+
+
 }
 
 

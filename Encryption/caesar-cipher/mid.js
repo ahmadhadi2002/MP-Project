@@ -1,19 +1,8 @@
-// const plus = document.querySelector(".plus"),
-//     minus = document.querySelector(".minus"),
-//     num = document.querySelector(".num");
-// let a = 1;
-// plus.addEventListener("click", () => {
-//     if (a < 26) {
-//         a++;
-//         num.innerText = a
-//     }
-// })
-// minus.addEventListener("click", () => {
-//     if (a > 0) {
-//         a--;
-//         num.innerText = a
-//     }
-// })
+function divide(txt) {
+    var text = txt.split(".");
+    var str = text.join('.</br>');
+    document.write(str);
+}
 
 function change_value(dir) {
     a = document.getElementById("shift").innerText;

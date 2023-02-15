@@ -2,10 +2,10 @@
 <html>
 <link rel="stylesheet" type="text/css" href="../shared_css/style(ter).css">
 <center>
-    <div id="terminal" style="text-align:justify;">
+    <div id="terminal" style="text-align:justify; height:800px">
         <div id="input">
             <form>
-            <div id="input_field">
+            <div id="input_field" style="height:760px">
             <span style="color:blue;">from </span>Crypto.Cipher <span style="color:blue;">import</span> AES
             <br><br>
             <span style="color:Green;">Encrypts a plaintext using AES encryption.</span><br>
@@ -50,7 +50,7 @@
             </form>
         </div>
         <button type="button" id="button_t" onclick="runCommand()">Run</button>
-        <div id="output"></div>
+        <div id="output" style="height:760px"></div>
     </div>
     <center>
 
@@ -61,7 +61,7 @@
     function runCommand() {
         var input = document.getElementById("input_field").value;
         // Your logic to process the input and generate the output
-        var output = "Encrypted: SXN6QVBpMXVCSXpCUkNISDVUelovQT09<br>Decrypted: HELLO";
+        var output = "Plaintext: HELLO<br>Key: mysecretkey1234<br>Encrypted: SXN6QVBpMXVCSXpCUkNISDVUelovQT09<br>Decrypted: HELLO";
         document.getElementById("output").innerHTML = output;
     }
 </script>

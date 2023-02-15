@@ -70,16 +70,21 @@ function aes_function($str, $tech)
 function identifier($str)
 {
 	$input = $_REQUEST["str"];
-	if (base64_decode($input, true) !== false) {
+ if (hex2bin($input) !== false) {
+		if (ctype_xdigit($input)){
+			echo "Input is hex encoded.";
+		}else {
+			echo "invalid Input";
+		}
+	} else if (base64_decode($input, true) !== false) {
 		if (!preg_match('/^[a-zA-Z0-9\/\r\n+]*={0,2}$/', $input)) {
-			echo "The string is plaintext.";
+			echo "invalid Input";
 		} else {
 			echo "Input is base64 encoded.";
 		}
-	} elseif (hex2bin($input) !== false) {
-		echo "Input is hex encoded.";
-	} else {
-		echo "The string is plaintext.";
+	} 
+	else {
+		echo "invalid Input";
 	}
 }
 ?>

@@ -32,9 +32,9 @@
                 and integrity, proving that the underlying data or messages have not been altered in any way from their
                 original state.Encrypted data is commonly referred to as <b>ciphertext</b>, while unencrypted data is
                 called <b>plaintext</b>.
-                
 
-                    </li>
+
+                </li>
                 </ul>
                 Encryption is a critical component of modern cybersecurity and is
                 used to protect sensitive information, such as financial transactions, personal information, and
@@ -77,7 +77,7 @@
 
                     <div class="scencenter">
                         <h2><u>Encryption Techniques</u></h2>
-                        Primitive Encryption Technique  <br>
+                        Primitive Encryption Technique <br>
                         <button type="button" class="collapsible">Encryption Technique 1 (Caesar Cipher)</button>
                         <div class="content">
                             <img src="../ui/img/Encryption/cs.jpeg" class="scenimg">
@@ -127,8 +127,8 @@
     <div>
         <section class="faq-container">
             <div class="faq-one">
-            <h1 class="faq-heading"><u>MORE INFORMATION</u></h1>
-        </div>
+                <h1 class="faq-heading"><u>MORE INFORMATION</u></h1>
+            </div>
             <div class="faq-one">
                 <h1 class="faq-page">Need more explanation on Symmetric & Asymmetric Encryption?</h1>
                 <div class="faq-body">
@@ -269,14 +269,25 @@
             <hr class="hr-line">
             <div class="faq-three">
                 <!-- faq question -->
-                <h1 class="faq-page">Does it improves the user experience of a website?</h1>
+                <h1 class="faq-page">References</h1>
 
                 <!-- faq answer -->
                 <div class="faq-body">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
-                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
-                        aperiam.
-                        Perspiciatis, porro!</p>
+                    <p>We would like to credit the following link and citation: </p>
+                    <ul>
+                        <li>https://sectigostore.com/blog/types-of-encryption-what-to-know-about-symmetric-vs-asymmetric-encryption/
+                        </li>
+                        <li> https://www.simplilearn.com/tutorials/cryptography-tutorial/asymmetric-encryption#what_is_asymmetric_encryption
+                        </li>
+                        <li> https://www.simplilearn.com/data-encryption-methods-article?tag=symmetric%20encryption</li>
+                        <li> https://www.sciencedirect.com/topics/computer-science/substitution-cipher</li>
+                        <li>https://www.uobabylon.edu.iq/eprints/paper_11_1363_649.pdf</li>
+                        <li>Sousi, Ahmad-Loay & Yehya, Dalia & Joudi, Mohamad. (2020). AES Encryption: Study &
+                            Evaluation. </li>
+                        <li>Nisha, Shireen & Farik, Mohammed. (2017). RSA Public Key Cryptography Algorithm – A Review.
+                            International Journal of Scientific & Technology Research. 6. 187-191. </li>
+                    </ul>
+                    <p> Thank You!</p>
                 </div>
             </div>
         </section>

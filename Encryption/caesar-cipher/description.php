@@ -8,14 +8,7 @@
       CAESAR CIPHER
     </h1>
     <p style="padding-top: 0px; margin-top: 0px;"> Cryptography | Substitution Cipher</p>
-    <div <section class="faq-container">
-      <div class="faq-one">
-        <!-- faq question -->
-        <h1 class="faq-page">What is Caesar Cipher?</h1>
-        <!-- faq answer -->
-        <div class="faq-body">
-          <section class="container" name="about">
-            <p style="font-size:18px">The Caesar Cipher is a simple encryption technique in which each letter in the
+    <p style="font-size:18px">The Caesar Cipher is a simple encryption technique in which each letter in the
               plain text
               is shifted a certain number of places down the alphabet. The number of positions the letters are shifted
               by is
@@ -24,18 +17,12 @@
               it was used historically as a way of obscuring text. Currently, it served as an educational purpose to
               educate
               people on cryptography.</p>
-          </section>
-        </div>
-      </div>
-      <hr class="hr-line">
-
+              <br><br>
+    <div <section class="faq-container">
       <div class="faq-two">
-
         <!-- faq question -->
         <h1 class="faq-page">Background (Brief)</h1>
-
         <!-- faq answer -->
-
         <div class="faq-body">
           <section class="container" ; name="hist">
             &nbsp;&nbsp;<h2><u> Background (brief)</u></h2>

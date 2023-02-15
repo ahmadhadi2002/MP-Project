@@ -8,13 +8,7 @@
       VIGENÈRE CIPHER
     </h1>
     <p style="padding-top: 0px; margin-top: 0px;"> Cryptography | Poly Alphabetic Cipher</p>
-    <div <section class="faq-container">
-      <div class="faq-one">
-        <!-- faq question -->
-        <h1 class="faq-page">What is Vigenère cipher?</h1>
-        <!-- faq answer -->
-        <div class="faq-body">
-          <p style="font-size:18px">Vigenère cipher is a method of encryption uses a simple substitution to encode a
+    <p style="font-size:18px">Vigenère cipher is a method of encryption uses a simple substitution to encode a
             message,
             Polyalphabetic
             Substitution Cipher. It was first
@@ -25,10 +19,7 @@
             letter of the shifted alphabet. The Vigenère cipher is relatively simple to implement but can be quite
             secure when
             used correctly.</p>
-        </div>
-      </div>
-      <hr class="hr-line">
-
+    <div <section class="faq-container">
       <div class="faq-two">
         <!-- faq question -->
         <h1 class="faq-page">Background (Brief)</h1>
@@ -61,6 +52,50 @@
         <h1 class="faq-page">Application/Process</h1>
         <!-- faq answer -->
         <div class="faq-body">
+
+
+          <p style="font-size:18px">
+            <b>Encryption:</b><br>
+            The first letter of the plaintext, M is paired with the first letter of the key, T. So use row M and column
+            T of
+            the Vigenère square (Row - Plaintext, Column - Key), namely F. Similarly, for the second letter of the
+            plaintext,
+            the second letter of the key is used, the letter at row O, and column E is S. The rest of the plaintext is
+            enciphered in a similar fashion.
+          </p>
+          <div>
+            <?php
+            include("slideshow.php");
+            ?>
+          </div>
+          <p style="font-size:18px">
+            <b>Decryption:</b><br>
+            Performed by going to the row in the table corresponding to the key, finding the position of the
+            ciphertext letter in this row, and using the column’s label as the plaintext. For example (refer to the
+            image in
+            the slideshow):<br>
+            Red - In row "T" (from TEST), the ciphertext F appears in column "M", which is the first plaintext letter.
+            Green - In row "E" (from TEST), locate the ciphertext S which is found in column "O", thus O is the second
+            plaintext letter.
+          </p>
+
+
+          <div style="background-color: white; height: auto; width: auto;  border: 1px solid black; margin: auto;">
+            <p style="font-size:20px">
+              &nbsp;<u>Encryption</u><br>
+              &nbsp;E<sub>i</sub> = (P<sub>i</sub> + K<sub>i</sub>) mod 26<br>
+              &nbsp;Note: The plaintext(P) and key(K) are added modulo 26.<br>
+              <br>
+              &nbsp;<u>Decryption</u><br>
+              &nbsp; D<sub>i</sub> = (E<sub>i</sub> - K<sub>i</sub> + 26) mod 26<br>
+              &nbsp; Note: D<sub>i</sub> denotes the offset of the i-th character of the plaintext. For example, offset
+              of A
+              is 0 and of B is 1 and so
+              on.
+            </p>
+          </div>
+          <br>
+
           <div
             style="background-color: white; height: auto; width: auto;  border: 1px solid black; margin: auto; overflow: hidden;">
             <p style="font-size:20px">
@@ -130,47 +165,6 @@
             </p>
           </div>
 
-          <p style="font-size:18px">
-            <b>Encryption:</b><br>
-            The first letter of the plaintext, M is paired with the first letter of the key, T. So use row M and column
-            T of
-            the Vigenère square (Row - Plaintext, Column - Key), namely F. Similarly, for the second letter of the
-            plaintext,
-            the second letter of the key is used, the letter at row O, and column E is S. The rest of the plaintext is
-            enciphered in a similar fashion.
-          </p>
-          <div>
-            <?php
-            include("slideshow.php");
-            ?>
-          </div>
-          <p style="font-size:18px">
-            <b>Decryption:</b><br>
-            Performed by going to the row in the table corresponding to the key, finding the position of the
-            ciphertext letter in this row, and using the column’s label as the plaintext. For example (refer to the
-            image in
-            the slideshow):<br>
-            Red - In row "T" (from TEST), the ciphertext F appears in column "M", which is the first plaintext letter.
-            Green - In row "E" (from TEST), locate the ciphertext S which is found in column "O", thus O is the second
-            plaintext letter.
-          </p>
-
-
-          <div style="background-color: white; height: auto; width: auto;  border: 1px solid black; margin: auto;">
-            <p style="font-size:20px">
-              &nbsp;<u>Encryption</u><br>
-              &nbsp;E<sub>i</sub> = (P<sub>i</sub> + K<sub>i</sub>) mod 26<br>
-              &nbsp;Note: The plaintext(P) and key(K) are added modulo 26.<br>
-              <br>
-              &nbsp;<u>Decryption</u><br>
-              &nbsp; D<sub>i</sub> = (E<sub>i</sub> - K<sub>i</sub> + 26) mod 26<br>
-              &nbsp; Note: D<sub>i</sub> denotes the offset of the i-th character of the plaintext. For example, offset
-              of A
-              is 0 and of B is 1 and so
-              on.
-            </p>
-          </div>
-          <br>
           <p style="font-size:18px"> Watch here for more information:</p>
           <iframe width="450" height="300" src="https://www.youtube.com/embed/5ISnCm4_V-Y" title="YouTube video player"
             frameborder="0"

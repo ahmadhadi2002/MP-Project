@@ -9,13 +9,7 @@
       RIVEST-SHAMIR-ADLEMAN (RSA)
     </h1>
     <p style="padding-top: 0px; margin-top: 0px;"> Cryptography | Public-Key Cryptosystem</p>
-    <div <section class="faq-container">
-      <div class="faq-one">
-        <!-- faq question -->
-        <h1 class="faq-page">What is RSA?</h1>
-        <!-- faq answer -->
-        <div class="faq-body">
-          <p style="font-size:18px">RSA is an algorithm for public-key cryptography that is widely used for secure data
+    <p style="font-size:18px">RSA is an algorithm for public-key cryptography that is widely used for secure data
             transmission. It stands for Ron Rivest, Adi Shamir, and Leonard Adleman, who first publicly described the
             algorithm in 1977. It involves the generation of two large prime numbers, and the calculation of a
             public key and a private key. The public key is used for encrypting messages and verifying digital
@@ -25,10 +19,9 @@
             secure communication, including for SSL/TLS certificates, digital signatures, and encryption of emails and
             files.
           </p>
-        </div>
-      </div>
-      <hr class="hr-line">
-
+          <br>
+          <br>
+    <div <section class="faq-container">
       <div class="faq-two">
         <!-- faq question -->
         <h1 class="faq-page">Background (Brief)</h1>
@@ -86,9 +79,9 @@
             &nbsp;&nbsp;&nbsp;&nbsp;i) The first step is to split and convert "HI" into an integer. According ASCII
             table, "H"
             and
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "I" is
+            "I" is
             mapped to an integer of 72 and 73 respectively. For simplicity, let's say that "H" is
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapped to 8 and "I" is
+            mapped to 8 and "I" is
             mapped to 9
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;ii) Encrypt the integer of both letters, 8 and 9.

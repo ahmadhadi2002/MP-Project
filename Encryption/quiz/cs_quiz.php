@@ -108,7 +108,7 @@
         c: "not bad (15 forward)",
         d: "good effort (2 backward)"
       },
-      correctAnswer: "c"
+      correctAnswer: "b"
     }, {
       question: 'Using Caesar Cipher, what would be the ciphertext fot "secret" if my shift key is 5',
       answers: {

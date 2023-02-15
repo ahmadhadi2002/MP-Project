@@ -227,3 +227,10 @@ tr:nth-child(even) {
   .prev, .next,.text {font-size: 11px}
 }
 
+#box {
+  box-sizing: border-box;
+  width: 400px;
+  height: 420px;
+  border: 2px solid;
+          margin: 10px;
+}

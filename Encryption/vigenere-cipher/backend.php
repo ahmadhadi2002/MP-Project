@@ -54,10 +54,12 @@ function vigDE_BF($str, $p_key){
     $result2 = array_slice($result, $half);  // returns second half
 
 
-    echo "<div class=window><div class='column'>
+    echo "<div class='column'>
 	<table>
 	<tr>
-	<th>Encoded Input</th><th>Key</th><th>Decoded Output</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Input</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Key</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Ouput</th>
 	</tr>";
 	foreach ($result1 as $key => $value) {
 		$gen_key = $p_key . $value;
@@ -73,7 +75,9 @@ function vigDE_BF($str, $p_key){
     echo "<div class='column'>
 	<table>
 	<tr>
-	<th>Encoded Input</th><th>Key</th><th>Decoded Output</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Input</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Key</th>
+	<th style='position: -webkit-sticky; position: sticky; top: 0; background: green; border: 1px solid black;'>Ouput</th>
 	</tr>";
 	foreach ($result2 as $key => $value) {
 		$gen_key = $p_key . $value;
@@ -84,7 +88,7 @@ function vigDE_BF($str, $p_key){
 		<td>$str</td><td>$gen_key</td><td>$result</td>
 		</tr>";
 	}
-	echo "</table></div></div>";
+	echo "</table></div>";
 }
 
 function generateKey($currentString, $alphabets, &$result) {

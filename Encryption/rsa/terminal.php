@@ -2,10 +2,10 @@
 <html>
 <link rel="stylesheet" type="text/css" href="../shared_css/style(ter).css">
 <center>
-    <div id="terminal" style="text-align:justify;">
+    <div id="terminal" style="text-align:justify; height:800px">
         <div id="input">
             <form>
-            <div id="input_field">
+            <div id="input_field" style="height:760px">
             <span style="color:blue;">from</span> Crypto.PublicKey <span style="color:blue;">import</span> RSA<br>
 <span style="color:blue;">from</span> Crypto.Cipher <span style="color:blue;">import</span> PKCS1_OAEP<br>
 <br>
@@ -69,7 +69,7 @@ plaintext = decrypt(ciphertext, private_key)<br>
             </form>
         </div>
         <button type="button" id="button_t" onclick="runCommand()">Run</button>
-        <div id="output"></div>
+        <div id="output" style="height:760px"></div>
     </div>
 </center>
 

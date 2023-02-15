@@ -21,6 +21,7 @@ function uploadFile() {
     xhr.onreadystatechange = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         var response = xhr.responseText;
+        console.log(response);
         var array = response.split(',');
         console.log(array[0]); // first element of the array
         console.log(array[1]); // second element of the array
