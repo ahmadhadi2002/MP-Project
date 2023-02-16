@@ -99,7 +99,7 @@
                         </div>
                         <br>
                         <br>
-                        Advanced Encryption Technique <br>
+                        Relevant Encryption Technique <br>
                         <button type="button" class="collapsible">Encryption Technique 3 (AES)</button>
                         <div class="content">
                             <img src="../ui/img/Encryption/aes.jpg" class="scenimg">
@@ -117,6 +117,19 @@
                                 and is based on the mathematical properties of large prime numbers. </p>
                             <a href="rsa/frontend.php"><button class="tryitbutton">Let's go!</button></a>
                         </div>
+                        <br>
+                        <br>
+                        Advanced Encryption Technique <br>
+                        <button type="button" class="collapsible">Encryption Technique 5 (OTP)</button>
+                        <div class="content">
+                            <img src="../ui/img/Encryption/otp_i.jpg" class="scenimg">
+                            <p>OTP (One-Time Pad) is an encryption technique that is deem unbreakable. It is a Symmetric
+                                Encryption Algorithmthat was an improvement of the Vernam Cipher. With the usage of a 
+                                key that can be used once and never again, making it secure and unbreakable. Dive in to 
+                                find out more!</p>
+                            <a href="aes/frontend.php"><button class="tryitbutton">Let's go!</button></a>
+                        </div>
+                        <br>
                     </div>
                 </div>
                 </p>
