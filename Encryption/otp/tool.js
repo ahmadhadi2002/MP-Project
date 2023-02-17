@@ -7,12 +7,12 @@ function otpFunction(technique) {
         var option = document.querySelector("[name=\"option\"]:checked").value;
 
         if (input.length < textarea.length) {
-            alert("Input length should be at least equal to textarea length!");
+            alert("Key length should be at least equal to input length!");
             return;
         }
 
         if (inputArray.includes(input)) {
-            alert("Input value has already been used!");
+            alert("Key has already been used! Please refresh page to use it");
             return;
         }
     } else if (technique === "Decrypt") {
