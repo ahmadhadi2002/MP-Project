@@ -90,7 +90,7 @@
         </select><br>
         <div id="hashError1" class="errorMsg">Please Key in a input</div>
         <div id="hashError2" class="errorMsg">Please Select a hashing algorithm</div>
-        <button type="button" onClick="checkRainHash()" class="hashBtn">Submit</button><br> 
+        <button type="button" onClick="checkRainMainHash()" class="hashBtn">Submit</button><br> 
 
         <table class="hashVal" id="hashTable">
             <tr>
@@ -114,7 +114,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
-function checkRainHash(){
+function checkRainMainHash(){
 
     var option = document.getElementById("hash_option").value;
     var input = document.getElementById("rainHash_input").value;
